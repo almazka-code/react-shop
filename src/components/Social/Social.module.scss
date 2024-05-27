@@ -1,0 +1,38 @@
+@import '../../styles/main.scss';
+
+.social {
+  @include flex(30px);
+}
+
+.social__link {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+
+  &_vk {
+    width: 28px;
+    height: 16px;
+    @include background-image (url("../../assets/svg/social/vk.svg"));
+  }
+
+  &_instagram {
+    @include background-image (url("../../assets/svg/social/instagram.svg"));
+  }
+
+  &_facebook {
+    @include background-image (url("../../assets/svg/social/facebook.svg"));
+  }
+
+  &_twitter {
+    @include background-image (url("../../assets/svg/social/twitter.svg"));
+  }
+
+  &_telegram {
+    @include background-image (url("../../assets/svg/social/telegram.svg"));
+  }
+
+  &:focus,
+  &:hover {
+    opacity: 0.5;
+  }
+}
