@@ -1,7 +1,11 @@
-function App() {
+import Header from './components/Header/Header';
+
+import styles from './index.scss';
+
+const App = () => {
   return (
-    <div className="App">
-      <h1>Hello</h1>
+    <div className={styles.body}>
+      <Header />
     </div>
   );
 }

@@ -1,0 +1,52 @@
+@import '../../styles/main.scss';
+
+.header {
+  background-color: $color-background;
+}
+
+.header__wrapper {
+  @include flex(30px);
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+
+.header__logo {  
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  @extend %font-secondary;
+  font-size: 18px;
+  color: $color-light;
+}
+
+.header__tel {
+  margin-left: auto;
+  font-weight: 500;
+  color: $color-light;
+}
+
+.header__cart {
+  position: relative;
+  height: 27px;
+  color: $color-light;
+}
+
+.header__image {
+  width: 30px;
+  height: 21px;
+  margin-right: 10px;
+  display: inline-block;
+  @include background-image (url("../../assets/svg/cart.svg"));
+}
+
+.header__count {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  background-color: $color-accent;
+  padding: 3px;
+  @extend %font-secondary;
+  @include font($size: 7px, $height: 100%);
+  color: $color-text-dark;
+}
+

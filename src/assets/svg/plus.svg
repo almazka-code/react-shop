@@ -1,0 +1,4 @@
+<!-- sample rectangle -->
+<svg width="10" height="10"  viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+   <path d="M6.524 11.086h-1.43v-4.51H.54V5.102h4.554V.57h1.43v4.532h4.554v1.474H6.524v4.51z"></path>
+</svg>
