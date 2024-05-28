@@ -1,11 +1,11 @@
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
-import styles from './index.scss';
+import './styles/main.scss';
 
 const App = () => {
   return (
-    <div className={styles.body}>
+    <div>
       <Header />
       <Footer />
     </div>

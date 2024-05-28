@@ -2,45 +2,50 @@ import Social from '../Social/Social';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
+  const footerlLinks = [
+    { text: '8-800-600-90-09', url: 'tel:88006009009' },
+    { text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
+    { text: 'Политика конфиденциальности', url: 'https://policies.google.com' },
+    {
+      text: 'Публичная оферта',
+      url: 'https://www.google.com/intl/ru/adwords/select/TCRussiaForGoogleRussia.html',
+    },
+  ];
+
   return (
     <footer className={styles.footer}>
       <div className={`${styles.footer__wrapper} ${styles.container}`}>
-        <div className={styles.footer__top}>
+        <div className={styles.footer__left}>
           <ul className={styles.footer__links}>
-            <li>
-              <a className={styles.footer__link} href="tel:88006009009">8-800-600-90-09</a>
-            </li>
-            <li>
-              <a className={styles.footer__link} href="mailto:hi@technozavrrr.com">hi@technozavrrr.com</a>
-            </li>
+            {footerlLinks.map((link) => (
+              <li>
+                <a
+                  className={styles.footer__link}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  {link.text}
+                </a>
+              </li>
+            ))}
           </ul>
 
-          <div className={styles.footer__social}>
-           <Social />
-          </div>
+          <span className={styles.footer__copyright}>© 2024 Смартфономания</span>
         </div>
 
+        <div className={styles.footer__right}>
+          <div className={styles.footer__social}>
+            <Social />
+          </div>
 
-        <p className={styles.footer__description}>
-          Все права на материалы, находящиеся на сайте, охраняются в соответствии с законодательством РК, в том числе об
-          авторском праве и смежных правах.
-        </p>
-
-        <div className={styles.footer__bottom}>
-          <span className={styles.footer__copyright}>© 2024 Технозавррр</span>
-
-          <ul className={styles.footer__data}>
-            <li>
-              <a className={styles.footer__link} href="#!" target="_blank">Политика конфиденциальности</a>
-            </li>
-            <li>
-              <a className={styles.footer__link} href="#!" target="_blank">Публичная оферта</a>
-            </li>
-          </ul>
+          <p className={styles.footer__text}>
+            Все права на материалы, находящиеся на сайте, охраняются в соответствии с
+            законодательством РК, в том числе об авторском праве и смежных правах.
+          </p>
         </div>
       </div>
-  </footer>
-  )
-}
+    </footer>
+  );
+};
 
 export default Footer;
