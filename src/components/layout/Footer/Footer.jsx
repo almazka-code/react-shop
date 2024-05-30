@@ -1,12 +1,13 @@
-import Social from '../Social/Social';
+import Social from '../../ui/Social/Social';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
   const footerlLinks = [
-    { text: '8-800-600-90-09', url: 'tel:88006009009' },
-    { text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
-    { text: 'Политика конфиденциальности', url: 'https://policies.google.com' },
+    { id: 0, text: '8-800-600-90-09', url: 'tel:88006009009' },
+    { id: 1, text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
+    { id: 2, text: 'Политика конфиденциальности', url: 'https://policies.google.com' },
     {
+      id: 3,
       text: 'Публичная оферта',
       url: 'https://www.google.com/intl/ru/adwords/select/TCRussiaForGoogleRussia.html',
     },
@@ -18,7 +19,7 @@ const Footer = () => {
         <div className={styles.footer__left}>
           <ul className={styles.footer__links}>
             {footerlLinks.map((link) => (
-              <li>
+              <li key={link.id}>
                 <a
                   className={styles.footer__link}
                   href={link.url}

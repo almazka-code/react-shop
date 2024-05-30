@@ -1,11 +1,11 @@
-@import '../../styles/main.scss';
+@import '../../../styles/main.scss';
 
 .footer {
   background-color: $color-background;
 }
 
 .footer__wrapper {
-  display: flex;  
+  display: flex;
   justify-content: space-between;
   gap: 30px;
   padding-top: 60px;
@@ -24,7 +24,7 @@
   margin-bottom: 50px;
 }
 
-.footer__links  {  
+.footer__links  {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -51,7 +51,7 @@
   text-transform: uppercase;
 }
 
-.footer__text {  
+.footer__text {
   @include font ($size: 14px, $height: 170%);
   text-align: right;
   color: $color-info;

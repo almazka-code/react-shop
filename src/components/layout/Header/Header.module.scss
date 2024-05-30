@@ -1,4 +1,4 @@
-@import '../../styles/main.scss';
+@import '../../../styles/main.scss';
 
 .header {
   background-color: $color-background;
@@ -10,7 +10,7 @@
   padding-bottom: 23px;
 }
 
-.header__logo {  
+.header__logo {
   display: flex;
   align-items: center;
   gap: 5px;
