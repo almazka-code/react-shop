@@ -1,0 +1,16 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}
+
+.catalog__list {
+  display: grid;
+  grid-template-columns: repeat(3, 270px);
+  gap: 65px 30px;
+  margin: 0 0 70px;
+}
+
+// .catalog__pagination {
+//   margin-top: auto;
+// }
