@@ -5,8 +5,8 @@ const Catalog = ({ data }) => {
   return (
     <section className={styles.catalog}>
       <ul className={styles.catalog__list}>
-        {data.map((product, index) => (
-          <Card key={index} product={product} />
+        {data.map((product) => (
+          <Card key={product.model} product={product} />
         ))}
       </ul>
     </section>

@@ -4,7 +4,7 @@ const Colors = ({ colors, name, isBlackBorder }) => {
   return (
     <ul className={`${styles.colors} ${isBlackBorder ? styles.colors_black : ''}`}>
       {colors.map((color, index) => (
-        <li key={index} className={styles.colors__item}>
+        <li key={color} className={styles.colors__item}>
           <label className={styles.colors__label}>
             <input
               className={`${styles.colors__radio} ${styles.secret}`}
