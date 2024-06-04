@@ -10,15 +10,6 @@
   padding-bottom: 23px;
 }
 
-.header__logo {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  @extend %font-secondary;
-  font-size: 18px;
-  color: $color-light;
-}
-
 .header__tel {
   margin-left: auto;
   font-weight: 500;
