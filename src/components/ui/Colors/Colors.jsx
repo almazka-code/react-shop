@@ -1,8 +1,8 @@
 import styles from './Colors.module.scss';
 
-const Colors = ({ colors, name, isBlackBorder, onColorChange }) => {
+const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
   return (
-    <ul className={`${styles.colors} ${isBlackBorder ? styles.colors_black : ''}`}>
+    <ul className={`${styles.colors} ${isBlackBorder ? styles.colors_black : ''} ${className} `}>
       {colors.map((color, index) => (
         <li key={color} className={styles.colors__item}>
           <label className={styles.colors__label}>

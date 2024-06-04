@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Colors from '../../ui/Colors/Colors';
 import styles from './Card.module.scss';
 import { images } from '../../../assets/img/images';
+import SubmitButton from '../../ui/Buttons/Submit/SubmitButton';
 
 const Card = ({ product }) => {
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
@@ -18,14 +19,13 @@ const Card = ({ product }) => {
       <div className={styles.card__desc}>
         <h3 className={styles.card__title}>{product.title}</h3>
 
-        <div className={styles.card__colors}>
-          <Colors
-            colors={product.color}
-            name={product.model}
-            isBlackBorder={true}
-            onColorChange={(color) => setSelectedColor(color)}
-          />
-        </div>
+        <Colors
+          className={styles.card__colors}
+          colors={product.color}
+          name={product.model}
+          isBlackBorder={true}
+          onColorChange={(color) => setSelectedColor(color)}
+        />
 
         <ul className={`${styles.sizes} ${styles.card__sizes}`}>
           {product.size.map((size, index) => (
@@ -49,11 +49,12 @@ const Card = ({ product }) => {
           <span className={styles.card__price}>
             {product.price[selectedSize].toLocaleString()} ₸
           </span>
-          <button
-            className={`${styles.button} ${styles.button_primary} ${styles.button_card}`}
-            type="submit">
-            В корзину
-          </button>
+          <SubmitButton
+            text="В корзину"
+            isColor={true}
+            isSmall={true}
+            // onClick={() => addItemToCart()}
+          />
         </div>
       </div>
     </li>
