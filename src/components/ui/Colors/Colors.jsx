@@ -1,6 +1,6 @@
 import styles from './Colors.module.scss';
 
-const Colors = ({ colors, name, isBlackBorder }) => {
+const Colors = ({ colors, name, isBlackBorder, onColorChange }) => {
   return (
     <ul className={`${styles.colors} ${isBlackBorder ? styles.colors_black : ''}`}>
       {colors.map((color, index) => (
@@ -12,6 +12,7 @@ const Colors = ({ colors, name, isBlackBorder }) => {
               name={name}
               value={color}
               defaultChecked={index === 0}
+              onChange={() => onColorChange(color)}
             />
             <span className={`${styles.colors__value} ${styles[`colors__value_${color}`]}`}></span>
           </label>

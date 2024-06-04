@@ -1,12 +1,7 @@
 @import '../../../styles/main.scss';
 
-.card__picture {
-  display: block;
-  width: 270px;
-  height: 350px;
-}
-
 .card__image {
+  display: block;
   width: 270px;
   height: 350px;
   object-fit: cover;
@@ -19,20 +14,9 @@
 }
 
 .card__title {
-  // height: 42px;
   margin-bottom: 10px;
   @include font ($weight: 500, $size: 18px, $height: 140%);
   color: $color-text-dark;
-}
-
-.card__link {
-  color: $color-text-dark;
-  @extend %transition;
-
-  &:focus,
-  &:hover {
-    opacity: 0.6;
-  }
 }
 
 .card__buy {
