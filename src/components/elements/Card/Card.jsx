@@ -36,7 +36,6 @@ const Card = ({ product }) => {
           sizes={product.size}
           name={product.model}
           onSizeChange={(e) => setSelectedSize(e.target.value)}
-          // onSizeChange={(size) => setSelectedSize(size)}
         />
 
         <div className={styles.card__buy}>

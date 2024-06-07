@@ -1,5 +1,13 @@
 @import '../../../styles/main.scss';
 
+.card {
+  @extend %transition;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
 .card__image {
   display: block;
   width: 270px;
