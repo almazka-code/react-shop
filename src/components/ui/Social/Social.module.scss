@@ -7,33 +7,14 @@
 
 .social__link {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 22px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   &:focus,
   &:hover {
     opacity: 0.5;
   }
-}
-
-.vk {
-  width: 28px;
-  height: 16px;
-  @include background-image (url("../../assets/svg/social/vk.svg"));
-}
-
-.instagram {
-  @include background-image (url("../../assets/svg/social/instagram.svg"));
-}
-
-.facebook {
-  @include background-image (url("../../assets/svg/social/facebook.svg"));
-}
-
-.twitter {
-  @include background-image (url("../../assets/svg/social/twitter.svg"));
-}
-
-.telegram {
-  @include background-image (url("../../assets/svg/social/telegram.svg"));
 }
