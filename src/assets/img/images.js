@@ -175,7 +175,7 @@ export const images = [
   {
     model: 'Huawei10SE',
     images: {
-      green: require('./Huawei/Huawei10SE/Huawei10SE_green.jpg'),
+      blue: require('./Huawei/Huawei10SE/Huawei10SE_blue.jpg'),
       black: require('./Huawei/Huawei10SE/Huawei10SE_black.jpg'),
     },
   },

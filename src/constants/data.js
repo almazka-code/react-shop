@@ -266,7 +266,7 @@ export const DATA = [
 		title: 'Huawei nova 10 SE',
 		brand: 'Huawei',
 		model: 'Huawei10SE',
-		color: ['green', 'black'],
+		color: ['blue', 'black'],
 		size: ['128gb', '256gb'],
 		price: {
       '128gb': 86400,

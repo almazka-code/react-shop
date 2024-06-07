@@ -12,7 +12,8 @@ const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
               name={name}
               value={color}
               defaultChecked={index === 0}
-              onChange={() => onColorChange(color)}
+              onChange={onColorChange}
+              // onChange={() => onColorChange(color)}
             />
             <span className={`${styles.colors__value} ${styles[`colors__value_${color}`]}`}></span>
           </label>
