@@ -17,7 +17,7 @@
   overflow: hidden;
 }
 
-.secret {
+.custom {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -26,4 +26,16 @@
   border: 0;
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
+}
+
+.main__title {
+  @extend %font-secondary;
+  @include font($weight: 700, $size: 25px, $height: 140%);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  @include font ($weight: 300, $size: 16px, $height: 100%);
+  color: $color-info;
 }

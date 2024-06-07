@@ -17,7 +17,8 @@ const Social = () => {
             className={`${styles.social__link} ${styles[social.name]}`}
             href={social.url}
             target="_blank"
-            rel="noopener noreferrer"></a>
+            rel="noopener noreferrer"
+            aria-label={social.name}></a>
         </li>
       ))}
     </ul>

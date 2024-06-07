@@ -7,7 +7,7 @@ const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
         <li key={color} className={styles.colors__item}>
           <label className={styles.colors__label}>
             <input
-              className={`${styles.colors__radio} ${styles.secret}`}
+              className={`${styles.colors__radio} ${styles.custom}`}
               type="radio"
               name={name}
               value={color}

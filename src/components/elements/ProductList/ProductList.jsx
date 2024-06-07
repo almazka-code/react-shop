@@ -1,7 +1,7 @@
 import Card from '../Card/Card';
-import styles from './Catalog.module.scss';
+import styles from './ProductList.module.scss';
 
-const Catalog = ({ data }) => {
+const ProductList = ({ data }) => {
   return (
     <section className={styles.catalog}>
       <ul className={styles.catalog__list}>
@@ -13,4 +13,4 @@ const Catalog = ({ data }) => {
   );
 };
 
-export default Catalog;
+export default ProductList;

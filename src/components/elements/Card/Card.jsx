@@ -32,7 +32,7 @@ const Card = ({ product }) => {
             <li key={size} className={styles.sizes__item}>
               <label className={styles.sizes__label}>
                 <input
-                  className={`${styles.sizes__radio} ${styles.secret}`}
+                  className={`${styles.sizes__radio} ${styles.custom}`}
                   type="radio"
                   name={`size-${product.model}`}
                   value={size}

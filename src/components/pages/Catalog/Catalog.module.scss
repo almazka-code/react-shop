@@ -1,0 +1,15 @@
+@import '../../../styles/main.scss';
+
+.catalog__top {
+  margin-bottom: 50px;
+  max-width: 74%;
+  margin-left: auto;
+  text-align: center;
+}
+
+.catalog__content {
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  align-items: flex-start;
+  gap: 20px;
+}
