@@ -1,4 +1,4 @@
-@import '../../../styles/main.scss';
+@import '../../../styles/glodal.scss';
 
 .header {
   background-color: $color-background;
@@ -6,8 +6,13 @@
 
 .header__wrapper {
   @include flex(30px);
+  @extend %container;
   padding-top: 23px;
   padding-bottom: 23px;
+}
+
+.header__title {
+  @extend %hidden;
 }
 
 .header__tel {

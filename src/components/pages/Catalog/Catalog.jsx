@@ -4,10 +4,10 @@ import ProductList from '../../elements/ProductList/ProductList';
 
 const Catalog = () => {
   return (
-    <div className={`${styles.catalog} ${styles.container}`}>
+    <div className={styles.catalog}>
       <div className={styles.catalog__top}>
-        <h2 className={styles.main__title}>Каталог</h2>
-        <span className={styles.subtitle}>152 товара</span>
+        <h2 className={styles.catalog__title}>Каталог</h2>
+        <span className={styles.catalog__subtitle}>152 товара</span>
       </div>
       <div className={styles.catalog__content}>
         <div>Фильтры</div>

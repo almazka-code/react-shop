@@ -1,4 +1,4 @@
-import Card from '../Card/Card';
+import PhoneCard from '../Card/PhoneCard';
 import styles from './ProductList.module.scss';
 
 const ProductList = ({ data }) => {
@@ -6,7 +6,7 @@ const ProductList = ({ data }) => {
     <section className={styles.catalog}>
       <ul className={styles.catalog__list}>
         {data.map((product) => (
-          <Card key={product.model} product={product} />
+          <PhoneCard key={product.model} product={product} />
         ))}
       </ul>
     </section>

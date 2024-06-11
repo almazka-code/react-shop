@@ -1,10 +1,11 @@
-@import '../../../styles/main.scss';
+@import '../../../styles/glodal.scss';
 
 .footer {
   background-color: $color-background;
 }
 
 .footer__wrapper {
+  @extend %container;
   display: flex;
   justify-content: space-between;
   gap: 30px;

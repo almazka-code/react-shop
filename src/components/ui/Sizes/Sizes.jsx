@@ -7,7 +7,7 @@ const Sizes = ({ sizes, name, onSizeChange, className }) => {
         <li key={size} className={styles.sizes__item}>
           <label className={styles.sizes__label}>
             <input
-              className={`${styles.sizes__radio} ${styles.custom}`}
+              className={styles.sizes__radio}
               type="radio"
               name={`size-${name}`}
               value={size}

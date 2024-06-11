@@ -1,10 +1,22 @@
-@import '../../../styles/main.scss';
+@import '../../../styles/glodal.scss';
+
+.catalog {
+  @extend %container;
+}
 
 .catalog__top {
   margin-bottom: 50px;
   max-width: 74%;
   margin-left: auto;
   text-align: center;
+}
+
+.catalog__title {
+  @extend %main-title;
+}
+
+.catalog__subtitle {
+  @extend %subtitle;
 }
 
 .catalog__content {

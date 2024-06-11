@@ -6,8 +6,8 @@ import Logo from './Logo/Logo';
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={`${styles.header__wrapper} ${styles.container}`}>
-        <h1 className={styles.hidden}>Смартфономания</h1>
+      <div className={styles.header__wrapper}>
+        <h1 className={styles.header__title}>Смартфономания</h1>
 
         <Logo text="Смартфономания" img={logo} />
 

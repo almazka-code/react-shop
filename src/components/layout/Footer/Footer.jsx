@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.footer__wrapper} ${styles.container}`}>
+      <div className={styles.footer__wrapper}>
         <div className={styles.footer__left}>
           <ul className={styles.footer__links}>
             {footerlLinks.map((link) => (

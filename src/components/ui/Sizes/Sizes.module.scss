@@ -1,4 +1,4 @@
-@import '../../../styles/main.scss';
+@import '../../../styles/glodal.scss';
 
 .sizes {
   display: flex;
@@ -9,6 +9,10 @@
 .sizes__label {
   display: block;
   cursor: pointer;
+}
+
+.sizes__radio {
+  @extend %custom;
 }
 
 .sizes__value {
