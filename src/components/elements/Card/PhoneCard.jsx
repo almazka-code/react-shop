@@ -11,6 +11,11 @@ const PhoneCard = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState(product.color[0]);
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
 
+  //Функция handleChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
+  const handleChange = (setter) => (event) => {
+    setter(event.target.value);
+  };
+
   return (
     <li className={styles.card}>
       <img
@@ -28,14 +33,14 @@ const PhoneCard = ({ product }) => {
           name={product.model}
           isBlackBorder={true}
           // onColorChange={(color) => setSelectedColor(color)}
-          onColorChange={(e) => setSelectedColor(e.target.value)}
+          onColorChange={handleChange(setSelectedColor)}
         />
 
         <Sizes
           className={styles.card__sizes}
           sizes={product.size}
           name={product.model}
-          onSizeChange={(e) => setSelectedSize(e.target.value)}
+          onSizeChange={handleChange(setSelectedSize)}
         />
 
         <div className={styles.card__buy}>
