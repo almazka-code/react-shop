@@ -1,5 +1,5 @@
 import styles from './Catalog.module.scss';
-import { DATA } from '../../../constants/data';
+import DATA from '../../../constants/data.json';
 import { ProductList } from '../../elements/ProductList/ProductList';
 
 export const Catalog = () => {
