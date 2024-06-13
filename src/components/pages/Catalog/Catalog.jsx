@@ -1,8 +1,8 @@
 import styles from './Catalog.module.scss';
 import { DATA } from '../../../constants/data';
-import ProductList from '../../elements/ProductList/ProductList';
+import { ProductList } from '../../elements/ProductList/ProductList';
 
-const Catalog = () => {
+export const Catalog = () => {
   return (
     <div className={styles.catalog}>
       <div className={styles.catalog__top}>
@@ -16,5 +16,3 @@ const Catalog = () => {
     </div>
   );
 };
-
-export default Catalog;

@@ -1,6 +1,6 @@
 import styles from './Logo.module.scss';
 
-const Logo = ({ text, img }) => {
+export const Logo = ({ text, img }) => {
   return (
     <a className={styles.logo} href="#!">
       <img className={styles.logo__img} src={img} alt="Логотип" />
@@ -8,5 +8,3 @@ const Logo = ({ text, img }) => {
     </a>
   );
 };
-
-export default Logo;

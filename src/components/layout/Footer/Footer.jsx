@@ -1,7 +1,7 @@
-import Social from '../../ui/Social/Social';
+import { Social } from '../../ui/Social/Social';
 import styles from './Footer.module.scss';
 
-const Footer = () => {
+export const Footer = () => {
   const footerlLinks = [
     { text: '8-800-600-90-09', url: 'tel:88006009009' },
     { text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
@@ -47,5 +47,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

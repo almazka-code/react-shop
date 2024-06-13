@@ -1,6 +1,6 @@
 import styles from './Colors.module.scss';
 
-const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
+export const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
   return (
     <ul className={`${styles.colors} ${isBlackBorder ? styles.colors_black : ''} ${className} `}>
       {colors.map((color, index) => (
@@ -22,5 +22,3 @@ const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
     </ul>
   );
 };
-
-export default Colors;

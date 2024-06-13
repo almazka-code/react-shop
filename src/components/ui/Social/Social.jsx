@@ -5,7 +5,7 @@ import facebookIcon from '../../../assets/svg/social/facebook.svg';
 import twitterIcon from '../../../assets/svg/social/twitter.svg';
 import telegramIcon from '../../../assets/svg/social/telegram.svg';
 
-const Social = () => {
+export const Social = () => {
   const socialLinks = [
     {
       name: 'instagram',
@@ -41,5 +41,3 @@ const Social = () => {
     </ul>
   );
 };
-
-export default Social;

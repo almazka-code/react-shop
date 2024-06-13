@@ -1,6 +1,6 @@
 import styles from './SubmitButton.module.scss';
 
-const SubmitButton = ({ text, isColor, isSmall, onClick }) => {
+export const SubmitButton = ({ text, isColor, isSmall, onClick }) => {
   const classNames = {
     [styles.button]: true,
     [styles.button_primary]: isColor,
@@ -19,5 +19,3 @@ const SubmitButton = ({ text, isColor, isSmall, onClick }) => {
     </button>
   );
 };
-
-export default SubmitButton;

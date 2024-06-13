@@ -1,6 +1,6 @@
 import styles from './Sizes.module.scss';
 
-const Sizes = ({ sizes, name, onSizeChange, className }) => {
+export const Sizes = ({ sizes, name, onSizeChange, className }) => {
   return (
     <ul className={`${styles.sizes} ${className}`}>
       {sizes.map((size, index) => (
@@ -22,5 +22,3 @@ const Sizes = ({ sizes, name, onSizeChange, className }) => {
     </ul>
   );
 };
-
-export default Sizes;

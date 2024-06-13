@@ -1,7 +1,7 @@
-import PhoneCard from '../Card/PhoneCard';
+import { PhoneCard } from '../Card/PhoneCard';
 import styles from './ProductList.module.scss';
 
-const ProductList = ({ data }) => {
+export const ProductList = ({ data }) => {
   return (
     <section className={styles.catalog}>
       <ul className={styles.catalog__list}>
@@ -12,5 +12,3 @@ const ProductList = ({ data }) => {
     </section>
   );
 };
-
-export default ProductList;

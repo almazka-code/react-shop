@@ -3,11 +3,11 @@ import { useState } from 'react';
 import styles from './PhoneCard.module.scss';
 import { images } from '../../../assets/img/images';
 
-import SubmitButton from '../../ui/Buttons/Submit/SubmitButton';
-import Colors from '../../ui/Colors/Colors';
-import Sizes from '../../ui/Sizes/Sizes';
+import { SubmitButton } from '../../ui/Buttons/Submit/SubmitButton';
+import { Colors } from '../../ui/Colors/Colors';
+import { Sizes } from '../../ui/Sizes/Sizes';
 
-const PhoneCard = ({ product }) => {
+export const PhoneCard = ({ product }) => {
   const [selectedColor, setSelectedColor] = useState(product.color[0]);
   const [selectedSize, setSelectedSize] = useState(product.size[0]);
 
@@ -58,5 +58,3 @@ const PhoneCard = ({ product }) => {
     </li>
   );
 };
-
-export default PhoneCard;
