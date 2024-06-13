@@ -1,0 +1,51 @@
+@import '../../../../styles/glodal.scss';
+
+.button-cart {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+  color: $color-light;
+}
+
+.button-cart__price {
+  display: inline-block;
+  position: relative;
+  @include font ($weight: 700, $size: 22px, $height: 130%);
+}
+
+.button-cart__price::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 0;
+  display: inline-block;
+  width: 1px;
+  height: 80%;
+  margin-left: 5px;
+  background-color: $color-info;
+  vertical-align: middle;
+}
+
+.button-cart__box {
+  position: relative;
+  height: 27px;
+}
+
+.button-cart__image {
+  display: inline-block;
+  width: 30px;
+  height: 21px;
+  margin-right: 10px;
+  @include background-image (url("../../assets/svg/cart.svg"));
+}
+
+.button-cart__count {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+  padding: 3px;
+  background-color: $color-accent;
+  @extend %font-secondary;
+  @include font($size: 7px, $height: 100%);
+  color: $color-text-dark;
+}

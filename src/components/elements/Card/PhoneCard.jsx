@@ -45,7 +45,7 @@ export const PhoneCard = ({ product }) => {
 
         <div className={styles.card__buy}>
           <span className={styles.card__price}>
-            {product.price[selectedSize].toLocaleString()} ₸
+            {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
           <SubmitButton
             text="В корзину"
