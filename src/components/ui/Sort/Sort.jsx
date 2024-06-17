@@ -5,23 +5,23 @@ import styles from './Sort.module.scss';
 export const Sort = () => {
   const sortList = ['популярности', 'цене', 'алфавиту'];
 
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [selectedSort, setSelectedSort] = useState(0);
 
   const onClickListItem = (index) => {
     setSelectedSort(index);
-    setOpen(false);
+    setIsOpen(false);
   };
 
   return (
     <div className={styles.sort}>
       <span className={styles.sort__text}>Сортировка по:</span>
-      <div onClick={() => setOpen(!open)}>
+      <div onClick={() => setIsOpen(!isOpen)}>
         <span className={styles.sort__selected}>{sortList[selectedSort]}</span>
-        <span className={`${styles.sort__arrow} ${open ? styles.transform : ''}`}></span>
+        <span className={`${styles.sort__arrow} ${isOpen ? styles.transform : ''}`}></span>
       </div>
 
-      {open && (
+      {isOpen && (
         <ul className={styles.sort__popup}>
           {sortList.map((value, index) => (
             <li
