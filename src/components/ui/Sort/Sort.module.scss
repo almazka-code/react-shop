@@ -1,0 +1,58 @@
+@import '../../../styles/glodal.scss';
+
+.sort {
+  position: relative;
+  display: flex;
+  gap: 10px;
+
+  &__arrow {
+    display: inline-flex;
+    align-items: end;
+    margin-top: 5px;
+    width: 17px;
+    height: 10px;
+    @include background-image (url("../../../assets/svg/sort-arrow.svg"));
+    transition: transform 0.5s ease;
+  }
+
+  &__text {
+    font-weight: 500;
+  }
+
+  &__selected {
+    margin-right: 10px;
+    padding-bottom: 2px;
+    border-bottom: 2px dashed $color-accent;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  &__popup {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: $color-light;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+
+  }
+
+  &__item {
+    padding: 10px 20px;
+    min-width: 180px;
+    cursor: pointer;
+    @extend %transition;
+
+    &:hover {
+      background: rgba(35, 227, 17, 0.112);
+    }
+  }
+}
+
+.active {
+  background: rgba(35, 227, 17, 0.112);
+  font-weight: 700;
+}
+
+.transform {
+  transform: scaleY(-1);
+}
