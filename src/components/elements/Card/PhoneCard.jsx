@@ -1,15 +1,14 @@
 import { useState } from 'react';
 
 import styles from './PhoneCard.module.scss';
-import { images } from '../../../assets/img/images';
 
 import { SubmitButton } from '../../ui/Buttons/Submit/SubmitButton';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
 
 export const PhoneCard = ({ product }) => {
-  const [selectedColor, setSelectedColor] = useState(product.color[0]);
-  const [selectedSize, setSelectedSize] = useState(product.size[0]);
+  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
   //Функция handleChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
   const handleChange = (setter) => (event) => {
@@ -18,18 +17,14 @@ export const PhoneCard = ({ product }) => {
 
   return (
     <li className={styles.card}>
-      <img
-        className={styles.card__image}
-        src={images.find((item) => item.model === product.model).images[selectedColor]}
-        alt={product.title}
-      />
+      <img className={styles.card__image} src={product.images[selectedColor]} alt={product.title} />
 
       <div className={styles.card__desc}>
         <h3 className={styles.card__title}>{product.title}</h3>
 
         <Colors
           className={styles.card__colors}
-          colors={product.color}
+          colors={product.colors}
           name={product.model}
           isBlackBorder={true}
           // onColorChange={(color) => setSelectedColor(color)}
@@ -38,7 +33,7 @@ export const PhoneCard = ({ product }) => {
 
         <Sizes
           className={styles.card__sizes}
-          sizes={product.size}
+          sizes={product.sizes}
           name={product.model}
           onSizeChange={handleChange(setSelectedSize)}
         />
