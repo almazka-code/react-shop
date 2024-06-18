@@ -1,6 +1,6 @@
 import styles from './Catalog.module.scss';
-// import DATA from '../../../constants/data.json';
-import { ProductList } from '../../elements/ProductList/ProductList';
+import { Sort } from '../../ui/Sort/Sort';
+import { PhoneCard } from '../../elements/Card/PhoneCard';
 import { useEffect, useState } from 'react';
 
 export const Catalog = () => {
@@ -22,7 +22,16 @@ export const Catalog = () => {
       </div>
       <div className={styles.catalog__content}>
         <div>Фильтры</div>
-        <ProductList data={items} />
+        <section className={styles.catalog__section}>
+          <div className={styles.catalog__sort}>
+            <Sort />
+          </div>
+          <ul className={styles.catalog__list}>
+            {items.map((product) => (
+              <PhoneCard key={product.model} product={product} />
+            ))}
+          </ul>
+        </section>
       </div>
     </div>
   );
