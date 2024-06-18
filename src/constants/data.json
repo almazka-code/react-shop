@@ -11,6 +11,11 @@
       "256gb": 719990,
       "512gb": 839990,
       "1tb": 990990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15ProMax/Apple15ProMax_blue.jpg",
+      "natural": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15ProMax/Apple15ProMax_natural.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15ProMax/Apple15ProMax_black.jpg"
     }
 	},
 	{
@@ -24,6 +29,11 @@
 		"price": {
       "128gb": 589990,
       "256gb": 649990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15Pro/Apple15Pro_blue.jpg",
+      "natural": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15Pro/Apple15Pro_natural.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15Pro/Apple15Pro_black.jpg"
     }
 	},
 	{
@@ -37,6 +47,11 @@
 		"price": {
       "128gb": 449990,
       "256gb": 529990
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15/Apple15_yellow.jpg",
+      "pink": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15/Apple15_pink.jpg",
+      "green": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple15/Apple15_green.jpg"
     }
 	},
 	{
@@ -51,6 +66,11 @@
       "256gb": 405993,
       "512gb": 599990,
       "1tb": 699990
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14ProMax/Apple14ProMax_yellow.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14ProMax/Apple14ProMax_purple.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14ProMax/Apple14ProMax_black.jpg"
     }
 	},
 	{
@@ -65,6 +85,11 @@
       "128gb": 440993,
       "256gb": 589990,
 			"512gb": 699990
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14Pro/Apple14Pro_yellow.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14Pro/Apple14Pro_purple.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14Pro/Apple14Pro_black.jpg"
     }
 	},
 	{
@@ -78,6 +103,11 @@
 		"price": {
       "128gb": 394990,
       "256gb": 459990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14/Apple14_blue.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14/Apple14_purple.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple14/Apple14_black.jpg"
     }
 	},
 	{
@@ -90,6 +120,10 @@
 		"size": ["256gb"],
 		"price": {
       "256gb": 399990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13ProMax/Apple13ProMax_blue.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13ProMax/Apple13ProMax_black.jpg"
     }
 	},
 	{
@@ -103,6 +137,9 @@
 		"price": {
       "128gb": 429990,
       "256gb": 449990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13Pro/Apple13Pro_blue.jpg"
     }
 	},
 	{
@@ -116,6 +153,11 @@
 		"price": {
       "128gb": 329990,
       "256gb": 394990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13/Apple13_blue.jpg",
+      "pink": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13/Apple13_pink.jpg",
+      "green": "https://almazka-code.github.io/react-shop-images/img/Apple/Apple13/Apple13_green.jpg"
     }
 	},
 	{
@@ -129,6 +171,11 @@
 		"price": {
       "128gb": 153241,
       "256gb": 229890
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA55/SamsungA55_blue.jpg",
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA55/SamsungA55_yellow.jpg",
+      "pink": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA55/SamsungA55_pink.jpg"
     }
 	},
 	{
@@ -143,6 +190,10 @@
       "256gb": 705990 ,
       "512gb": 767990,
       "1tb": 911990
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS24/SamsungS24_yellow.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS24/SamsungS24_purple.jpg"
     }
 	},
 	{
@@ -155,6 +206,9 @@
 		"size": ["256gb"],
 		"price": {
       "256gb": 95990
+    },
+		"images": {
+      "black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA15/SamsungA15_black.jpg"
     }
 	},
 	{
@@ -167,6 +221,10 @@
 		"size": ["128gb"],
 		"price": {
       "128gb": 119990
+    },
+		"images": {
+      "green": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA34/SamsungA34_green.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA34/SamsungA34_purple.jpg"
     }
 	},
 	{
@@ -180,6 +238,10 @@
 		"price": {
       "128gb": 263990,
 			"256gb": 287990
+    },
+		"images": {
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS23/SamsungS23_purple.jpg",
+      "black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS23/SamsungS23_black.jpg"
     }
 	},
 	{
@@ -193,6 +255,10 @@
 		"price": {
       "128gb": 148990,
 			"256gb": 182990
+    },
+		"images": {
+      "green": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA54/SamsungA54_green.jpg",
+      "purple": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA54/SamsungA54_purple.jpg"
     }
 	},
 	{
@@ -206,6 +272,10 @@
 		"price": {
       "128gb": 167990,
 			"256gb": 187200
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA35/SamsungA35_yellow.jpg",
+      "pink": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA35/SamsungA35_pink.jpg"
     }
 	},
 	{
@@ -218,6 +288,9 @@
 		"size": ["128gb"],
 		"price": {
       "128gb": 115200
+    },
+		"images": {
+      "yellow": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA25/SamsungA25_yellow.jpg"
     }
 	},
 	{
@@ -231,6 +304,11 @@
 		"price": {
       "256gb": 527990,
 			"512gb": 575990
+    },
+		"images": {
+      "pink": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFlip5/SamsungFlip5_pink.jpg",
+      "green": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFlip5/SamsungFlip5_green.jpg",
+			"natural": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFlip5/SamsungFlip5_natural.jpg"
     }
 	},
 	{
@@ -244,6 +322,11 @@
 		"price": {
       "256gb": 815990,
 			"512gb": 959990
+    },
+		"images": {
+      "blue": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFold5/SamsungFold5_blue.jpg",
+      "natural": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFold5/SamsungFold5_natural.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungFold5/SamsungFold5_black.jpg"
     }
 	},
 	{
@@ -256,6 +339,10 @@
 		"size": ["128gb"],
 		"price": {
       "128gb": 69120
+    },
+		"images": {
+      "green": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA14/SamsungA14_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA14/SamsungA14_black.jpg"
     }
 	},
 	{
@@ -269,6 +356,9 @@
 		"price": {
 			"64gb": 67600,
       "128gb": 75300
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungM14/SamsungM14_blue.jpg"
     }
 	},
 	{
@@ -282,6 +372,10 @@
 		"price": {
 			"64gb": 87550,
       "128gb": 105600
+    },
+		"images": {
+      "green": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA24/SamsungA24_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungA24/SamsungA24_black.jpg"
     }
 	},
 	{
@@ -295,6 +389,9 @@
 		"price": {
       "128gb": 192000,
 			"256gb": 210990
+    },
+		"images": {
+			"black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS22/SamsungS22_black.jpg"
     }
 	},
 	{
@@ -308,6 +405,10 @@
 		"price": {
       "128gb": 189890,
 			"256gb": 131934
+    },
+		"images": {
+			"purple": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS21/SamsungS21_purple.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Samsung/SamsungS21/SamsungS21_black.jpg"
     }
 	},
 	{
@@ -321,6 +422,10 @@
 		"price": {
       "128gb": 86400,
 			"256gb": 105600
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Huawei/Huawei10SE/Huawei10SE_blue.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/Huawei10SE/Huawei10SE_black.jpg"
     }
 	},
 	{
@@ -334,6 +439,10 @@
 		"price": {
       "256gb": 335990,
 			"512gb": 431990
+    },
+		"images": {
+			"pink": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiPura70/HuaweiPura70_pink.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiPura70/HuaweiPura70_black.jpg"
     }
 	},
 	{
@@ -347,6 +456,11 @@
 		"price": {
       "128gb": 71990,
 			"256gb": 134400
+    },
+		"images": {
+			"yellow": "https://almazka-code.github.io/react-shop-images/img/Huawei/Huawei11/Huawei11_yellow.jpg",
+			"green": "https://almazka-code.github.io/react-shop-images/img/Huawei/Huawei11/Huawei11_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/Huawei11/Huawei11_black.jpg"
     }
 	},
 	{
@@ -360,6 +474,9 @@
 		"price": {
       "256gb": 311990,
 			"512gb": 359990
+    },
+		"images": {
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiP60Pro/HuaweiP60Pro_black.jpg"
     }
 	},
 	{
@@ -372,6 +489,10 @@
 		"size": ["256gb"],
 		"price": {
 			"256gb": 79890
+    },
+		"images": {
+			"green": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiY72/HuaweiY72_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiY72/HuaweiY72_black.jpg"
     }
 	},
 	{
@@ -384,6 +505,9 @@
 		"size": ["128gb"],
 		"price": {
 			"128gb": 79990
+    },
+		"images": {
+			"black": "https://almazka-code.github.io/react-shop-images/img/Huawei/HuaweiY91/HuaweiY91_black.jpg"
     }
 	},
 	{
@@ -397,6 +521,10 @@
 		"price": {
 			"128gb": 47990,
 			"256gb": 59990
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi13C/XiaomiRedmi13C_blue.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi13C/XiaomiRedmi13C_black.jpg"
     }
 	},
 	{
@@ -410,6 +538,10 @@
 		"price": {
 			"128gb": 91200,
 			"256gb": 100990
+    },
+		"images": {
+			"green": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote13/XiaomiRedmiNote13_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote13/XiaomiRedmiNote13_black.jpg"
     }
 	},
 	{
@@ -423,6 +555,10 @@
 		"price": {
 			"128gb": 67200,
 			"256gb": 76990
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi12/XiaomiRedmi12_blue.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi12/XiaomiRedmi12_black.jpg"
     }
 	},
 	{
@@ -435,6 +571,9 @@
 		"size": ["512gb"],
 		"price": {
 			"512gb": 719990
+    },
+		"images": {
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/Xiaomi14Ultra/Xiaomi14Ultra_black.jpg"
     }
 	},
 	{
@@ -448,6 +587,10 @@
 		"price": {
 			"64gb": 33600,
 			"128gb": 43200
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi12C/XiaomiRedmi12C_blue.jpg",
+			"purple": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmi12C/XiaomiRedmi12C_purple.jpg"
     }
 	},
 	{
@@ -461,6 +604,10 @@
 		"price": {
 			"256gb": 154560,
 			"512gb": 190990
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote12Pro/XiaomiRedmiNote12Pro_blue.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote12Pro/XiaomiRedmiNote12Pro_black.jpg"
     }
 	},
 	{
@@ -474,6 +621,10 @@
 		"price": {
 			"128gb": 216990,
 			"256gb": 239990
+    },
+		"images": {
+			"pink": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/Xiaomi13Lite/Xiaomi13Lite_pink.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/Xiaomi13Lite/Xiaomi13Lite_black.jpg"
     }
 	},
 	{
@@ -487,6 +638,9 @@
 		"price": {
 			"128gb": 76990,
 			"256gb": 84990
+    },
+		"images": {
+			"blue": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote12/XiaomiRedmiNote12_blue.jpg"
     }
 	},
 	{
@@ -499,6 +653,10 @@
 		"size": ["256gb"],
 		"price": {
 			"256gb": 95990
+    },
+		"images": {
+			"green": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote12S/XiaomiRedmiNote12S_green.jpg",
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote12S/XiaomiRedmiNote12S_black.jpg"
     }
 	},
 	{
@@ -512,6 +670,9 @@
 		"price": {
 			"64gb": 76800,
 			"128gb": 107520
+    },
+		"images": {
+			"black": "https://almazka-code.github.io/react-shop-images/img/Xiaomi/XiaomiRedmiNote11Pro/XiaomiRedmiNote11Pro_black.jpg"
     }
 	}
 ]
