@@ -4,13 +4,26 @@
   background-color: $color-background;
 }
 
-.header__wrapper {
+.wrapper {
   @include flex(30px);
   @extend %container;
   padding-top: 23px;
   padding-bottom: 23px;
 }
 
-.header__title {
-  @extend %hidden;
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  @extend %font-secondary;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.title {
+  font-size: 18px;
+  color: $color-light;
 }

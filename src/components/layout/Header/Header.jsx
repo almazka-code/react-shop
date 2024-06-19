@@ -1,16 +1,19 @@
 import styles from './Header.module.scss';
+import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/svg/logo.svg';
-import { Logo } from './Logo/Logo';
 import { CartButton } from '../../ui/Buttons/Cart/CartButton';
 
 export const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.header__wrapper}>
-        <h1 className={styles.header__title}>Смартфономания</h1>
-
-        <Logo text="Смартфономания" img={logo} />
+      <div className={styles.wrapper}>
+        <Link to="/">
+          <div className={styles.logo}>
+            <img src={logo} alt="Логотип" />
+            <h1 className={styles.title}>Смартфономания</h1>
+          </div>
+        </Link>
 
         <CartButton price="1256123" count="3" />
       </div>

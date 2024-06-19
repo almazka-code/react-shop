@@ -1,10 +1,10 @@
-import styles from './Catalog.module.scss';
-import { Sort } from '../../ui/Sort/Sort';
-import { PhoneCard } from '../../elements/Card/PhoneCard';
+import styles from './Home.module.scss';
+import { Sort } from '../../components/ui/Sort/Sort';
+import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { useEffect, useState } from 'react';
-import { Skeleton } from '../../elements/Card/Skeleton';
+import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 
-export const Catalog = () => {
+export const Home = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
