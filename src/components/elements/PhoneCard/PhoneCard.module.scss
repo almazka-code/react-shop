@@ -42,3 +42,12 @@
   margin-bottom: 10px;
 }
 
+.card__button {
+  font-size: 11px;
+  padding: 15px;
+
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    color: $color-text-dark;
+  }
+}

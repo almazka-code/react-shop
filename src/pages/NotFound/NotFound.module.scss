@@ -1,10 +1,27 @@
 @import '../../styles/glodal.scss';
 
-.container {
+.wrapper {
   @extend %container;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 100px 0;
+  text-align: center;
 }
-
 
 .title {
   @extend %main-title;
+  margin-bottom: 30px;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 150%;
+  margin-bottom: 30px;
+}
+
+.button {
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    color: $color-text-dark;
+  }
 }

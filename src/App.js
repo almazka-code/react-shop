@@ -9,7 +9,7 @@ import './styles/main.scss';
 
 const App = () => {
   return (
-    <div>
+    <div class="wrapper">
       <Header />
       <main className="main">
         <Routes>

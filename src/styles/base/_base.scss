@@ -3,6 +3,7 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  height: 100%;
 }
 
 *,
@@ -12,10 +13,8 @@ html {
 }
 
 body {
-  // display: flex;
-  // flex-direction: column;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100%;
   @extend %font-primary;
   @include font($size: 16px, $height: 130%);
   color: $color-text-dark;
@@ -67,6 +66,12 @@ p,
 ul {
   margin: 0;
   padding: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .main {

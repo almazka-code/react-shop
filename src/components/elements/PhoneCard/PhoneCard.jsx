@@ -42,6 +42,7 @@ export const PhoneCard = ({ product }) => {
             {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
           <SubmitButton
+            className={styles.card__button}
             text="В корзину"
             isColor={true}
             isSmall={true}
