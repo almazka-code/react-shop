@@ -20,8 +20,5 @@
 }
 
 .button {
-  &:not(:disabled):focus,
-  &:not(:disabled):hover {
-    color: $color-text-dark;
-  }
+  @extend %dark-text;
 }

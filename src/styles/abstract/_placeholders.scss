@@ -57,3 +57,10 @@
   @include font ($weight: 300, $size: 16px, $height: 100%);
   color: $color-info;
 }
+
+%dark-text {
+  &:not(:disabled):focus,
+  &:not(:disabled):hover {
+    color: $color-text-dark;
+  }
+}

@@ -41,13 +41,13 @@ export const PhoneCard = ({ product }) => {
           <span className={styles.card__price}>
             {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
-          <SubmitButton
-            className={styles.card__button}
-            text="В корзину"
-            isColor={true}
-            isSmall={true}
-            // onClick={() => addItemToCart()}
-          />
+          <div className={styles.card__button}>
+            <SubmitButton
+              text="В корзину"
+              isColor={true}
+              // onClick={() => addItemToCart()}
+            />
+          </div>
         </div>
       </div>
     </li>

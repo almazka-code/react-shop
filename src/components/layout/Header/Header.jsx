@@ -15,7 +15,9 @@ export const Header = () => {
           </div>
         </Link>
 
-        <CartButton price="1256123" count="3" />
+        <Link to="./cart">
+          <CartButton price="1256123" count="3" />
+        </Link>
       </div>
     </header>
   );
