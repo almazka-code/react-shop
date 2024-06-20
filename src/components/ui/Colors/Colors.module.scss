@@ -29,34 +29,6 @@
   width: 20px;
   height: 20px;
 
-  &_blue {
-    background-color: $phone-blue;
-  }
-
-  &_yellow {
-    background-color: $phone-yellow;
-  }
-
-  &_pink {
-    background-color: $phone-pink;
-  }
-
-  &_green {
-    background-color: $phone-green;
-  }
-
-  &_purple {
-    background-color: $phone-purple;
-  }
-
-  &_natural {
-    background-color: $phone-natural;
-  }
-
-  &_black {
-    background-color: $phone-black;
-  }
-
   &::before {
     content: "";
     position: absolute;
@@ -69,15 +41,43 @@
   }
 }
 
+.blue {
+  background-color: $phone-blue;
+}
+
+.yellow {
+  background-color: $phone-yellow;
+}
+
+.pink {
+  background-color: $phone-pink;
+}
+
+.green {
+  background-color: $phone-green;
+}
+
+.purple {
+  background-color: $phone-purple;
+}
+
+.natural {
+  background-color: $phone-natural;
+}
+
+.black {
+  background-color: $phone-black;
+}
+
 .label:focus .value::before,
 .label:hover .value::before,
 .radio:checked ~ .value::before {
   border-color: $color-light;
 }
 
-.black .label:focus .value::before,
-.black .label:hover .value::before,
-.black .radio:checked ~ .value::before {
+.dark .label:focus .value::before,
+.dark .label:hover .value::before,
+.dark .radio:checked ~ .value::before {
   border-color: $color-text-dark;
 }
 

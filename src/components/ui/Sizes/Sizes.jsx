@@ -4,10 +4,10 @@ export const Sizes = ({ sizes, name, onSizeChange, className }) => {
   return (
     <ul className={`${styles.sizes} ${className}`}>
       {sizes.map((size, index) => (
-        <li key={size} className={styles.sizes__item}>
-          <label className={styles.sizes__label}>
+        <li key={size}>
+          <label className={styles.label}>
             <input
-              className={styles.sizes__radio}
+              className={styles.radio}
               type="radio"
               name={`size-${name}`}
               value={size}
@@ -15,7 +15,7 @@ export const Sizes = ({ sizes, name, onSizeChange, className }) => {
               onChange={onSizeChange}
               // onChange={() => onSizeChange(size)}
             />
-            <span className={styles.sizes__value}>{size}</span>
+            <span className={styles.value}>{size}</span>
           </label>
         </li>
       ))}

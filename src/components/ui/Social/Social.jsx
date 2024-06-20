@@ -28,9 +28,9 @@ export const Social = () => {
   return (
     <ul className={styles.social}>
       {socialLinks.map((social) => (
-        <li className={styles.social__item} key={social.name}>
+        <li key={social.name}>
           <a
-            className={styles.social__link}
+            className={styles.link}
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"

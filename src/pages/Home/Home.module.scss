@@ -4,42 +4,42 @@
   @extend %container;
 }
 
-.catalog__top {
+.top {
   margin-bottom: 50px;
   max-width: 74%;
   margin-left: auto;
   text-align: center;
 }
 
-.catalog__title {
+.title {
   @extend %main-title;
 }
 
-.catalog__subtitle {
+.subtitle {
   @extend %subtitle;
 }
 
-.catalog__content {
+.content {
   display: grid;
   grid-template-columns: 290px 1fr;
   align-items: flex-start;
   gap: 20px;
 }
 
-.catalog__section {
+.section {
   display: flex;
   flex-direction: column;
   align-self: stretch;
 }
 
-.catalog__list {
+.list {
   display: grid;
   grid-template-columns: repeat(3, 270px);
   gap: 65px 30px;
   margin: 0 0 70px;
 }
 
-.catalog__sort {
+.sort {
   display: flex;
   margin-bottom: 30px;
 }

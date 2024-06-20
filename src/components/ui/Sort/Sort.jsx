@@ -15,19 +15,19 @@ export const Sort = () => {
 
   return (
     <div className={styles.sort}>
-      <span className={styles.sort__text}>Сортировка по:</span>
+      <span className={styles.text}>Сортировка по:</span>
       <div onClick={() => setIsOpen(!isOpen)}>
-        <span className={styles.sort__selected}>{sortList[selectedSort]}</span>
-        <span className={`${styles.sort__arrow} ${isOpen ? styles.transform : ''}`}></span>
+        <span className={styles.selected}>{sortList[selectedSort]}</span>
+        <span className={`${styles.arrow} ${isOpen ? styles.transform : ''}`}></span>
       </div>
 
       {isOpen && (
-        <ul className={styles.sort__popup}>
+        <ul className={styles.popup}>
           {sortList.map((value, index) => (
             <li
               key={value}
               onClick={() => onClickListItem(index)}
-              className={`${styles.sort__item} ${selectedSort === index ? styles.active : ''}`}>
+              className={`${styles.item} ${selectedSort === index ? styles.active : ''}`}>
               {value}
             </li>
           ))}

@@ -6,16 +6,16 @@
   gap: 10px;
 }
 
-.sizes__label {
+.label {
   display: block;
   cursor: pointer;
 }
 
-.sizes__radio {
+.radio {
   @extend %custom;
 }
 
-.sizes__value {
+.value {
   display: inline-block;
   font-size: 16px;
   text-transform: uppercase;
@@ -23,13 +23,13 @@
   @extend %transition;
 }
 
-.sizes__label:focus .sizes__value,
-.sizes__label:hover .sizes__value {
+.label:focus .value,
+.label:hover .value {
   font-weight: 500;
   color: $color-text-dark;
 }
 
-.sizes__radio:checked ~ .sizes__value {
+.radio:checked ~ .value {
   font-weight: 500;
   color: $color-text-dark;
 }

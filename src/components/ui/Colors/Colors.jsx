@@ -1,10 +1,10 @@
 import styles from './Colors.module.scss';
 
-export const Colors = ({ colors, name, isBlackBorder, onColorChange, className }) => {
+export const Colors = ({ colors, name, isDarkBorder, onColorChange, className }) => {
   return (
-    <ul className={`${styles.colors} ${isBlackBorder ? styles.black : ''} ${className} `}>
+    <ul className={`${styles.colors} ${isDarkBorder ? styles.dark : ''} ${className} `}>
       {colors.map((color, index) => (
-        <li key={color} className={styles.item}>
+        <li key={color}>
           <label className={styles.label}>
             <input
               className={styles.radio}
@@ -14,7 +14,7 @@ export const Colors = ({ colors, name, isBlackBorder, onColorChange, className }
               defaultChecked={index === 0}
               onChange={onColorChange}
             />
-            <span className={`${styles.value} ${styles[`value_${color}`]}`}></span>
+            <span className={`${styles.value} ${styles[color]}`}></span>
           </label>
         </li>
       ))}

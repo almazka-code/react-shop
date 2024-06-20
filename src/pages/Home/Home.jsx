@@ -19,17 +19,17 @@ export const Home = () => {
 
   return (
     <div className={styles.catalog}>
-      <div className={styles.catalog__top}>
-        <h2 className={styles.catalog__title}>Каталог</h2>
-        <span className={styles.catalog__subtitle}>152 товара</span>
+      <div className={styles.top}>
+        <h2 className={styles.title}>Каталог</h2>
+        <span className={styles.subtitle}>152 товара</span>
       </div>
-      <div className={styles.catalog__content}>
+      <div className={styles.content}>
         <div>Фильтры</div>
-        <section className={styles.catalog__section}>
-          <div className={styles.catalog__sort}>
+        <section className={styles.section}>
+          <div className={styles.sort}>
             <Sort />
           </div>
-          <ul className={styles.catalog__list}>
+          <ul className={styles.list}>
             {/* пока идет загрузка создать фейковый массив из 6 элементов (все значения будут underfined) для того,
             чтобы рендерился массив скелетонов, так как массив с данными ещё не пришел  */}
             {isLoading
