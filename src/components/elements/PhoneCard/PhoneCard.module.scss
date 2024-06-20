@@ -8,41 +8,41 @@
   }
 }
 
-.card__image {
+.image {
   display: block;
   width: 270px;
   height: 350px;
   object-fit: cover;
 }
 
-.card__desc {
+.desc {
   padding-top: 20px;
   width: 270px;
   min-height: 170px;
 }
 
-.card__title {
+.title {
   margin-bottom: 10px;
   @include font ($weight: 500, $size: 18px, $height: 140%);
   color: $color-text-dark;
 }
 
-.card__buy {
+.buy {
   @extend %flex;
   margin-top: auto;
 }
 
-.card__price {
+.price {
   display: block;
   @include font ($weight: 700, $size: 22px, $height: 130%);
 }
 
-.card__colors,
-.card__sizes {
+.colors,
+.sizes {
   margin-bottom: 10px;
 }
 
-.card__button {
+.wrapper {
   button {
     font-size: 11px;
     padding: 15px;

@@ -6,7 +6,7 @@
   gap: 10px;
 }
 
-.colors__label {
+.label {
   position: relative;
   cursor: pointer;
   display: block;
@@ -14,17 +14,17 @@
   padding: 3px;
 }
 
-.colors__radio {
+.radio {
   @extend %custom;
 }
 
-.colors__value,
-.colors__value::before {
+.value,
+.value::before {
   border-radius: 50%;
   @extend %transition;
 }
 
-.colors__value {
+.value {
   display: block;
   width: 20px;
   height: 20px;
@@ -69,18 +69,18 @@
   }
 }
 
-.colors__label:focus .colors__value::before,
-.colors__label:hover .colors__value::before,
-.colors__radio:checked ~ .colors__value::before {
+.label:focus .value::before,
+.label:hover .value::before,
+.radio:checked ~ .value::before {
   border-color: $color-light;
 }
 
-.colors_black .colors__label:focus .colors__value::before,
-.colors_black .colors__label:hover .colors__value::before,
-.colors_black .colors__radio:checked ~ .colors__value::before {
+.black .label:focus .value::before,
+.black .label:hover .value::before,
+.black .radio:checked ~ .value::before {
   border-color: $color-text-dark;
 }
 
-.colors__radio:focus ~ .colors__value::before {
+.radio:focus ~ .value::before {
   opacity: 0.7;
 }

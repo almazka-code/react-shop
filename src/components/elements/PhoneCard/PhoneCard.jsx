@@ -17,13 +17,13 @@ export const PhoneCard = ({ product }) => {
 
   return (
     <li className={styles.card}>
-      <img className={styles.card__image} src={product.images[selectedColor]} alt={product.title} />
+      <img className={styles.image} src={product.images[selectedColor]} alt={product.title} />
 
-      <div className={styles.card__desc}>
-        <h3 className={styles.card__title}>{product.title}</h3>
+      <div className={styles.desc}>
+        <h3 className={styles.title}>{product.title}</h3>
 
         <Colors
-          className={styles.card__colors}
+          className={styles.colors}
           colors={product.colors}
           name={product.model}
           isBlackBorder={true}
@@ -31,17 +31,17 @@ export const PhoneCard = ({ product }) => {
         />
 
         <Sizes
-          className={styles.card__sizes}
+          className={styles.sizes}
           sizes={product.sizes}
           name={product.model}
           onSizeChange={handleChange(setSelectedSize)}
         />
 
-        <div className={styles.card__buy}>
-          <span className={styles.card__price}>
+        <div className={styles.buy}>
+          <span className={styles.price}>
             {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
-          <div className={styles.card__button}>
+          <div className={styles.wrapper}>
             <SubmitButton
               text="В корзину"
               isColor={true}

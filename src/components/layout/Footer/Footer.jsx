@@ -14,13 +14,13 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.footer__wrapper}>
-        <div className={styles.footer__left}>
-          <ul className={styles.footer__links}>
+      <div className={styles.wrapper}>
+        <div className={styles.left}>
+          <ul className={styles.links}>
             {footerlLinks.map((link) => (
               <li key={link.text}>
                 <a
-                  className={styles.footer__link}
+                  className={styles.link}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer">
@@ -30,15 +30,15 @@ export const Footer = () => {
             ))}
           </ul>
 
-          <span className={styles.footer__copyright}>© 2024 Смартфономания</span>
+          <span className={styles.copyright}>© 2024 Смартфономания</span>
         </div>
 
-        <div className={styles.footer__right}>
-          <div className={styles.footer__social}>
+        <div className={styles.right}>
+          <div className={styles.social}>
             <Social />
           </div>
 
-          <p className={styles.footer__text}>
+          <p className={styles.text}>
             Все права на материалы, находящиеся на сайте, охраняются в соответствии с
             законодательством РК, в том числе об авторском праве и смежных правах.
           </p>
