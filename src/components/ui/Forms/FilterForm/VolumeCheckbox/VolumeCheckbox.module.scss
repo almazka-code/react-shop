@@ -1,0 +1,62 @@
+@import '../../../../../styles/glodal.scss';
+
+.item:not(:last-child) {
+  margin-bottom: 13px;
+}
+
+.label {
+  display: block;
+  cursor: pointer;
+}
+
+.check {
+  @extend %custom;
+}
+
+.desc {
+  position: relative;
+  display: block;
+  padding-left: 32px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  @include font ($size: 16px, $height: 100%);
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: 0;
+    width: 22px;
+    height: 22px;
+    background-color: $color-light;
+  }
+
+  &::after {
+    opacity: 0;
+    left: 4px;
+    width: 16px;
+    height: 13px;
+    @include background-image (url(../../../../../assets/svg/check.svg));
+    @extend %transition;
+  }
+}
+
+.desc {
+  span {
+    color: $color-caption;
+  }
+}
+
+.label:focus .desc::after,
+.label:hover .desc::after {
+  opacity: 0.3;
+}
+
+.check:checked ~ .desc::after {
+  opacity: 1;
+}
