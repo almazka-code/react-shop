@@ -1,1 +1,1 @@
-export const COLORS = [blue, yellow, pink, green, purple, natural, black];
+export const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];

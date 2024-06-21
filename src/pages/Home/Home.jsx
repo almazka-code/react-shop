@@ -3,6 +3,7 @@ import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
+import { Filter } from '../../components/ui/Forms/FilterForm/FilterForm';
 
 export const Home = () => {
   const [items, setItems] = useState([]);
@@ -24,7 +25,7 @@ export const Home = () => {
         <span className={styles.subtitle}>152 товара</span>
       </div>
       <div className={styles.content}>
-        <div>Фильтры</div>
+        <Filter />
         <section className={styles.section}>
           <div className={styles.sort}>
             <Sort />

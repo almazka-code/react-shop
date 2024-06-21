@@ -1,0 +1,131 @@
+@import '../../../../styles/glodal.scss';
+
+.form {
+  padding: 0 25px 60px;
+  background-color: $color-background;
+  color: $color-light;
+}
+
+.title {
+  @extend %font-secondary;
+  @include font ($size: 16px, $height: 100%);
+  text-transform: uppercase;
+  padding: 25px;
+  padding-left: 0;
+  margin-bottom: 25px;
+  border-bottom: 4px dashed $color-light;
+}
+
+.fieldset {
+  margin-bottom: 35px;
+}
+
+.legend {
+  margin-bottom: 12px;
+}
+
+
+
+
+
+
+
+.filter__submit {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.filter__reset {
+  width: 144px;
+}
+
+
+
+// .form__input--area {
+//   height: 140px;
+//   resize: none;
+// }
+
+// .form__error {
+//   position: absolute;
+//   bottom: -17px;
+//   left: 20px;
+//   font-size: 11px;
+//   line-height: 14px;
+//   color: #ff4d00;
+// }
+
+// .form__error-block {
+//   padding: 25px 30px;
+//   border: 3px solid #ff4d00;
+//   border-radius: 1px;
+// }
+
+// .form__error-block h4 {
+//   margin: 0 0 4px;
+//   font-weight: 500;
+//   font-size: 17px;
+//   line-height: 24px;
+//   color: #ff4d00;
+// }
+
+// .form__error-block p {
+//   margin: 0;
+//   font-size: 13px;
+//   color: #000;
+// }
+
+.check-list__item:not(:last-child) {
+  margin-bottom: 13px;
+}
+
+.check-list__label {
+  display: block;
+  cursor: pointer;
+}
+
+.check-list__desc {
+  position: relative;
+  display: block;
+  padding-left: 32px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  @include font ($size: 16px, $height: 100%);
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::before {
+    left: 0;
+    width: 22px;
+    height: 22px;
+    background-color: $color-light;
+  }
+
+  &::after {
+    opacity: 0;
+    left: 4px;
+    width: 16px;
+    height: 13px;
+    // @include background-image (url(../assets/svg/check.svg));
+    @extend %transition;
+  }
+}
+
+.check-list__desc span {
+  color: $color-caption;
+}
+
+.check-list__label:focus .check-list__desc::after,
+.check-list__label:hover .check-list__desc::after {
+  opacity: 0.3;
+}
+
+.check-list__check:checked ~ .check-list__desc::after {
+  opacity: 1;
+}
