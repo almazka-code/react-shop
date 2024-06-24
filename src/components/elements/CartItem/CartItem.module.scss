@@ -1,0 +1,107 @@
+@import '../../../styles/glodal.scss';
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.picture {
+  width: 120px;
+  height: 120px;
+  background-color: grey;
+}
+
+.image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-basis: 280px;
+}
+
+.title {
+  @include font($size: 18px, $height: 140%, $weight: 700);
+}
+
+.property {
+  @include font($size: 14px, $height: 100%);
+  color: $color-caption;
+}
+
+.caption {
+  position: relative;
+  display: inline-block;
+  padding-left: 30px;
+  vertical-align: top;
+  color: $color-text-dark;
+}
+
+.color {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.blue {
+  background-color: $phone-blue;
+}
+
+.yellow {
+  background-color: $phone-yellow;
+}
+
+.pink {
+  background-color: $phone-pink;
+}
+
+.green {
+  background-color: $phone-green;
+}
+
+.purple {
+  background-color: $phone-purple;
+}
+
+.natural {
+  background-color: $phone-natural;
+}
+
+.black {
+  background-color: $phone-black;
+}
+
+.size {
+  color: $color-text-dark;
+}
+
+.price {
+  @include font($weight: 700, $size: 20px, $height: 140%);
+  flex-basis: 120px;
+  text-align: center;
+}
+
+.product__button {
+  height: 30px;
+  width: 30px;
+  flex-shrink: 0;
+}
+
+.del {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  background-image: url("../../../assets/svg/close.svg");
+  background-position: top;
+  background-repeat: no-repeat;
+}

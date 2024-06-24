@@ -1,0 +1,11 @@
+@import '../../../../styles/glodal.scss';
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  min-width: 23px;
+  min-width: 200px;
+  padding: 10px;
+  text-transform: uppercase;
+  color: $color-info;
+}

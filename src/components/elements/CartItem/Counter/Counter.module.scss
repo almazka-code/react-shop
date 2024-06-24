@@ -1,0 +1,36 @@
+@import '../../../../styles/glodal.scss';
+
+.counter {
+  @extend %flex;
+  border: 1px solid $color-text-light;
+  width: 150px;
+  height: 50px;
+}
+
+.input {
+  padding: 10px 5px;
+  height: 50px;
+  width: 60px;
+  text-align: center;
+  background-color: transparent;
+  border: 0;
+  font-size: 24px;
+  padding: 23px 5px;
+}
+
+.button {
+  display: inline-block;
+  padding: 25px 15px;
+  width: 10px;
+  height: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.plus {
+    background-image: url("../../../../assets/svg/plus.svg");
+  }
+
+  &.minus {
+    background-image: url("../../../../assets/svg/minus.svg");
+  }
+}
