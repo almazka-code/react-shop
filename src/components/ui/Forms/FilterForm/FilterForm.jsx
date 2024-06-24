@@ -1,13 +1,15 @@
-import { BrandSelect } from './BrandSelect/BrandSelect';
 import styles from './FilterForm.module.scss';
+
 import { PriceInput } from './PriceInput/PriceInput';
-import { COLORS } from '../../../../constants/colors';
+import { BrandSelect } from './BrandSelect/BrandSelect';
 import { Colors } from '../../Colors/Colors';
 import { VolumeCheckbox } from './VolumeCheckbox/VolumeCheckbox';
 import { SubmitButton } from '../../Buttons/Submit/SubmitButton';
 import { Fieldset } from './Fieldset/Fieldset';
 
 export const Filter = () => {
+  const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
+
   return (
     <form className={styles.form} action="#" method="get">
       <h2 className={styles.title}>Фильтры</h2>
