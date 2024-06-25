@@ -13,8 +13,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 
-  &:focus,
-  &:hover {
-    opacity: 0.5;
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }

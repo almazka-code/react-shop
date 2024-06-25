@@ -4,9 +4,11 @@ import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { useEffect, useState } from 'react';
 import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 import { Filter } from '../../components/ui/Forms/FilterForm/FilterForm';
+import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 
 export const Home = () => {
   const [items, setItems] = useState([]);
+  const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,6 +18,8 @@ export const Home = () => {
         setItems(data);
         setIsLoading(false);
       });
+    window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
+    // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
   }, []);
 
   return (
@@ -24,10 +28,20 @@ export const Home = () => {
         <h2 className={styles.title}>Каталог</h2>
         <span className={styles.subtitle}>152 товара</span>
       </div>
+
       <div className={styles.content}>
-        <Filter />
+        <div className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
+          <Filter />
+        </div>
+
         <section className={styles.section}>
-          <div className={styles.sort}>
+          <div className={styles.buttons}>
+            <div className={styles.button}>
+              <NeutralButton
+                onClick={() => setIsFiltersVisible(!isFiltersVisible)}
+                text="Фильтры"
+              />
+            </div>
             <Sort />
           </div>
           <ul className={styles.list}>

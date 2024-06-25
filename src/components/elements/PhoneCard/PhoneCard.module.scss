@@ -3,8 +3,10 @@
 .card {
   @extend %transition;
 
-  &:hover {
-    transform: scale(1.02);
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.02);
+    }
   }
 }
 

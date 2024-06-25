@@ -9,6 +9,11 @@
   @extend %container;
   padding-top: 23px;
   padding-bottom: 23px;
+
+  @media (max-width: 577px) {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 
 .logo {
@@ -26,4 +31,8 @@
 .title {
   font-size: 18px;
   color: $color-light;
+
+  @media (max-width: 769px) {
+    font-size: 16px;
+  }
 }

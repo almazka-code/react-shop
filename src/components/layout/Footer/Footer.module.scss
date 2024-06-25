@@ -12,6 +12,16 @@
   gap: 30px;
   padding-top: 60px;
   padding-bottom: 60px;
+
+  @media (max-width: 769px) {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  @media (max-width: 576px) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
 }
 
 .left,
@@ -20,6 +30,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 769px) {
+    align-items: center;
+  }
 }
 
 .social {
@@ -31,6 +45,12 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   margin-bottom: 30px;
+
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .link {
@@ -40,9 +60,10 @@
   padding-bottom: 3px;
   @extend %transition;
 
-  &:focus,
-  &:hover {
-    border-color: $color-accent;
+  @media (hover: hover) {
+    &:hover {
+      border-color: $color-accent;
+    }
   }
 }
 
@@ -57,4 +78,8 @@
   @include font ($size: 14px, $height: 170%);
   text-align: right;
   color: $color-info;
+
+  @media (max-width: 769px) {
+    text-align: center;
+  }
 }

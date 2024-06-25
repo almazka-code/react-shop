@@ -12,8 +12,10 @@
   cursor: pointer;
   @extend %transition;
 
-  &:hover {
-    background: rgba(35, 227, 17, 0.112);
+  @media (hover: hover) {
+    &:hover {
+      background: rgba(35, 227, 17, 0.112);
+    }
   }
 }
 
