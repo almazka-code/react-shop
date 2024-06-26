@@ -2,14 +2,18 @@ import { useState } from 'react';
 
 import styles from './Sort.module.scss';
 
-export const Sort = () => {
-  const sortList = ['популярности', 'цене', 'алфавиту'];
+export const Sort = ({ value, onChangeSort }) => {
+  const sortList = [
+    { name: 'популярности', sortProperty: 'rating' },
+    { name: 'алфавиту', sortProperty: 'title' },
+    { name: 'возрастанию цены', sortProperty: 'priceMin' },
+    { name: 'убыванию цены', sortProperty: '-priceMin' },
+  ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedSort, setSelectedSort] = useState(0);
 
   const onClickListItem = (index) => {
-    setSelectedSort(index);
+    onChangeSort(index);
     setIsOpen(false);
   };
 
@@ -17,18 +21,20 @@ export const Sort = () => {
     <div className={styles.sort}>
       <span className={styles.text}>Сортировка по:</span>
       <div onClick={() => setIsOpen(!isOpen)}>
-        <span className={styles.selected}>{sortList[selectedSort]}</span>
+        <span className={styles.selected}>{value.name}</span>
         <span className={`${styles.arrow} ${isOpen ? styles.transform : ''}`}></span>
       </div>
 
       {isOpen && (
         <ul className={styles.popup}>
-          {sortList.map((value, index) => (
+          {sortList.map((obj) => (
             <li
-              key={value}
-              onClick={() => onClickListItem(index)}
-              className={`${styles.item} ${selectedSort === index ? styles.active : ''}`}>
-              {value}
+              key={obj.name}
+              onClick={() => onClickListItem(obj)}
+              className={`${styles.item} ${
+                value.sortProperty === obj.sortProperty ? styles.active : ''
+              }`}>
+              {obj.name}
             </li>
           ))}
         </ul>

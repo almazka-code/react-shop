@@ -10,9 +10,15 @@ export const Home = () => {
   const [items, setItems] = useState([]);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [sortType, setSortType] = useState({ name: 'популярности', sortProperty: 'rating' });
+
+  const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
+  const sortBy = sortType.sortProperty.replace('-', '');
+  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?sortBy=${sortBy}&order=${order}`;
 
   useEffect(() => {
-    fetch('https://66715424e083e62ee43b17a5.mockapi.io/items')
+    setIsLoading(true);
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -20,7 +26,7 @@ export const Home = () => {
       });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
-  }, []);
+  }, [sortType]);
 
   return (
     <div className={styles.catalog}>
@@ -42,7 +48,7 @@ export const Home = () => {
                 text="Фильтры"
               />
             </div>
-            <Sort />
+            <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
           </div>
           <ul className={styles.list}>
             {/* пока идет загрузка создать фейковый массив из 6 элементов (все значения будут underfined) для того,
