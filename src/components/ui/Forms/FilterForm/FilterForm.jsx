@@ -23,7 +23,7 @@ export const Filter = () => {
       </Fieldset>
 
       <Fieldset legend="Цвет">
-        <Colors colors={COLORS} name="filter-color" isDarkBorder={false} />
+        <Colors colors={COLORS} name="filter-color" isDarkBorder={false} defaultChecked={false} />
       </Fieldset>
 
       <Fieldset legend="Объем">

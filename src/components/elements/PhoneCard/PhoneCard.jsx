@@ -27,6 +27,7 @@ export const PhoneCard = ({ product }) => {
           colors={product.colors}
           name={product.model}
           isDarkBorder={true}
+          defaultChecked={true}
           onColorChange={handleChange(setSelectedColor)}
         />
 

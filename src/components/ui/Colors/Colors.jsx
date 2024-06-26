@@ -1,6 +1,13 @@
 import styles from './Colors.module.scss';
 
-export const Colors = ({ colors, name, isDarkBorder, onColorChange, className }) => {
+export const Colors = ({
+  colors,
+  name,
+  isDarkBorder,
+  onColorChange,
+  className,
+  defaultChecked,
+}) => {
   return (
     <ul className={`${styles.colors} ${isDarkBorder ? styles.dark : ''} ${className} `}>
       {colors.map((color, index) => (
@@ -11,7 +18,7 @@ export const Colors = ({ colors, name, isDarkBorder, onColorChange, className })
               type="radio"
               name={name}
               value={color}
-              defaultChecked={index === 0}
+              defaultChecked={defaultChecked ? index === 0 : undefined}
               onChange={onColorChange}
             />
             <span className={`${styles.value} ${styles[color]}`}></span>
