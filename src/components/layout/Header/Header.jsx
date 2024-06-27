@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../../assets/svg/logo.svg';
 import { CartButton } from '../../ui/Buttons/Cart/CartButton';
+import { Search } from '../../ui/Search/Search';
 
 export const Header = () => {
   return (
@@ -14,6 +15,10 @@ export const Header = () => {
             <h1 className={styles.title}>Смартфономания</h1>
           </div>
         </Link>
+
+        <div className={styles.search}>
+          <Search />
+        </div>
 
         <Link to="./cart">
           <CartButton price="1256123" count="3" />

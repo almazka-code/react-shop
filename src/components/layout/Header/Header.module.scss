@@ -36,3 +36,9 @@
     font-size: 16px;
   }
 }
+
+.search {
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
