@@ -5,7 +5,7 @@ import logo from '../../../assets/svg/logo.svg';
 import { CartButton } from '../../ui/Buttons/Cart/CartButton';
 import { Search } from '../../ui/Search/Search';
 
-export const Header = () => {
+export const Header = ({ searchValue, setSearchValue }) => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapper}>
@@ -17,7 +17,7 @@ export const Header = () => {
         </Link>
 
         <div className={styles.search}>
-          <Search />
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         </div>
 
         <Link to="./cart">
