@@ -1,0 +1,65 @@
+@import '../../../styles/glodal.scss';
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    display: block;
+    padding: 13px 3px;
+    height: 40px;
+    min-width: 40px;
+    font-size: 16px;
+    color: $color-text-dark;
+    text-align: center;
+    cursor: pointer;
+    @extend %transition;
+
+    &:not(:disabled):focus,
+    &:not(:disabled):hover {
+      opacity: 0.6;
+    }
+
+    @media (max-width: 595px) {
+      min-width: 33px;
+    }
+  }
+
+  :global {
+
+    .selected {
+      font-weight: 700;
+    }
+
+    .disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .previous,
+    .next {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid $color-text-light;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 25px;
+
+      @media (max-width: 595px) {
+        margin: 0 15px;
+      }
+    }
+
+    .previous {
+      background-image: url(../../../assets/svg/arrow-left.svg);
+      margin-left: 0;
+    }
+
+    .next {
+      background-image: url(../../../assets/svg/arrow-right.svg);
+      margin-right: 0;
+    }
+  }
+}
