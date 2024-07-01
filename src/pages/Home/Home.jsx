@@ -1,13 +1,15 @@
 import styles from './Home.module.scss';
 import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 import { Filter } from '../../components/ui/Forms/FilterForm/FilterForm';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Pagination } from '../../components/ui/Pagination/Pagination';
+import { SearchContext } from '../../App';
 
-export const Home = ({ searchValue }) => {
+export const Home = () => {
+  const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

@@ -1,5 +1,5 @@
 import {Routes, Route} from "react-router-dom";
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './styles/main.scss';
 
 import { Footer } from './components/layout/Footer/Footer';
@@ -9,21 +9,25 @@ import { CartEmpty } from "./pages/CartEmpty/CartEmpty";
 import { NotFound } from './pages/NotFound/NotFound';
 import { CartFull } from "./pages/CartFull/CartFull";
 
+export const SearchContext = createContext();
+
 const App = () => {
   const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="wrapper">
-      <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
-      <main className="main">
-        <Routes>
-          <Route path="/" element={<Home searchValue={searchValue}/>}/>
-          {/* <Route path="/cart" element={<CartEmpty />}/> */}
-          <Route path="/cart" element={<CartFull />}/>
-          <Route path="*" element={<NotFound />}/>
-        </Routes>
-      </main>
-      <Footer />
+      <SearchContext.Provider value={{searchValue, setSearchValue}}>
+        <Header />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<Home />}/>
+            {/* <Route path="/cart" element={<CartEmpty />}/> */}
+            <Route path="/cart" element={<CartFull />}/>
+            <Route path="*" element={<NotFound />}/>
+          </Routes>
+        </main>
+        <Footer />
+      </SearchContext.Provider>
     </div>
   );
 }
