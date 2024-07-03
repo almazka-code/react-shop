@@ -1,19 +1,24 @@
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSortType } from '../../../redux/slices/filterSlice';
 
 import styles from './Sort.module.scss';
 
-export const Sort = ({ value, onChangeSort }) => {
-  const sortList = [
-    { name: 'популярности', sortProperty: 'rating' },
-    { name: 'алфавиту', sortProperty: 'title' },
-    { name: 'возрастанию цены', sortProperty: 'priceMin' },
-    { name: 'убыванию цены', sortProperty: '-priceMin' },
-  ];
+const sortList = [
+  { name: 'популярности', sortProperty: 'rating' },
+  { name: 'алфавиту', sortProperty: 'title' },
+  { name: 'возрастанию цены', sortProperty: 'priceMin' },
+  { name: 'убыванию цены', sortProperty: '-priceMin' },
+];
+
+export const Sort = () => {
+  const dispatch = useDispatch();
+  const sortType = useSelector((state) => state.filter.sortType);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const onClickListItem = (index) => {
-    onChangeSort(index);
+    dispatch(setSortType(index));
     setIsOpen(false);
   };
 
@@ -21,7 +26,7 @@ export const Sort = ({ value, onChangeSort }) => {
     <div className={styles.sort}>
       <span className={styles.text}>Сортировка по:</span>
       <div onClick={() => setIsOpen(!isOpen)}>
-        <span className={styles.selected}>{value.name}</span>
+        <span className={styles.selected}>{sortType.name}</span>
         <span className={`${styles.arrow} ${isOpen ? styles.transform : ''}`}></span>
       </div>
 
@@ -32,7 +37,7 @@ export const Sort = ({ value, onChangeSort }) => {
               key={obj.name}
               onClick={() => onClickListItem(obj)}
               className={`${styles.item} ${
-                value.sortProperty === obj.sortProperty ? styles.active : ''
+                sortType.sortProperty === obj.sortProperty ? styles.active : ''
               }`}>
               {obj.name}
             </li>

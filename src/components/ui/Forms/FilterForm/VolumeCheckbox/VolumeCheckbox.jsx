@@ -6,7 +6,7 @@ export const VolumeCheckbox = () => {
   return (
     <ul>
       {volumes.map((volume, index) => (
-        <li className={styles.item}>
+        <li className={styles.item} key={volume}>
           <label className={styles.label}>
             <input className={styles.check} type="checkbox" name="volume" value={volume} />
             <span className={styles.desc}>

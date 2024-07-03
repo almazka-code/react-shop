@@ -1,4 +1,6 @@
 import styles from './Home.module.scss';
+import { useSelector } from 'react-redux';
+
 import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { useEffect, useState, useContext } from 'react';
@@ -9,15 +11,16 @@ import { Pagination } from '../../components/ui/Pagination/Pagination';
 import { SearchContext } from '../../App';
 
 export const Home = () => {
+  const sort = useSelector((state) => state.filter.sortType.sortProperty);
+
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [sortType, setSortType] = useState({ name: 'популярности', sortProperty: 'rating' });
 
-  const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
-  const sortBy = sortType.sortProperty.replace('-', '');
+  const order = sort.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
+  const sortBy = sort.replace('-', '');
   const search = searchValue ? `search=${searchValue}` : '';
   const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
@@ -31,7 +34,7 @@ export const Home = () => {
       });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
-  }, [sortType, searchValue, currentPage]);
+  }, [sort, searchValue, currentPage]);
 
   const phones = items.map((product) => <PhoneCard key={product.model} product={product} />);
   // после items добавить .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
@@ -58,7 +61,7 @@ export const Home = () => {
                 text="Фильтры"
               />
             </div>
-            <Sort value={sortType} onChangeSort={(index) => setSortType(index)} />
+            <Sort />
           </div>
           <ul className={styles.list}>
             {/* пока идет загрузка создать фейковый массив из 6 элементов (все значения будут underfined) для того,
