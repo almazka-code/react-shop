@@ -1,9 +1,24 @@
-import { useContext } from 'react';
-import { SearchContext } from '../../../App';
 import styles from './Search.module.scss';
+import debounce from 'lodash.debounce';
+import { useCallback, useContext, useState } from 'react';
+
+import { SearchContext } from '../../../App';
 
 export const Search = () => {
-  const { searchValue, setSearchValue } = useContext(SearchContext);
+  const [value, setValue] = useState('');
+  const { setSearchValue } = useContext(SearchContext);
+
+  const updateSearchValue = useCallback(
+    debounce((str) => {
+      setSearchValue(str);
+    }, 1000),
+    [],
+  );
+
+  const onChangeInput = (event) => {
+    setValue(event.target.value);
+    updateSearchValue(event.target.value);
+  };
 
   return (
     <div className={styles.search}>
@@ -18,8 +33,8 @@ export const Search = () => {
         />
       </svg>
       <input
-        value={searchValue}
-        onChange={(event) => setSearchValue(event.target.value)}
+        value={value}
+        onChange={onChangeInput}
         className={styles.input}
         type="search"
         placeholder="Поиск смартфона..."
