@@ -1,4 +1,5 @@
 import styles from './Home.module.scss';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 import { Sort } from '../../components/ui/Sort/Sort';
@@ -26,12 +27,10 @@ export const Home = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        setItems(data);
-        setIsLoading(false);
-      });
+    axios.get(url).then((res) => {
+      setItems(res.data);
+      setIsLoading(false);
+    });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
   }, [sort, searchValue, currentPage]);
