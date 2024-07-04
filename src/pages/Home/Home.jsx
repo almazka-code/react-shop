@@ -27,10 +27,20 @@ export const Home = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(url).then((res) => {
-      setItems(res.data);
-      setIsLoading(false);
-    });
+    axios
+      .get(url)
+      .then((res) => {
+        setItems(res.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 404) {
+          setItems([]);
+        } else {
+          console.error('Произошла ошибка:', error);
+        }
+        setIsLoading(false);
+      });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
   }, [sort, searchValue, currentPage]);
