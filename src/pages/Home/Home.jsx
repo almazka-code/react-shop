@@ -1,6 +1,7 @@
 import styles from './Home.module.scss';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentPage } from '../../redux/slices/filterSlice';
 
 import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
@@ -12,13 +13,18 @@ import { Pagination } from '../../components/ui/Pagination/Pagination';
 import { SearchContext } from '../../App';
 
 export const Home = () => {
+  const dispatch = useDispatch();
   const sort = useSelector((state) => state.filter.sortType.sortProperty);
+  const currentPage = useSelector((state) => state.filter.currentPage);
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
+
+  const onChangePage = (number) => {
+    dispatch(setCurrentPage(number));
+  };
 
   const order = sort.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
   const sortBy = sort.replace('-', '');
@@ -78,7 +84,7 @@ export const Home = () => {
             {isLoading ? skeletons : phones}
           </ul>
 
-          <Pagination onChangePage={(number) => setCurrentPage(number)} />
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
         </section>
       </div>
     </div>
