@@ -14,8 +14,7 @@ import { SearchContext } from '../../App';
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const sort = useSelector((state) => state.filter.sortType.sortProperty);
-  const currentPage = useSelector((state) => state.filter.currentPage);
+  const { brandType, sortType, currentPage } = useSelector((state) => state.filter);
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
@@ -26,10 +25,11 @@ export const Home = () => {
     dispatch(setCurrentPage(number));
   };
 
-  const order = sort.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
-  const sortBy = sort.replace('-', '');
+  const brandBy = brandType > 0 ? `brand=${brandType}` : '';
+  const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
+  const sortBy = sortType.sortProperty.replace('-', '');
   const search = searchValue ? `search=${searchValue}` : '';
-  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
+  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -49,7 +49,7 @@ export const Home = () => {
       });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
-  }, [sort, searchValue, currentPage]);
+  }, [brandBy, sortType, searchValue, currentPage]);
 
   const phones = items.map((product) => <PhoneCard key={product.model} product={product} />);
   // после items добавить .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))

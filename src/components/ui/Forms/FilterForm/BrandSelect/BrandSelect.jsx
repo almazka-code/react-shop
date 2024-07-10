@@ -1,5 +1,7 @@
 import styles from './BrandSelect.module.scss';
 import { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { setBrandType } from '../../../../../redux/slices/filterSlice';
 
 // export const BrandSelect = () => {
 //   const brands = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
@@ -20,18 +22,20 @@ import { useState } from 'react';
 export const BrandSelect = () => {
   const brands = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
 
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState(0);
+  const dispatch = useDispatch();
+  const brandType = useSelector((state) => state.filter.brandType);
 
-  const onClickListItem = (index) => {
-    setSelectedBrand(index);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClickBrand = (index) => {
+    dispatch(setBrandType(index));
     setIsOpen(false);
   };
 
   return (
     <div className={styles.select} onClick={() => setIsOpen(!isOpen)}>
       <div className={styles.wrapper}>
-        <span>{brands[selectedBrand]}</span>
+        <span>{brands[brandType]}</span>
         <span className={styles.arrow}></span>
       </div>
 
@@ -40,8 +44,8 @@ export const BrandSelect = () => {
           {brands.map((value, index) => (
             <li
               key={value}
-              onClick={() => onClickListItem(index)}
-              className={`${styles.item} ${selectedBrand === index ? styles.active : ''}`}>
+              onClick={() => onClickBrand(index)}
+              className={`${styles.item} ${brandType === index ? styles.active : ''}`}>
               {value}
             </li>
           ))}

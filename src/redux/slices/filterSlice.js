@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
+  brandType: 0,
   sortType: {
     name: 'популярности',
     sortProperty: 'rating'
@@ -12,6 +13,9 @@ export const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
+    setBrandType (state, action){
+      state.brandType = action.payload;
+    },
     setSortType (state, action){
       state.sortType = action.payload;
     },
@@ -21,6 +25,6 @@ export const filterSlice = createSlice({
   },
 })
 
-export const { setSortType, setCurrentPage } = filterSlice.actions
+export const { setBrandType, setSortType, setCurrentPage } = filterSlice.actions
 
 export default filterSlice.reducer
