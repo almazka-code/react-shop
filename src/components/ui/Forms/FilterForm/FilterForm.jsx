@@ -1,7 +1,6 @@
 import styles from './FilterForm.module.scss';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { setFilters } from '../../../../redux/slices/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilters, setLocalColor, setLocalBrand } from '../../../../redux/slices/filterSlice';
 
 import { PriceInput } from './PriceInput/PriceInput';
 import { BrandSelect } from './BrandSelect/BrandSelect';
@@ -12,16 +11,17 @@ import { Fieldset } from './Fieldset/Fieldset';
 
 export const FilterForm = () => {
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
-  const [selectedColor, setSelectedColor] = useState('');
-  const [selectedBrand, setSelectedBrand] = useState(0);
+  const { color: selectedColor, brand: selectedBrand } = useSelector(
+    (state) => state.filter.localFilters,
+  );
   const dispatch = useDispatch();
 
   const onColorChange = (event) => {
-    setSelectedColor(event.target.value);
+    dispatch(setLocalColor(event.target.value));
   };
 
   const onBrandChange = (index) => {
-    setSelectedBrand(index);
+    dispatch(setLocalBrand(index));
   };
 
   const onSubmit = (event) => {
@@ -30,8 +30,8 @@ export const FilterForm = () => {
   };
 
   const onReset = () => {
-    setSelectedColor('');
-    setSelectedBrand(0);
+    dispatch(setLocalColor(''));
+    dispatch(setLocalBrand(0));
     dispatch(setFilters({ color: '', brand: 0 }));
   };
 
