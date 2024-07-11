@@ -1,4 +1,4 @@
-import { SubmitButton } from '../../components/ui/Buttons/Submit/SubmitButton';
+import { Button } from '../../components/ui/Buttons/Button/Button';
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.scss';
 
@@ -11,7 +11,7 @@ export const NotFound = () => {
         устарела, была удалена, или был введен неверный адрес в адресной строке.
       </p>
       <Link to="/">
-        <SubmitButton className={styles.button} text="На главную" isColor={true} />
+        <Button className={styles.button} text="На главную" isColor={true} type="button" />
       </Link>
     </div>
   );

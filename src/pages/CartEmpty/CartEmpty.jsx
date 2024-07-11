@@ -1,6 +1,6 @@
 import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
-import { SubmitButton } from '../../components/ui/Buttons/Submit/SubmitButton';
+import { Button } from '../../components/ui/Buttons/Button/Button';
 
 export const CartEmpty = () => {
   return (
@@ -14,7 +14,7 @@ export const CartEmpty = () => {
         <span className={styles.image}></span>
       </div>
       <Link to="/">
-        <SubmitButton className={styles.button} text="На главную" isColor={true} />
+        <Button className={styles.button} text="На главную" isColor={true} type="button" />
       </Link>
     </div>
   );

@@ -14,7 +14,7 @@ import { SearchContext } from '../../App';
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { brandType, sortType, currentPage, filters } = useSelector((state) => state.filter);
+  const { sortType, currentPage, filters } = useSelector((state) => state.filter);
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
@@ -29,13 +29,12 @@ export const Home = () => {
     dispatch(setFilters(newFilters));
   };
 
-  const brandBy = brandType > 0 ? `brand=${brandType}` : '';
+  const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
   const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
   const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
   const sortBy = sortType.sortProperty.replace('-', '');
   const search = searchValue ? `search=${searchValue}` : '';
-  // const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
-  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&${colorFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
+  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -55,7 +54,7 @@ export const Home = () => {
       });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
-  }, [brandBy, sortType, searchValue, currentPage, filters]);
+  }, [sortType, searchValue, currentPage, filters]);
 
   const phones = items.map((product) => (
     <PhoneCard key={product.model} product={product} selectedColor={filters.color} />

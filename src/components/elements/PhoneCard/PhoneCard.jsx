@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import styles from './PhoneCard.module.scss';
 
-import { SubmitButton } from '../../ui/Buttons/Submit/SubmitButton';
+import { Button } from '../../ui/Buttons/Button/Button';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
 
@@ -45,11 +45,7 @@ export const PhoneCard = ({ product, selectedColor }) => {
             {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
           <div className={styles.wrapper}>
-            <SubmitButton
-              text="В корзину"
-              isColor={true}
-              // onClick={() => addItemToCart()}
-            />
+            <Button text="В корзину" isColor={true} type="submit" />
           </div>
         </div>
       </div>

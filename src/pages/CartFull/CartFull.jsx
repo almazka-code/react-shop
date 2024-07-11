@@ -1,6 +1,6 @@
 import { CartItem } from '../../components/elements/CartItem/CartItem';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
-import { SubmitButton } from '../../components/ui/Buttons/Submit/SubmitButton';
+import { Button } from '../../components/ui/Buttons/Button/Button';
 import styles from './CartFull.module.scss';
 import { Link } from 'react-router-dom';
 
@@ -35,7 +35,7 @@ export const CartFull = () => {
             Итого: <span>32 970 ₸</span>
           </p>
 
-          <SubmitButton text="Оформить заказ" isColor={true} className={styles.button} />
+          <Button text="Оформить заказ" isColor={true} className={styles.button} type="submit" />
         </div>
       </section>
     </div>

@@ -1,10 +1,10 @@
-import styles from './SubmitButton.module.scss';
+import styles from './Button.module.scss';
 
-export const SubmitButton = ({ text, isColor, onClick, className }) => {
+export const Button = ({ text, isColor, onClick, className, type }) => {
   return (
     <button
       className={`${styles.button} ${isColor ? styles.primary : styles.transparent} ${className} `}
-      type="submit"
+      type={type}
       onClick={onClick}>
       {text}
     </button>

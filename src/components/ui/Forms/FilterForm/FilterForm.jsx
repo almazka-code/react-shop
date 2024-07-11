@@ -7,21 +7,26 @@ import { PriceInput } from './PriceInput/PriceInput';
 import { BrandSelect } from './BrandSelect/BrandSelect';
 import { Colors } from '../../Colors/Colors';
 import { VolumeCheckbox } from './VolumeCheckbox/VolumeCheckbox';
-import { SubmitButton } from '../../Buttons/Submit/SubmitButton';
+import { Button } from '../../Buttons/Button/Button';
 import { Fieldset } from './Fieldset/Fieldset';
 
 export const FilterForm = () => {
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
   const [selectedColor, setSelectedColor] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState(0);
   const dispatch = useDispatch();
 
   const onColorChange = (event) => {
     setSelectedColor(event.target.value);
   };
 
+  const onBrandChange = (index) => {
+    setSelectedBrand(index);
+  };
+
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(setFilters({ color: selectedColor }));
+    dispatch(setFilters({ color: selectedColor, brand: selectedBrand }));
   };
 
   return (
@@ -34,7 +39,7 @@ export const FilterForm = () => {
       </Fieldset>
 
       <Fieldset legend="Бренд">
-        <BrandSelect />
+        <BrandSelect selectedBrand={selectedBrand} onBrandChange={onBrandChange} />
       </Fieldset>
 
       <Fieldset legend="Цвет">
@@ -51,16 +56,18 @@ export const FilterForm = () => {
         <VolumeCheckbox />
       </Fieldset>
 
-      <SubmitButton
+      <Button
         className={styles.submit}
         text="Применить"
         isColor={true}
+        type="submit"
         // onClick={() => addItemToCart()}
       />
-      <SubmitButton
+      <Button
         className={styles.reset}
         text="Сбросить"
         isColor={false}
+        type="reset"
         // onClick={() => addItemToCart()}
       />
     </form>

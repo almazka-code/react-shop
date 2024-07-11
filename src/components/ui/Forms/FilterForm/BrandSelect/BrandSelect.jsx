@@ -1,7 +1,5 @@
 import styles from './BrandSelect.module.scss';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setBrandType } from '../../../../../redux/slices/filterSlice';
 
 // export const BrandSelect = () => {
 //   const brands = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
@@ -19,23 +17,20 @@ import { setBrandType } from '../../../../../redux/slices/filterSlice';
 //   );
 // };
 
-export const BrandSelect = () => {
+export const BrandSelect = ({ selectedBrand, onBrandChange }) => {
   const brands = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
-
-  const dispatch = useDispatch();
-  const brandType = useSelector((state) => state.filter.brandType);
 
   const [isOpen, setIsOpen] = useState(false);
 
   const onClickBrand = (index) => {
-    dispatch(setBrandType(index));
+    onBrandChange(index);
     setIsOpen(false);
   };
 
   return (
     <div className={styles.select} onClick={() => setIsOpen(!isOpen)}>
       <div className={styles.wrapper}>
-        <span>{brands[brandType]}</span>
+        <span>{brands[selectedBrand]}</span>
         <span className={styles.arrow}></span>
       </div>
 
@@ -45,7 +40,7 @@ export const BrandSelect = () => {
             <li
               key={value}
               onClick={() => onClickBrand(index)}
-              className={`${styles.item} ${brandType === index ? styles.active : ''}`}>
+              className={`${styles.item} ${selectedBrand === index ? styles.active : ''}`}>
               {value}
             </li>
           ))}
