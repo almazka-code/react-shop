@@ -7,7 +7,7 @@ import { VolumeCheckbox } from './VolumeCheckbox/VolumeCheckbox';
 import { SubmitButton } from '../../Buttons/Submit/SubmitButton';
 import { Fieldset } from './Fieldset/Fieldset';
 
-export const Filter = () => {
+export const FilterForm = () => {
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
 
   return (
@@ -15,7 +15,8 @@ export const Filter = () => {
       <h2 className={styles.title}>Фильтры</h2>
 
       <Fieldset legend="Цена">
-        <PriceInput />
+        <PriceInput value="От" name="min-price" placeholder="0" />
+        <PriceInput value="До" name="max-price" placeholder="12345" />
       </Fieldset>
 
       <Fieldset legend="Бренд">

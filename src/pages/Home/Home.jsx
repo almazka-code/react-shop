@@ -7,7 +7,7 @@ import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { useEffect, useState, useContext } from 'react';
 import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
-import { Filter } from '../../components/ui/Forms/FilterForm/FilterForm';
+import { FilterForm } from '../../components/ui/Forms/FilterForm/FilterForm';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Pagination } from '../../components/ui/Pagination/Pagination';
 import { SearchContext } from '../../App';
@@ -65,7 +65,7 @@ export const Home = () => {
 
       <div className={styles.content}>
         <div className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
-          <Filter />
+          <FilterForm />
         </div>
 
         <section className={styles.section}>
