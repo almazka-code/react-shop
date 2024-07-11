@@ -29,8 +29,14 @@ export const FilterForm = () => {
     dispatch(setFilters({ color: selectedColor, brand: selectedBrand }));
   };
 
+  const onReset = () => {
+    setSelectedColor('');
+    setSelectedBrand(0);
+    dispatch(setFilters({ color: '', brand: 0 }));
+  };
+
   return (
-    <form className={styles.form} action="#" method="get" onSubmit={onSubmit}>
+    <form className={styles.form} action="#" method="get" onSubmit={onSubmit} onReset={onReset}>
       <h2 className={styles.title}>Фильтры</h2>
 
       <Fieldset legend="Цена">
@@ -56,20 +62,8 @@ export const FilterForm = () => {
         <VolumeCheckbox />
       </Fieldset>
 
-      <Button
-        className={styles.submit}
-        text="Применить"
-        isColor={true}
-        type="submit"
-        // onClick={() => addItemToCart()}
-      />
-      <Button
-        className={styles.reset}
-        text="Сбросить"
-        isColor={false}
-        type="reset"
-        // onClick={() => addItemToCart()}
-      />
+      <Button className={styles.submit} text="Применить" isColor={true} type="submit" />
+      <Button className={styles.reset} text="Сбросить" isColor={false} type="reset" />
     </form>
   );
 };
