@@ -6,18 +6,20 @@ import { SubmitButton } from '../../ui/Buttons/Submit/SubmitButton';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
 
-export const PhoneCard = ({ product }) => {
-  const [selectedColor, setSelectedColor] = useState(product.colors[0]);
+export const PhoneCard = ({ product, selectedColor }) => {
+  const initialColor =
+    selectedColor && product.colors.includes(selectedColor) ? selectedColor : product.colors[0];
+  const [selectedColorState, setSelectedColorState] = useState(initialColor);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
-  //Функция handleChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
-  const handleChange = (setter) => (event) => {
+  //Функция onChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
+  const onChange = (setter) => (event) => {
     setter(event.target.value);
   };
 
   return (
     <li className={styles.card}>
-      <img className={styles.image} src={product.images[selectedColor]} alt={product.title} />
+      <img className={styles.image} src={product.images[selectedColorState]} alt={product.title} />
 
       <div className={styles.desc}>
         <h3 className={styles.title}>{product.title}</h3>
@@ -26,16 +28,16 @@ export const PhoneCard = ({ product }) => {
           className={styles.colors}
           colors={product.colors}
           name={product.model}
+          selectedColor={selectedColorState}
           isDarkBorder={true}
-          defaultChecked={true}
-          onColorChange={handleChange(setSelectedColor)}
+          onColorChange={onChange(setSelectedColorState)}
         />
 
         <Sizes
           className={styles.sizes}
           sizes={product.sizes}
           name={product.model}
-          onSizeChange={handleChange(setSelectedSize)}
+          onSizeChange={onChange(setSelectedSize)}
         />
 
         <div className={styles.buy}>

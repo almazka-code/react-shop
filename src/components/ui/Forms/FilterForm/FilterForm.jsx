@@ -1,4 +1,7 @@
 import styles from './FilterForm.module.scss';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setFilters } from '../../../../redux/slices/filterSlice';
 
 import { PriceInput } from './PriceInput/PriceInput';
 import { BrandSelect } from './BrandSelect/BrandSelect';
@@ -9,9 +12,20 @@ import { Fieldset } from './Fieldset/Fieldset';
 
 export const FilterForm = () => {
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
+  const [selectedColor, setSelectedColor] = useState('');
+  const dispatch = useDispatch();
+
+  const onColorChange = (event) => {
+    setSelectedColor(event.target.value);
+  };
+
+  const onSubmit = (event) => {
+    event.preventDefault();
+    dispatch(setFilters({ color: selectedColor }));
+  };
 
   return (
-    <form className={styles.form} action="#" method="get">
+    <form className={styles.form} action="#" method="get" onSubmit={onSubmit}>
       <h2 className={styles.title}>Фильтры</h2>
 
       <Fieldset legend="Цена">
@@ -24,7 +38,13 @@ export const FilterForm = () => {
       </Fieldset>
 
       <Fieldset legend="Цвет">
-        <Colors colors={COLORS} name="filter-color" isDarkBorder={false} defaultChecked={false} />
+        <Colors
+          colors={COLORS}
+          name="filter-color"
+          onColorChange={onColorChange}
+          isDarkBorder={false}
+          defaultChecked={false}
+        />
       </Fieldset>
 
       <Fieldset legend="Объем">

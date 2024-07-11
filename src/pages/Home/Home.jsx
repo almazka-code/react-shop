@@ -1,7 +1,7 @@
 import styles from './Home.module.scss';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPage } from '../../redux/slices/filterSlice';
+import { setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
 
 import { Sort } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
@@ -14,7 +14,7 @@ import { SearchContext } from '../../App';
 
 export const Home = () => {
   const dispatch = useDispatch();
-  const { brandType, sortType, currentPage } = useSelector((state) => state.filter);
+  const { brandType, sortType, currentPage, filters } = useSelector((state) => state.filter);
 
   const { searchValue } = useContext(SearchContext);
   const [items, setItems] = useState([]);
@@ -25,11 +25,17 @@ export const Home = () => {
     dispatch(setCurrentPage(number));
   };
 
+  const onApplyFilters = (newFilters) => {
+    dispatch(setFilters(newFilters));
+  };
+
   const brandBy = brandType > 0 ? `brand=${brandType}` : '';
+  const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
   const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
   const sortBy = sortType.sortProperty.replace('-', '');
   const search = searchValue ? `search=${searchValue}` : '';
-  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
+  // const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
+  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandBy}&${colorFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
   useEffect(() => {
     setIsLoading(true);
@@ -49,9 +55,11 @@ export const Home = () => {
       });
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
-  }, [brandBy, sortType, searchValue, currentPage]);
+  }, [brandBy, sortType, searchValue, currentPage, filters]);
 
-  const phones = items.map((product) => <PhoneCard key={product.model} product={product} />);
+  const phones = items.map((product) => (
+    <PhoneCard key={product.model} product={product} selectedColor={filters.color} />
+  ));
   // после items добавить .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
   //вариант поиска для неменяющихся вещей (типа списка стран, для товаров не подходит)
   const skeletons = [...new Array(6)].map((_, index) => <Skeleton key={index} />);
@@ -65,7 +73,7 @@ export const Home = () => {
 
       <div className={styles.content}>
         <div className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
-          <FilterForm />
+          <FilterForm onApplyFilters={onApplyFilters} />
         </div>
 
         <section className={styles.section}>
