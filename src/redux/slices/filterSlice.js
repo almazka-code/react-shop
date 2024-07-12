@@ -29,16 +29,13 @@ export const filterSlice = createSlice({
     setFilters(state, action) {
       state.filters = { ...state.filters, ...action.payload };
     },
-    setLocalColor(state, action) {
-      state.localFilters.color = action.payload;
+    setLocalFilters(state, action) {
+      const { filterName, value } = action.payload;
+      state.localFilters[filterName] = value;
     },
-    setLocalBrand(state, action) {
-      state.localFilters.brand = action.payload;
-    },
-
   },
 })
 
-export const { setSortType, setCurrentPage, setFilters, setLocalColor, setLocalBrand } = filterSlice.actions
+export const { setSortType, setCurrentPage, setFilters, setLocalFilters } = filterSlice.actions
 
 export default filterSlice.reducer

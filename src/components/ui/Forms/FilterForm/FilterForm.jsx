@@ -1,6 +1,6 @@
 import styles from './FilterForm.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilters, setLocalColor, setLocalBrand } from '../../../../redux/slices/filterSlice';
+import { setFilters, setLocalFilters } from '../../../../redux/slices/filterSlice';
 
 import { PriceInput } from './PriceInput/PriceInput';
 import { BrandSelect } from './BrandSelect/BrandSelect';
@@ -17,11 +17,11 @@ export const FilterForm = () => {
   const dispatch = useDispatch();
 
   const onColorChange = (event) => {
-    dispatch(setLocalColor(event.target.value));
+    dispatch(setLocalFilters({ filterName: 'color', value: event.target.value }));
   };
 
   const onBrandChange = (index) => {
-    dispatch(setLocalBrand(index));
+    dispatch(setLocalFilters({ filterName: 'brand', value: index }));
   };
 
   const onSubmit = (event) => {
@@ -30,8 +30,8 @@ export const FilterForm = () => {
   };
 
   const onReset = () => {
-    dispatch(setLocalColor(''));
-    dispatch(setLocalBrand(0));
+    dispatch(setLocalFilters({ filterName: 'color', value: '' }));
+    dispatch(setLocalFilters({ filterName: 'brand', value: 0 }));
     dispatch(setFilters({ color: '', brand: 0 }));
   };
 
