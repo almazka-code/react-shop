@@ -1,7 +1,7 @@
+import styles from './PhoneCard.module.scss';
 import { useState } from 'react';
 
-import styles from './PhoneCard.module.scss';
-
+//Components
 import { Button } from '../../ui/Buttons/Button/Button';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';

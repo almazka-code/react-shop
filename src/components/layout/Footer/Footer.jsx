@@ -1,5 +1,5 @@
-import { Social } from '../../ui/Social/Social';
 import styles from './Footer.module.scss';
+import { Social } from '../../ui/Social/Social';
 
 export const Footer = () => {
   const footerlLinks = [

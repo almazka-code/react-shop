@@ -1,6 +1,8 @@
-// import { Colors } from '../../ui/Colors/Colors';
 import styles from './CartItem.module.scss';
+
+//Components
 import { Counter } from './Counter/Counter';
+// import { Colors } from '../../ui/Colors/Colors';
 
 export const CartItem = ({ title }) => {
   return (

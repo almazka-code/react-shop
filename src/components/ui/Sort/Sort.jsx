@@ -1,8 +1,8 @@
+import styles from './Sort.module.scss';
+
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType } from '../../../redux/slices/filterSlice';
-
-import styles from './Sort.module.scss';
 
 const sortList = [
   { name: 'популярности', sortProperty: 'rating' },

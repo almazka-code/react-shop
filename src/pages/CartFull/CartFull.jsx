@@ -1,8 +1,10 @@
+import styles from './CartFull.module.scss';
+import { Link } from 'react-router-dom';
+
+//Components
 import { CartItem } from '../../components/elements/CartItem/CartItem';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Button } from '../../components/ui/Buttons/Button/Button';
-import styles from './CartFull.module.scss';
-import { Link } from 'react-router-dom';
 
 export const CartFull = () => {
   return (

@@ -2,12 +2,13 @@ import styles from './FilterForm.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilters, setLocalFilters } from '../../../../redux/slices/filterSlice';
 
-// import { PriceInput } from './PriceInput/PriceInput';
+//Components
 import { BrandSelect } from './BrandSelect/BrandSelect';
 import { Colors } from '../../Colors/Colors';
 import { VolumeCheckbox } from './VolumeCheckbox/VolumeCheckbox';
 import { Button } from '../../Buttons/Button/Button';
 import { Fieldset } from './Fieldset/Fieldset';
+// import { PriceInput } from './PriceInput/PriceInput';
 
 export const FilterForm = () => {
   const BRANDS = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
