@@ -2,7 +2,7 @@ import styles from './FilterForm.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilters, setLocalFilters } from '../../../../redux/slices/filterSlice';
 
-import { PriceInput } from './PriceInput/PriceInput';
+// import { PriceInput } from './PriceInput/PriceInput';
 import { BrandSelect } from './BrandSelect/BrandSelect';
 import { Colors } from '../../Colors/Colors';
 import { VolumeCheckbox } from './VolumeCheckbox/VolumeCheckbox';
@@ -10,11 +10,32 @@ import { Button } from '../../Buttons/Button/Button';
 import { Fieldset } from './Fieldset/Fieldset';
 
 export const FilterForm = () => {
+  const BRANDS = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
-  const { color: selectedColor, brand: selectedBrand } = useSelector(
-    (state) => state.filter.localFilters,
-  );
+  const VOLUMES = ['64gb', '128gb', '256gb', '512gb', '1tb'];
+
+  const {
+    color: selectedColor,
+    brand: selectedBrand,
+    volume,
+  } = useSelector((state) => state.filter.localFilters);
+
   const dispatch = useDispatch();
+
+  const onVolumeChange = (event) => {
+    const value = event.target.value;
+    const checked = event.target.checked;
+
+    let newVolume;
+
+    if (checked) {
+      newVolume = [...volume, value];
+    } else {
+      newVolume = volume.filter((item) => item !== value);
+    }
+
+    dispatch(setLocalFilters({ filterName: 'volume', value: newVolume }));
+  };
 
   const onColorChange = (event) => {
     dispatch(setLocalFilters({ filterName: 'color', value: event.target.value }));
@@ -26,26 +47,28 @@ export const FilterForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    dispatch(setFilters({ color: selectedColor, brand: selectedBrand }));
+    const filters = { color: selectedColor, brand: selectedBrand, volume };
+    dispatch(setFilters(filters));
   };
 
   const onReset = () => {
     dispatch(setLocalFilters({ filterName: 'color', value: '' }));
     dispatch(setLocalFilters({ filterName: 'brand', value: 0 }));
-    dispatch(setFilters({ color: '', brand: 0 }));
+    dispatch(setLocalFilters({ filterName: 'volume', value: [] }));
+    dispatch(setFilters({ color: '', brand: 0, volume: [] }));
   };
 
   return (
     <form className={styles.form} action="#" method="get" onSubmit={onSubmit} onReset={onReset}>
       <h2 className={styles.title}>Фильтры</h2>
 
-      <Fieldset legend="Цена">
-        <PriceInput value="От" name="min-price" placeholder="0" />
-        <PriceInput value="До" name="max-price" placeholder="12345" />
-      </Fieldset>
+      {/* <Fieldset legend="Цена">
+        <PriceInput caption="От" name="min-price" placeholder="0" />
+        <PriceInput caption="До" name="max-price" placeholder="990 990" />
+      </Fieldset> */}
 
       <Fieldset legend="Бренд">
-        <BrandSelect selectedBrand={selectedBrand} onBrandChange={onBrandChange} />
+        <BrandSelect brands={BRANDS} selectedBrand={selectedBrand} onBrandChange={onBrandChange} />
       </Fieldset>
 
       <Fieldset legend="Цвет">
@@ -59,7 +82,7 @@ export const FilterForm = () => {
       </Fieldset>
 
       <Fieldset legend="Объем">
-        <VolumeCheckbox />
+        <VolumeCheckbox volumes={VOLUMES} onVolumeChange={onVolumeChange} />
       </Fieldset>
 
       <Button className={styles.submit} text="Применить" isColor={true} type="submit" />

@@ -31,10 +31,11 @@ export const Home = () => {
 
   const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
   const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
+  const volumeFilter = filters.volume.length > 0 ? `sizes=${filters.volume.join(',')}` : ''; //фильтр по объему
   const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
   const sortBy = sortType.sortProperty.replace('-', '');
   const search = searchValue ? `search=${searchValue}` : '';
-  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
+  const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&${volumeFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
   useEffect(() => {
     setIsLoading(true);

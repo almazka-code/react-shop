@@ -8,11 +8,13 @@ const initialState = {
   currentPage: 1,
   filters: {
     color: '',
-    brand: 0
+    brand: 0,
+    volume: []
   },
   localFilters: {
     color: '',
-    brand: 0
+    brand: 0,
+    volume: []
   },
 }
 

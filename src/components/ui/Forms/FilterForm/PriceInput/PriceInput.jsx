@@ -1,10 +1,17 @@
 import styles from './PriceInput.module.scss';
 
-export const PriceInput = ({ value, name, placeholder }) => {
+export const PriceInput = ({ value, caption, name, placeholder, onChange }) => {
   return (
     <label className={styles.label}>
-      <input className={styles.input} type="text" name={name} placeholder={placeholder} />
-      <span className={styles.value}>{value}</span>
+      <input
+        className={styles.input}
+        value={value}
+        type="text"
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+      />
+      <span className={styles.value}>{caption}</span>
     </label>
   );
 };
