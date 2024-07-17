@@ -35,6 +35,14 @@ export const FilterForm = () => {
       newVolume = volume.filter((item) => item !== value);
     }
 
+    newVolume.sort((a, b) => {
+      const numA = parseInt(a);
+      const numB = parseInt(b);
+      return numA - numB;
+    });
+
+    console.log(newVolume);
+
     dispatch(setLocalFilters({ filterName: 'volume', value: newVolume }));
   };
 

@@ -1,12 +1,14 @@
 import styles from './Home.module.scss';
 import axios from 'axios';
+import qs from 'qs';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
-import { useEffect, useState, useContext } from 'react';
+import { setCurrentPage, setFilters, setNavigate } from '../../redux/slices/filterSlice';
+import { useEffect, useState, useContext, useRef } from 'react';
 import { SearchContext } from '../../App';
 
 //Components
-import { Sort } from '../../components/ui/Sort/Sort';
+import { Sort, sortList } from '../../components/ui/Sort/Sort';
 import { PhoneCard } from '../../components/elements/PhoneCard/PhoneCard';
 import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 import { FilterForm } from '../../components/ui/Forms/FilterForm/FilterForm';
@@ -14,7 +16,10 @@ import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton
 import { Pagination } from '../../components/ui/Pagination/Pagination';
 
 export const Home = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const isSearch = useRef(false);
+  const isMounted = useRef(false);
   const { sortType, currentPage, filters } = useSelector((state) => state.filter);
 
   const { searchValue } = useContext(SearchContext);
@@ -30,7 +35,7 @@ export const Home = () => {
     dispatch(setFilters(newFilters));
   };
 
-  useEffect(() => {
+  const fetchPhones = () => {
     setIsLoading(true);
 
     const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
@@ -55,8 +60,49 @@ export const Home = () => {
         }
         setIsLoading(false);
       });
+  };
+
+  // Если изменили параметры и был первый рендер
+  useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty: sortType.sortProperty,
+        currentPage,
+        brand: filters.brand,
+        color: filters.color,
+        size: filters.volume,
+      });
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [sortType, currentPage, filters]);
+
+  // Если был первый рендер, то проверяем URl-параметры и сохраняем в redux
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
+
+      dispatch(
+        setFilters({
+          ...params,
+          sort,
+        }),
+      );
+      isSearch.current = true;
+    }
+  }, []);
+
+  // Если был первый рендер, то запрашиваем телефоны
+  useEffect(() => {
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
+    if (!isSearch.current) {
+      fetchPhones();
+    }
+
+    isSearch.current = false;
   }, [sortType, searchValue, currentPage, filters]);
 
   const phones = items.map((product) => (
