@@ -18,7 +18,7 @@ export const FilterForm = () => {
   const {
     color: selectedColor,
     brand: selectedBrand,
-    volume,
+    sizes,
   } = useSelector((state) => state.filter.localFilters);
 
   const dispatch = useDispatch();
@@ -30,20 +30,14 @@ export const FilterForm = () => {
     let newVolume;
 
     if (checked) {
-      newVolume = [...volume, value];
+      newVolume = [...sizes, value];
     } else {
-      newVolume = volume.filter((item) => item !== value);
+      newVolume = sizes.filter((item) => item !== value);
     }
 
-    newVolume.sort((a, b) => {
-      const numA = parseInt(a);
-      const numB = parseInt(b);
-      return numA - numB;
-    });
+    newVolume.sort((a, b) => VOLUMES.indexOf(a) - VOLUMES.indexOf(b));
 
-    console.log(newVolume);
-
-    dispatch(setLocalFilters({ filterName: 'volume', value: newVolume }));
+    dispatch(setLocalFilters({ filterName: 'sizes', value: newVolume }));
   };
 
   const onColorChange = (event) => {
@@ -56,15 +50,15 @@ export const FilterForm = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    const filters = { color: selectedColor, brand: selectedBrand, volume };
+    const filters = { color: selectedColor, brand: selectedBrand, sizes };
     dispatch(setFilters(filters));
   };
 
   const onReset = () => {
     dispatch(setLocalFilters({ filterName: 'color', value: '' }));
     dispatch(setLocalFilters({ filterName: 'brand', value: 0 }));
-    dispatch(setLocalFilters({ filterName: 'volume', value: [] }));
-    dispatch(setFilters({ color: '', brand: 0, volume: [] }));
+    dispatch(setLocalFilters({ filterName: 'sizes', value: [] }));
+    dispatch(setFilters({ color: '', brand: 0, sizes: [] }));
   };
 
   return (

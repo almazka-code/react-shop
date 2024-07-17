@@ -9,12 +9,12 @@ const initialState = {
   filters: {
     color: '',
     brand: 0,
-    volume: []
+    sizes: []
   },
   localFilters: {
     color: '',
     brand: 0,
-    volume: []
+    sizes: []
   },
 }
 
@@ -40,7 +40,7 @@ export const filterSlice = createSlice({
       state.sort = action.payload.sort;
       state.filters.color = action.payload.filters.color;
       state.filters.brand = Number(action.payload.filters.brand );
-      state.filters.volume = action.payload.filters.volume;
+      state.filters.sizes = action.payload.filters.sizes;
     }
   },
 })

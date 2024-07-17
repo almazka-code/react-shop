@@ -40,7 +40,9 @@ export const Home = () => {
 
     const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
     const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
-    const volumeFilter = filters.volume.length > 0 ? `sizes=${filters.volume.join(',')}` : ''; //фильтр по объему
+    // const volumeFilter = filters.sizes.length > 0 ? `sizes=${filters.sizes.join(',')}` : ''; //фильтр по объему
+    const volumeFilter =
+      filters.sizes.length > 0 ? filters.sizes.map((size) => `sizes=${size}`).join('&') : ''; //фильтр по объему
     const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
     const sortBy = sortType.sortProperty.replace('-', '');
     const search = searchValue ? `search=${searchValue}` : '';
@@ -70,7 +72,7 @@ export const Home = () => {
         currentPage,
         brand: filters.brand,
         color: filters.color,
-        size: filters.volume,
+        sizes: filters.sizes,
       });
       navigate(`?${queryString}`);
     }
