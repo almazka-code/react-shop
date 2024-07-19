@@ -50,4 +50,16 @@
     padding: 15px;
     @extend %dark-text;
   }
+
+  .counter {
+    width: 130px;
+    height: 44px;
+    background-color: $color-accent;
+
+    input {
+      height: 44px;
+      width: 40px;
+      padding: 15px 5px;
+    }
+  }
 }

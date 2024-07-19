@@ -3,13 +3,12 @@
 .product {
   display: flex;
   justify-content: space-between;
-  gap: 50px;
+  gap: 30px;
 }
 
 .picture {
   width: 120px;
   height: 120px;
-  background-color: grey;
 }
 
 .image {
@@ -42,7 +41,7 @@
   color: $color-text-dark;
 }
 
-.color {
+.coloration {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -100,6 +99,7 @@
 .del {
   width: 20px;
   height: 20px;
+  padding: 5px;
   background-color: transparent;
   background-image: url("../../../assets/svg/close.svg");
   background-position: top;

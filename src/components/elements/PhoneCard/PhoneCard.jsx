@@ -1,21 +1,58 @@
 import styles from './PhoneCard.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem } from '../../../redux/slices/cartSlice';
 
 //Components
 import { Button } from '../../ui/Buttons/Button/Button';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
+import { Counter } from '../CartItem/Counter/Counter';
 
 export const PhoneCard = ({ product, selectedColor }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cart.items);
   const initialColor =
     selectedColor && product.colors.includes(selectedColor) ? selectedColor : product.colors[0];
   const [selectedColorState, setSelectedColorState] = useState(initialColor);
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
 
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+
+  const onClickAdd = () => {
+    const item = {
+      id: product.id,
+      title: product.title,
+      image: product.images[selectedColorState],
+      price: product.price[selectedSize],
+      color: selectedColorState,
+      size: selectedSize,
+    };
+
+    dispatch(addItem(item));
+    setIsAddedToCart(true);
+  };
+
+  // Проверка, находится ли текущий вариант товара в корзине
+  useEffect(() => {
+    const itemInCart = cartItems.find(
+      (item) =>
+        item.id === product.id && item.color === selectedColorState && item.size === selectedSize,
+    );
+
+    setIsAddedToCart(!!itemInCart);
+  }, [selectedColorState, selectedSize, cartItems, product.id]);
+
   //Функция onChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
   const onChange = (setter) => (event) => {
     setter(event.target.value);
   };
+
+  const count =
+    cartItems.find(
+      (item) =>
+        item.id === product.id && item.color === selectedColorState && item.size === selectedSize,
+    )?.count || 0;
 
   return (
     <li className={styles.card}>
@@ -45,7 +82,17 @@ export const PhoneCard = ({ product, selectedColor }) => {
             {product.price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
           <div className={styles.wrapper}>
-            <Button text="В корзину" isColor={true} type="submit" />
+            {isAddedToCart ? (
+              <Counter
+                className={styles.counter}
+                count={count}
+                id={product.id}
+                color={selectedColorState}
+                size={selectedSize}
+              />
+            ) : (
+              <Button text="В корзину" isColor={true} type="submit" onClick={onClickAdd} />
+            )}
           </div>
         </div>
       </div>
