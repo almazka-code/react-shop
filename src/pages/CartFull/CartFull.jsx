@@ -20,8 +20,8 @@ export const CartFull = () => {
     return words[count % 100 > 4 && count % 100 < 20 ? 2 : cases[count % 10 < 5 ? count % 10 : 5]];
   };
 
-  const cartItems = useSelector((state) => state.cart.items);
-  const count = cartItems.reduce((acc, item) => (acc += item.count), 0);
+  const { totalPrice, items } = useSelector((state) => state.cart);
+  const count = items.reduce((acc, item) => (acc += item.count), 0);
   const word = getCorrectWord(count, ['товар', 'товара', 'товаров']);
 
   return (
@@ -44,7 +44,7 @@ export const CartFull = () => {
             <NeutralButton onClick={clearCart} className={styles.clear} text="Очистить корзину" />
           </div>
           <ul className={styles.list}>
-            {cartItems.map((item) => (
+            {items.map((item) => (
               <CartItems key={`${item.id}-${item.color}-${item.size}`} {...item} />
             ))}
           </ul>
@@ -53,7 +53,7 @@ export const CartFull = () => {
         <div className={styles.block}>
           <p className={styles.desc}>Мы посчитаем стоимость доставки на следующем этапе</p>
           <p className={styles.price}>
-            Итого: <span>32 970 ₸</span>
+            Итого: <span>{Number(totalPrice).toLocaleString('ru-RU')} ₸</span>
           </p>
 
           <Button text="Оформить заказ" isColor={true} className={styles.button} type="submit" />
