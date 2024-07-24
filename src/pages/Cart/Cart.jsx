@@ -1,4 +1,4 @@
-import styles from './CartFull.module.scss';
+import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearItems } from '../../redux/slices/cartSlice';
@@ -7,8 +7,9 @@ import { clearItems } from '../../redux/slices/cartSlice';
 import { CartItems } from '../../components/elements/CartItem/CartItems';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Button } from '../../components/ui/Buttons/Button/Button';
+import { CartEmpty } from '../../components/elements/CartEmpty/CartEmpty';
 
-export const CartFull = () => {
+export const Cart = () => {
   const dispatch = useDispatch();
 
   const clearCart = () => {
@@ -23,6 +24,10 @@ export const CartFull = () => {
   const { totalPrice, items } = useSelector((state) => state.cart);
   const count = items.reduce((acc, item) => (acc += item.count), 0);
   const word = getCorrectWord(count, ['товар', 'товара', 'товаров']);
+
+  if (!items.length) {
+    return <CartEmpty />;
+  }
 
   return (
     <div className={styles.wrapper}>

@@ -1,7 +1,7 @@
 import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
 
-import { Button } from '../../components/ui/Buttons/Button/Button';
+import { Button } from '../../ui/Buttons/Button/Button';
 
 export const CartEmpty = () => {
   return (
