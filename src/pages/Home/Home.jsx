@@ -14,6 +14,7 @@ import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 import { FilterForm } from '../../components/ui/Forms/FilterForm/FilterForm';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Pagination } from '../../components/ui/Pagination/Pagination';
+import { toContainElement } from '@testing-library/jest-dom/matchers';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -35,7 +36,7 @@ export const Home = () => {
     dispatch(setFilters(newFilters));
   };
 
-  const fetchPhones = () => {
+  const fetchPhones = async () => {
     setIsLoading(true);
 
     const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
@@ -48,20 +49,14 @@ export const Home = () => {
     const search = searchValue ? `search=${searchValue}` : '';
     const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&${volumeFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
-    axios
-      .get(url)
-      .then((res) => {
-        setItems(res.data);
-        setIsLoading(false);
-      })
-      .catch((error) => {
-        if (error.response && error.response.status === 404) {
-          setItems([]);
-        } else {
-          console.error('Произошла ошибка:', error);
-        }
-        setIsLoading(false);
-      });
+    try {
+      const res = await axios.get(url);
+      setItems(res.data);
+    } catch (error) {
+      console.error('Произошла ошибка:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Если изменили параметры и был первый рендер
