@@ -1,9 +1,9 @@
 import styles from './Home.module.scss';
-import axios from 'axios';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage, setFilters, setNavigate } from '../../redux/slices/filterSlice';
+import { fetchPhones } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useContext, useRef } from 'react';
 import { SearchContext } from '../../App';
 
@@ -14,7 +14,7 @@ import { Skeleton } from '../../components/elements/PhoneCard/Skeleton';
 import { FilterForm } from '../../components/ui/Forms/FilterForm/FilterForm';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Pagination } from '../../components/ui/Pagination/Pagination';
-import { toContainElement } from '@testing-library/jest-dom/matchers';
+import { Error } from '../../components/elements/Error/Error';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -22,11 +22,10 @@ export const Home = () => {
   const isSearch = useRef(false);
   const isMounted = useRef(false);
   const { sortType, currentPage, filters } = useSelector((state) => state.filter);
+  const { items, status } = useSelector((state) => state.phones);
 
   const { searchValue } = useContext(SearchContext);
-  const [items, setItems] = useState([]);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
 
   const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
@@ -36,9 +35,7 @@ export const Home = () => {
     dispatch(setFilters(newFilters));
   };
 
-  const fetchPhones = async () => {
-    setIsLoading(true);
-
+  const getPhones = async () => {
     const brandFilter = filters.brand > 0 ? `brand=${filters.brand}` : ''; //фильтр по бренду
     const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
     // const volumeFilter = filters.sizes.length > 0 ? `sizes=${filters.sizes.join(',')}` : ''; //фильтр по объему
@@ -47,16 +44,10 @@ export const Home = () => {
     const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
     const sortBy = sortType.sortProperty.replace('-', '');
     const search = searchValue ? `search=${searchValue}` : '';
-    const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&${volumeFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
 
-    try {
-      const res = await axios.get(url);
-      setItems(res.data);
-    } catch (error) {
-      console.error('Произошла ошибка:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    dispatch(
+      fetchPhones({ brandFilter, colorFilter, volumeFilter, order, sortBy, search, currentPage }),
+    );
   };
 
   // Если изменили параметры и был первый рендер
@@ -96,7 +87,7 @@ export const Home = () => {
     window.scrollTo(0, 0); //чтобы при переходе с других страниц на Home,
     // не сохранялся скролл браузера и страница Home не открывалась где-то внизу
     if (!isSearch.current) {
-      fetchPhones();
+      getPhones();
     }
 
     isSearch.current = false;
@@ -131,12 +122,11 @@ export const Home = () => {
             </div>
             <Sort />
           </div>
-          <ul className={styles.list}>
-            {/* пока идет загрузка создать фейковый массив из 6 элементов (все значения будут underfined) для того,
-            чтобы рендерился массив скелетонов, так как массив с данными ещё не пришел  */}
-            {isLoading ? skeletons : phones}
-          </ul>
-
+          {status === 'error' ? (
+            <Error />
+          ) : (
+            <ul className={styles.list}>{status === 'loading' ? skeletons : phones}</ul>
+          )}
           <Pagination currentPage={currentPage} onChangePage={onChangePage} />
         </section>
       </div>
