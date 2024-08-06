@@ -38,6 +38,13 @@
 }
 
 .search {
+  margin-left: 200px;
+  margin-right: auto;
+
+  @media (max-width: 1200px) {
+    margin-left: 100px;
+  }
+
   @media (max-width: 1024px) {
     display: none;
   }

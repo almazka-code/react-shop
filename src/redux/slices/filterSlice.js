@@ -39,13 +39,13 @@ export const filterSlice = createSlice({
       const { filterName, value } = action.payload;
       state.localFilters[filterName] = value;
     },
-    setNavigate(state, action) {
-      state.currentPage = Number(action.payload.currentPage);
-      state.sort = action.payload.sort;
-      state.filters.color = action.payload.filters.color;
-      state.filters.brand = Number(action.payload.filters.brand );
-      state.filters.sizes = action.payload.filters.sizes;
-    }
+    // setNavigate(state, action) {
+    //   state.currentPage = Number(action.payload.currentPage);
+    //   state.sort = action.payload.sort;
+    //   state.filters.color = action.payload.filters.color;
+    //   state.filters.brand = Number(action.payload.filters.brand );
+    //   state.filters.sizes = action.payload.filters.sizes;
+    // }
   },
 })
 

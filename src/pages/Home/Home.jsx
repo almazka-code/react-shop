@@ -2,12 +2,7 @@ import styles from './Home.module.scss';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  filterSelector,
-  setCurrentPage,
-  setFilters,
-  setNavigate,
-} from '../../redux/slices/filterSlice';
+import { filterSelector, setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
 import { fetchPhones, phonesSelector } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useRef } from 'react';
 
