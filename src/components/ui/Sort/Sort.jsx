@@ -1,6 +1,7 @@
 import styles from './Sort.module.scss';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType, sortTypeSelector } from '../../../redux/slices/filterSlice';
 
@@ -23,19 +24,7 @@ export const Sort = () => {
     setIsOpen(false);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (!event.composedPath().includes(sortRef.current)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.body.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.body.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
+  useOutsideClick(sortRef, () => setIsOpen(false));
 
   return (
     <div ref={sortRef} className={styles.sort}>

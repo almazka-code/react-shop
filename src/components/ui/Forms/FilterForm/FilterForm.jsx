@@ -14,7 +14,7 @@ import { Button } from '../../Buttons/Button/Button';
 import { Fieldset } from './Fieldset/Fieldset';
 // import { PriceInput } from './PriceInput/PriceInput';
 
-export const FilterForm = () => {
+export const FilterForm = ({ onApplyFilters }) => {
   const BRANDS = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
   const VOLUMES = ['64gb', '128gb', '256gb', '512gb', '1tb'];
@@ -51,7 +51,10 @@ export const FilterForm = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     const filters = { color: selectedColor, brand: selectedBrand, sizes };
-    dispatch(setFilters(filters));
+    if (onApplyFilters) {
+      onApplyFilters(filters);
+    }
+    // dispatch(setFilters(filters));
   };
 
   const onReset = () => {

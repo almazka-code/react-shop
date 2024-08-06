@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { filterSelector, setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
 import { fetchPhones, phonesSelector } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useRef } from 'react';
+import { useOutsideClick } from '../../hooks/useOutsideClick';
 
 //Components
 import { Sort, sortList } from '../../components/ui/Sort/Sort';
@@ -20,10 +21,13 @@ export const Home = () => {
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
+
   const { searchValue, sortType, currentPage, filters } = useSelector(filterSelector);
   const { items, status } = useSelector(phonesSelector);
 
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+  const filterRef = useRef();
+  useOutsideClick(filterRef, () => setIsFiltersVisible(false));
 
   const onChangePage = (number) => {
     dispatch(setCurrentPage(number));
@@ -31,6 +35,7 @@ export const Home = () => {
 
   const onApplyFilters = (newFilters) => {
     dispatch(setFilters(newFilters));
+    setIsFiltersVisible(false);
   };
 
   const getPhones = async () => {
@@ -106,7 +111,9 @@ export const Home = () => {
       </div>
 
       <div className={styles.content}>
-        <div className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
+        <div
+          ref={filterRef}
+          className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
           <FilterForm onApplyFilters={onApplyFilters} />
         </div>
 
