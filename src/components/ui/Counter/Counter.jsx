@@ -1,6 +1,6 @@
 import styles from './Counter.module.scss';
 import { useDispatch } from 'react-redux';
-import { plusItemCount, minusItemCount } from '../../../../redux/slices/cartSlice';
+import { plusItemCount, minusItemCount } from '../../../redux/slices/cartSlice';
 
 export const Counter = ({ count, id, color, size, className }) => {
   const dispatch = useDispatch();

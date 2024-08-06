@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { removeItem } from '../../../redux/slices/cartSlice';
 
 //Components
-import { Counter } from './Counter/Counter';
+import { Counter } from '../../ui/Counter/Counter';
 
 export const CartItems = ({ id, color, size, title, price, image, count }) => {
   const dispatch = useDispatch();

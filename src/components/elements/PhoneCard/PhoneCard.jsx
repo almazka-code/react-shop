@@ -7,7 +7,7 @@ import { addItem, cartItemsSelector } from '../../../redux/slices/cartSlice';
 import { Button } from '../../ui/Buttons/Button/Button';
 import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
-import { Counter } from '../CartItem/Counter/Counter';
+import { Counter } from '../../ui/Counter/Counter';
 
 export const PhoneCard = ({ product, selectedColor }) => {
   const dispatch = useDispatch();
