@@ -9,8 +9,7 @@ import {
   setNavigate,
 } from '../../redux/slices/filterSlice';
 import { fetchPhones, phonesSelector } from '../../redux/slices/phonesSlice';
-import { useEffect, useState, useContext, useRef } from 'react';
-import { SearchContext } from '../../App';
+import { useEffect, useState, useRef } from 'react';
 
 //Components
 import { Sort, sortList } from '../../components/ui/Sort/Sort';
@@ -26,10 +25,9 @@ export const Home = () => {
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-  const { sortType, currentPage, filters } = useSelector(filterSelector);
+  const { searchValue, sortType, currentPage, filters } = useSelector(filterSelector);
   const { items, status } = useSelector(phonesSelector);
 
-  const { searchValue } = useContext(SearchContext);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
 
   const onChangePage = (number) => {

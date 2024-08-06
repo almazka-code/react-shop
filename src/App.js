@@ -1,5 +1,4 @@
 import {Routes, Route} from "react-router-dom";
-import { createContext, useState } from 'react';
 import './styles/main.scss';
 
 import { Footer } from './components/layout/Footer/Footer';
@@ -8,14 +7,9 @@ import { Home } from './pages/Home/Home';
 import { NotFound } from './pages/NotFound/NotFound';
 import { Cart } from "./pages/Cart/Cart";
 
-export const SearchContext = createContext();
-
 const App = () => {
-  const [searchValue, setSearchValue] = useState('');
-
   return (
     <div className="wrapper">
-      <SearchContext.Provider value={{searchValue, setSearchValue}}>
         <Header />
         <main className="main">
           <Routes>
@@ -25,7 +19,6 @@ const App = () => {
           </Routes>
         </main>
         <Footer />
-      </SearchContext.Provider>
     </div>
   );
 }
