@@ -1,7 +1,7 @@
 import styles from './PhoneCard.module.scss';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem } from '../../../redux/slices/cartSlice';
+import { addItem, cartItemsSelector } from '../../../redux/slices/cartSlice';
 
 //Components
 import { Button } from '../../ui/Buttons/Button/Button';
@@ -11,7 +11,7 @@ import { Counter } from '../CartItem/Counter/Counter';
 
 export const PhoneCard = ({ product, selectedColor }) => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state) => state.cart.items);
+  const cartItems = useSelector(cartItemsSelector);
   const initialColor =
     selectedColor && product.colors.includes(selectedColor) ? selectedColor : product.colors[0];
   const [selectedColorState, setSelectedColorState] = useState(initialColor);

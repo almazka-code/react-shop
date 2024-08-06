@@ -1,6 +1,10 @@
 import styles from './FilterForm.module.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilters, setLocalFilters } from '../../../../redux/slices/filterSlice';
+import {
+  localFiltersSelector,
+  setFilters,
+  setLocalFilters,
+} from '../../../../redux/slices/filterSlice';
 
 //Components
 import { BrandSelect } from './BrandSelect/BrandSelect';
@@ -15,11 +19,7 @@ export const FilterForm = () => {
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
   const VOLUMES = ['64gb', '128gb', '256gb', '512gb', '1tb'];
 
-  const {
-    color: selectedColor,
-    brand: selectedBrand,
-    sizes,
-  } = useSelector((state) => state.filter.localFilters);
+  const { color: selectedColor, brand: selectedBrand, sizes } = useSelector(localFiltersSelector);
 
   const dispatch = useDispatch();
 

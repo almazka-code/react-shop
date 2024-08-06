@@ -1,7 +1,7 @@
 import styles from './Cart.module.scss';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { clearItems } from '../../redux/slices/cartSlice';
+import { cartSelector, clearItems } from '../../redux/slices/cartSlice';
 
 //Components
 import { CartItems } from '../../components/elements/CartItem/CartItems';
@@ -21,7 +21,7 @@ export const Cart = () => {
     return words[count % 100 > 4 && count % 100 < 20 ? 2 : cases[count % 10 < 5 ? count % 10 : 5]];
   };
 
-  const { totalPrice, items } = useSelector((state) => state.cart);
+  const { totalPrice, items } = useSelector(cartSelector);
   const count = items.reduce((acc, item) => (acc += item.count), 0);
   const word = getCorrectWord(count, ['товар', 'товара', 'товаров']);
 

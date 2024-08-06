@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import logo from '../../../assets/svg/logo.svg';
 import { CartButton } from '../../ui/Buttons/Cart/CartButton';
 import { Search } from '../../ui/Search/Search';
+import { cartSelector } from '../../../redux/slices/cartSlice';
 
 export const Header = () => {
-  const { totalPrice, items } = useSelector((state) => state.cart);
+  const { totalPrice, items } = useSelector(cartSelector);
 
   const count = items.reduce((acc, item) => (acc += item.count), 0);
 

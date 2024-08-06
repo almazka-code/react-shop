@@ -2,8 +2,13 @@ import styles from './Home.module.scss';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPage, setFilters, setNavigate } from '../../redux/slices/filterSlice';
-import { fetchPhones } from '../../redux/slices/phonesSlice';
+import {
+  filterSelector,
+  setCurrentPage,
+  setFilters,
+  setNavigate,
+} from '../../redux/slices/filterSlice';
+import { fetchPhones, phonesSelector } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useContext, useRef } from 'react';
 import { SearchContext } from '../../App';
 
@@ -21,8 +26,8 @@ export const Home = () => {
   const dispatch = useDispatch();
   const isSearch = useRef(false);
   const isMounted = useRef(false);
-  const { sortType, currentPage, filters } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.phones);
+  const { sortType, currentPage, filters } = useSelector(filterSelector);
+  const { items, status } = useSelector(phonesSelector);
 
   const { searchValue } = useContext(SearchContext);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);

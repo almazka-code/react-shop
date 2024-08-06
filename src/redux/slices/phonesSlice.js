@@ -13,7 +13,7 @@ export const fetchPhones = createAsyncThunk(
 
 const initialState = {
   items: [],
-  status: 'loading',
+  status: 'loading', //loading, success, error
 }
 
 export const phonesSlice = createSlice({
@@ -40,6 +40,8 @@ export const phonesSlice = createSlice({
     })
   }
 })
+
+export const phonesSelector = (state) => state.phones;
 
 export const { setItems } = phonesSlice.actions
 

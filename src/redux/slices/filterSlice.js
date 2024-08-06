@@ -45,6 +45,10 @@ export const filterSlice = createSlice({
   },
 })
 
+export const filterSelector = (state) => state.filter;
+export const sortTypeSelector = (state) => state.filter.sortType;
+export const localFiltersSelector = (state) => state.filter.localFilters;
+
 export const { setSortType, setCurrentPage, setFilters, setLocalFilters,  setNavigate} = filterSlice.actions
 
 export default filterSlice.reducer
