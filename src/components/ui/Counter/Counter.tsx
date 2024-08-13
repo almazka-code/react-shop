@@ -1,8 +1,17 @@
+import React from 'react';
 import styles from './Counter.module.scss';
 import { useDispatch } from 'react-redux';
 import { plusItemCount, minusItemCount } from '../../../redux/slices/cartSlice';
 
-export const Counter = ({ count, id, color, size, className }) => {
+interface CounterProps {
+  count: number;
+  id: string;
+  color: string;
+  size: string;
+  className?: string;
+}
+
+export const Counter: React.FC<CounterProps>  = ({ count, id, color, size, className }) => {
   const dispatch = useDispatch();
 
   const onClickMinus = () => {

@@ -1,6 +1,7 @@
+import React from 'react';
 import styles from './Error.module.scss';
 
-export const Error = () => {
+export const Error: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Ошибка обращения к серверу</h2>

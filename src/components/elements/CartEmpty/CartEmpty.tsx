@@ -1,9 +1,10 @@
+import React from 'react';
 import styles from './CartEmpty.module.scss';
 import { Link } from 'react-router-dom';
 
 import { Button } from '../../ui/Buttons/Button/Button';
 
-export const CartEmpty = () => {
+export const CartEmpty: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Корзина пустая</h2>

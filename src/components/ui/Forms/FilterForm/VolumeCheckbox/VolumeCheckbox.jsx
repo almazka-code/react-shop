@@ -14,7 +14,7 @@ export const VolumeCheckbox = ({ volumes, onVolumeChange }) => {
               onChange={onVolumeChange}
             />
             <span className={styles.desc}>
-              {(volume.slice(0, -2) + ' ' + volume.slice(-2)).toUpperCase()} <span>(313)</span>
+              {(volume.slice(0, -2) + ' ' + volume.slice(-2)).toUpperCase()}
             </span>
           </label>
         </li>

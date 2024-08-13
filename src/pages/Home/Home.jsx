@@ -107,7 +107,7 @@ export const Home = () => {
     <div className={styles.catalog}>
       <div className={styles.top}>
         <h2 className={styles.title}>Каталог</h2>
-        <span className={styles.subtitle}>152 товара</span>
+        {/* <span className={styles.subtitle}>152 товара</span> */}
       </div>
 
       <div className={styles.content}>

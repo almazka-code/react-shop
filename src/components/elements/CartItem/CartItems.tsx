@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './CartItems.module.scss';
 import { useDispatch } from 'react-redux';
 import { removeItem } from '../../../redux/slices/cartSlice';
@@ -5,10 +6,20 @@ import { removeItem } from '../../../redux/slices/cartSlice';
 //Components
 import { Counter } from '../../ui/Counter/Counter';
 
-export const CartItems = ({ id, color, size, title, price, image, count }) => {
+interface CartItemsProps {
+  id: string;
+  color: string;
+  size: string;
+  title: string;
+  price: number;
+  image: string;
+  count: number;
+}
+
+export const CartItems: React.FC<CartItemsProps> = ({ id, color, size, title, price, image, count }) => {
   const dispatch = useDispatch();
 
-  const handleRemove = (id, color, size) => {
+  const handleRemove = (id: string, color: string, size: string) => {
     dispatch(removeItem({ id, color, size }));
   };
 
