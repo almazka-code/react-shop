@@ -14,7 +14,18 @@ import { Button } from '../../Buttons/Button/Button';
 import { Fieldset } from './Fieldset/Fieldset';
 // import { PriceInput } from './PriceInput/PriceInput';
 
-export const FilterForm = ({ onApplyFilters }) => {
+type Filters = {
+  color: string;
+  brand: number;
+  sizes: string[];
+};
+
+type FilterFormProps = {
+  onApplyFilters: (newFilters: Filters) => void;
+};
+
+
+export const FilterForm: React.FC<FilterFormProps> = ({ onApplyFilters }) => {
   const BRANDS = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
   const VOLUMES = ['64gb', '128gb', '256gb', '512gb', '1tb'];
@@ -23,7 +34,7 @@ export const FilterForm = ({ onApplyFilters }) => {
 
   const dispatch = useDispatch();
 
-  const onVolumeChange = (event) => {
+  const onVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     const checked = event.target.checked;
 
@@ -32,23 +43,23 @@ export const FilterForm = ({ onApplyFilters }) => {
     if (checked) {
       newVolume = [...sizes, value];
     } else {
-      newVolume = sizes.filter((item) => item !== value);
+      newVolume = sizes.filter((item: string) => item !== value);
     }
 
-    newVolume.sort((a, b) => VOLUMES.indexOf(a) - VOLUMES.indexOf(b));
+    newVolume.sort((a: string, b: string) => VOLUMES.indexOf(a) - VOLUMES.indexOf(b));
 
     dispatch(setLocalFilters({ filterName: 'sizes', value: newVolume }));
   };
 
-  const onColorChange = (event) => {
+  const onColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setLocalFilters({ filterName: 'color', value: event.target.value }));
   };
 
-  const onBrandChange = (index) => {
+  const onBrandChange = (index: number) => {
     dispatch(setLocalFilters({ filterName: 'brand', value: index }));
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const filters = { color: selectedColor, brand: selectedBrand, sizes };
     if (onApplyFilters) {
@@ -83,7 +94,6 @@ export const FilterForm = ({ onApplyFilters }) => {
           name="filter-color"
           onColorChange={onColorChange}
           isDarkBorder={false}
-          defaultChecked={false}
         />
       </Fieldset>
 

@@ -1,6 +1,15 @@
 import styles from './Colors.module.scss';
 
-export const Colors = ({ colors, name, isDarkBorder, onColorChange, className, selectedColor }) => {
+type ColorsProps = {
+  colors: string[];
+  name: string;
+  isDarkBorder?: boolean;
+  onColorChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+  selectedColor?: string;
+}
+
+export const Colors: React.FC<ColorsProps> = ({ colors, name, isDarkBorder, onColorChange, className, selectedColor }) => {
   return (
     <ul className={`${styles.colors} ${isDarkBorder ? styles.dark : ''} ${className} `}>
       {colors.map((color) => (

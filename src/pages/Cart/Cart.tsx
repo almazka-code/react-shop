@@ -9,20 +9,20 @@ import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton
 import { Button } from '../../components/ui/Buttons/Button/Button';
 import { CartEmpty } from '../../components/elements/CartEmpty/CartEmpty';
 
-export const Cart = () => {
+export const Cart: React.FC = () => {
   const dispatch = useDispatch();
 
   const clearCart = () => {
     dispatch(clearItems());
   };
 
-  const getCorrectWord = (count, words) => {
+  const getCorrectWord = (count: number, words: string[]) => {
     const cases = [2, 0, 1, 1, 1, 2];
     return words[count % 100 > 4 && count % 100 < 20 ? 2 : cases[count % 10 < 5 ? count % 10 : 5]];
   };
 
   const { totalPrice, items } = useSelector(cartSelector);
-  const count = items.reduce((acc, item) => (acc += item.count), 0);
+  const count = items.reduce((acc: number, item: any) => (acc += item.count), 0);
   const word = getCorrectWord(count, ['товар', 'товара', 'товаров']);
 
   if (!items.length) {
@@ -49,7 +49,7 @@ export const Cart = () => {
             <NeutralButton onClick={clearCart} className={styles.clear} text="Очистить корзину" />
           </div>
           <ul className={styles.list}>
-            {items.map((item) => (
+            {items.map((item: any) => (
               <CartItems key={`${item.id}-${item.color}-${item.size}`} {...item} />
             ))}
           </ul>

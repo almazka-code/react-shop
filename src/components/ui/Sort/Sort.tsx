@@ -5,22 +5,27 @@ import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSortType, sortTypeSelector } from '../../../redux/slices/filterSlice';
 
-export const sortList = [
+type SortListItem = {
+  name: string;
+  sortProperty: string;
+}
+
+export const sortList: SortListItem[] = [
   { name: 'популярности', sortProperty: 'rating' },
   { name: 'алфавиту', sortProperty: 'title' },
   { name: 'возрастанию цены', sortProperty: 'priceMin' },
   { name: 'убыванию цены', sortProperty: '-priceMin' },
 ];
 
-export const Sort = () => {
+export const Sort: React.FC = () => {
   const dispatch = useDispatch();
   const sortType = useSelector(sortTypeSelector);
-  const sortRef = useRef();
+  const sortRef = useRef<HTMLDivElement>(null);
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const onClickListItem = (index) => {
-    dispatch(setSortType(index));
+  const onClickListItem = (obj: SortListItem) => {
+    dispatch(setSortType(obj));
     setIsOpen(false);
   };
 

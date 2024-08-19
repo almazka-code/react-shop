@@ -5,26 +5,32 @@ import facebookIcon from '../../../assets/svg/social/facebook.svg';
 import twitterIcon from '../../../assets/svg/social/twitter.svg';
 import telegramIcon from '../../../assets/svg/social/telegram.svg';
 
-export const Social = () => {
-  const socialLinks = [
-    {
-      name: 'instagram',
-      url: 'https://www.instagram.com',
-      icon: instagramIcon,
-    },
-    {
-      name: 'facebook',
-      url: 'https://www.facebook.com',
-      icon: facebookIcon,
-    },
-    { name: 'twitter', url: 'https://www.x.com', icon: twitterIcon },
-    {
-      name: 'telegram',
-      url: 'https://web.telegram.org',
-      icon: telegramIcon,
-    },
-  ];
+type SocialLinksItem = {
+  name: string;
+  url: string;
+  icon: string;
+}
 
+const socialLinks: SocialLinksItem[]  = [
+  {
+    name: 'instagram',
+    url: 'https://www.instagram.com',
+    icon: instagramIcon,
+  },
+  {
+    name: 'facebook',
+    url: 'https://www.facebook.com',
+    icon: facebookIcon,
+  },
+  { name: 'twitter', url: 'https://www.x.com', icon: twitterIcon },
+  {
+    name: 'telegram',
+    url: 'https://web.telegram.org',
+    icon: telegramIcon,
+  },
+];
+
+export const Social: React.FC = () => {
   return (
     <ul className={styles.social}>
       {socialLinks.map((social) => (

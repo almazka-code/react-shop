@@ -16,24 +16,28 @@ import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton
 import { Pagination } from '../../components/ui/Pagination/Pagination';
 import { Error } from '../../components/elements/Error/Error';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isSearch = useRef(false);
-  const isMounted = useRef(false);
+  const isSearch = useRef<boolean>(false);
+  const isMounted = useRef<boolean>(false);
 
   const { searchValue, sortType, currentPage, filters } = useSelector(filterSelector);
   const { items, status } = useSelector(phonesSelector);
 
-  const [isFiltersVisible, setIsFiltersVisible] = useState(false);
-  const filterRef = useRef();
+  const [isFiltersVisible, setIsFiltersVisible] = useState<boolean>(false);
+  const filterRef = useRef<HTMLDivElement>(null);
   useOutsideClick(filterRef, () => setIsFiltersVisible(false));
 
-  const onChangePage = (number) => {
+  const onChangePage = (number: number) => {
     dispatch(setCurrentPage(number));
   };
 
-  const onApplyFilters = (newFilters) => {
+  const onApplyFilters = (newFilters: {
+    color: string,
+    brand: number,
+    sizes: string[]
+  }) => {
     dispatch(setFilters(newFilters));
     setIsFiltersVisible(false);
   };
@@ -43,12 +47,13 @@ export const Home = () => {
     const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
     // const volumeFilter = filters.sizes.length > 0 ? `sizes=${filters.sizes.join(',')}` : ''; //фильтр по объему
     const volumeFilter =
-      filters.sizes.length > 0 ? filters.sizes.map((size) => `sizes=${size}`).join('&') : ''; //фильтр по объему
+      filters.sizes.length > 0 ? filters.sizes.map((size: string) => `sizes=${size}`).join('&') : ''; //фильтр по объему
     const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
     const sortBy = sortType.sortProperty.replace('-', '');
     const search = searchValue ? `search=${searchValue}` : '';
 
     dispatch(
+      //@ts-ignore
       fetchPhones({ brandFilter, colorFilter, volumeFilter, order, sortBy, search, currentPage }),
     );
   };
@@ -96,8 +101,18 @@ export const Home = () => {
     isSearch.current = false;
   }, [sortType, searchValue, currentPage, filters]);
 
-  const phones = items.map((product) => (
-    <PhoneCard key={product.model} product={product} selectedColor={filters.color} />
+  const phones = items.map((product: any) => (
+    <PhoneCard
+      key={product.model}
+      id={product.id}
+      title={product.title}
+      model={product.model}
+      colors={product.colors}
+      sizes={product.sizes}
+      price={product.price}
+      images={product.images}
+      selectedColor={filters.color}
+    />
   ));
   // после items добавить .filter((obj) => obj.title.toLowerCase().includes(searchValue.toLowerCase()))
   //вариант поиска для неменяющихся вещей (типа списка стран, для товаров не подходит)

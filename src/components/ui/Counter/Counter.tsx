@@ -3,9 +3,9 @@ import styles from './Counter.module.scss';
 import { useDispatch } from 'react-redux';
 import { plusItemCount, minusItemCount } from '../../../redux/slices/cartSlice';
 
-interface CounterProps {
+type CounterProps = {
   count: number;
-  id: string;
+  id: number;
   color: string;
   size: string;
   className?: string;

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Button } from '../../components/ui/Buttons/Button/Button';
 
-export const NotFound = () => {
+export const NotFound: React.FC = () => {
   return (
     <div className={styles.wrapper}>
       <h2 className={styles.title}>Ошибка 404</h2>

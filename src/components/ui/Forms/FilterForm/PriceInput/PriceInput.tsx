@@ -1,6 +1,14 @@
 import styles from './PriceInput.module.scss';
 
-export const PriceInput = ({ value, caption, name, placeholder, onChange }) => {
+type PriceInputProps = {
+  value: string;
+  caption: string;
+  name: string;
+  placeholder: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export const PriceInput: React.FC<PriceInputProps> = ({ value, caption, name, placeholder, onChange }) => {
   return (
     <label className={styles.label}>
       <input

@@ -1,17 +1,22 @@
 import styles from './Footer.module.scss';
 import { Social } from '../../ui/Social/Social';
 
-export const Footer = () => {
-  const footerlLinks = [
-    { text: '8-800-600-90-09', url: 'tel:88006009009' },
-    { text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
-    { text: 'Политика конфиденциальности', url: 'https://policies.google.com' },
-    {
-      text: 'Публичная оферта',
-      url: 'https://www.google.com/intl/ru/adwords/select/TCRussiaForGoogleRussia.html',
-    },
-  ];
+type LinkItem = {
+  text: string;
+  url: string;
+}
 
+const footerlLinks: LinkItem[] = [
+  { text: '8-800-600-90-09', url: 'tel:88006009009' },
+  { text: 'hi@smartphonemania.com', url: 'mailto:hi@smartphonemania.com' },
+  { text: 'Политика конфиденциальности', url: 'https://policies.google.com' },
+  {
+    text: 'Публичная оферта',
+    url: 'https://www.google.com/intl/ru/adwords/select/TCRussiaForGoogleRussia.html',
+  },
+];
+
+export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.wrapper}>

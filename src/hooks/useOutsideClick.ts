@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, RefObject } from 'react';
 
-export const useOutsideClick = (ref, callback) => {
+export const useOutsideClick = (ref: RefObject<HTMLElement>, callback: () => void) => {
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (ref.current && !event.composedPath().includes(ref.current)) {
         callback();
       }

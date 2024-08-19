@@ -2,11 +2,17 @@ import styles from './BrandSelect.module.scss';
 import { useState, useRef } from 'react';
 import { useOutsideClick } from '../../../../../hooks/useOutsideClick';
 
-export const BrandSelect = ({ brands, selectedBrand, onBrandChange }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const brandRef = useRef();
+type BrandSelectsProps = {
+  brands: string[];
+  selectedBrand: number;
+  onBrandChange: (index: number) => void;
+}
 
-  const onClickBrand = (index) => {
+export const BrandSelect: React.FC<BrandSelectsProps> = ({ brands, selectedBrand, onBrandChange }) => {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const brandRef = useRef<HTMLDivElement>(null);
+
+  const onClickBrand = (index: number) => {
     onBrandChange(index);
     setIsOpen(false);
   };

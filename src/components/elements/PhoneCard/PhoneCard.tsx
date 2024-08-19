@@ -9,22 +9,33 @@ import { Colors } from '../../ui/Colors/Colors';
 import { Sizes } from '../../ui/Sizes/Sizes';
 import { Counter } from '../../ui/Counter/Counter';
 
-export const PhoneCard = ({ product, selectedColor }) => {
+type PhoneCardProps = {
+  id: number;
+  title: string;
+  model: string;
+  colors: string[];
+  sizes: string[];
+  price: { [size: string]: number };
+  images: { [color: string]: string };
+  selectedColor: string;
+}
+
+export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, sizes, price, images, selectedColor }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(cartItemsSelector);
   const initialColor =
-    selectedColor && product.colors.includes(selectedColor) ? selectedColor : product.colors[0];
-  const [selectedColorState, setSelectedColorState] = useState(initialColor);
-  const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
+    selectedColor && colors.includes(selectedColor) ? selectedColor : colors[0];
+  const [selectedColorState, setSelectedColorState] = useState<string>(initialColor);
+  const [selectedSize, setSelectedSize] = useState<string>(sizes[0]);
 
-  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [isAddedToCart, setIsAddedToCart] = useState<boolean>(false);
 
   const onClickAdd = () => {
     const item = {
-      id: product.id,
-      title: product.title,
-      image: product.images[selectedColorState],
-      price: product.price[selectedSize],
+      id: id,
+      title: title,
+      image: images[selectedColorState],
+      price: price[selectedSize],
       color: selectedColorState,
       size: selectedSize,
     };
@@ -36,35 +47,36 @@ export const PhoneCard = ({ product, selectedColor }) => {
   // Проверка, находится ли текущий вариант товара в корзине
   useEffect(() => {
     const itemInCart = cartItems.find(
-      (item) =>
-        item.id === product.id && item.color === selectedColorState && item.size === selectedSize,
+      (item: any) =>
+        item.id === id && item.color === selectedColorState && item.size === selectedSize,
     );
 
     setIsAddedToCart(!!itemInCart);
-  }, [selectedColorState, selectedSize, cartItems, product.id]);
+  }, [selectedColorState, selectedSize, cartItems, id]);
 
   //Функция onChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
-  const onChange = (setter) => (event) => {
+  const onChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
+    (event: React.ChangeEvent<HTMLInputElement>) => {
     setter(event.target.value);
   };
 
   const count =
     cartItems.find(
-      (item) =>
-        item.id === product.id && item.color === selectedColorState && item.size === selectedSize,
+      (item: any) =>
+        item.id === id && item.color === selectedColorState && item.size === selectedSize,
     )?.count || 0;
 
   return (
     <li className={styles.card}>
-      <img className={styles.image} src={product.images[selectedColorState]} alt={product.title} />
+      <img className={styles.image} src={images[selectedColorState]} alt={title} />
 
       <div className={styles.desc}>
-        <h3 className={styles.title}>{product.title}</h3>
+        <h3 className={styles.title}>{title}</h3>
 
         <Colors
           className={styles.colors}
-          colors={product.colors}
-          name={product.model}
+          colors={colors}
+          name={model}
           selectedColor={selectedColorState}
           isDarkBorder={true}
           onColorChange={onChange(setSelectedColorState)}
@@ -72,21 +84,21 @@ export const PhoneCard = ({ product, selectedColor }) => {
 
         <Sizes
           className={styles.sizes}
-          sizes={product.sizes}
-          name={product.model}
+          sizes={sizes}
+          name={model}
           onSizeChange={onChange(setSelectedSize)}
         />
 
         <div className={styles.buy}>
           <span className={styles.price}>
-            {product.price[selectedSize].toLocaleString('ru-RU')} ₸
+            {price[selectedSize].toLocaleString('ru-RU')} ₸
           </span>
           <div className={styles.wrapper}>
             {isAddedToCart ? (
               <Counter
                 className={styles.counter}
                 count={count}
-                id={product.id}
+                id={id}
                 color={selectedColorState}
                 size={selectedSize}
               />

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Button.module.scss';
 
-interface ButtonProps {
+type ButtonProps = {
   text: string;
   isColor?: boolean;
   onClick?: () => void;

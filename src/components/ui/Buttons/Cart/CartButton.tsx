@@ -1,6 +1,11 @@
 import styles from './CartButton.module.scss';
 
-export const CartButton = ({ price, count }) => {
+type CartButtonProps = {
+  price: number;
+  count: number;
+}
+
+export const CartButton: React.FC<CartButtonProps> = ({ price, count }) => {
   return (
     <div className={styles.button}>
       <span className={styles.price}>{Number(price).toLocaleString('ru-RU')} ₸</span>

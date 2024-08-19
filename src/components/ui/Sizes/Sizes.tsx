@@ -1,6 +1,13 @@
 import styles from './Sizes.module.scss';
 
-export const Sizes = ({ sizes, name, onSizeChange, className }) => {
+type SizesProps = {
+  sizes: string[];
+  name: string;
+  onSizeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+}
+
+export const Sizes: React.FC<SizesProps>  = ({ sizes, name, onSizeChange, className }) => {
   return (
     <ul className={`${styles.sizes} ${className}`}>
       {sizes.map((size, index) => (
@@ -13,7 +20,6 @@ export const Sizes = ({ sizes, name, onSizeChange, className }) => {
               value={size}
               defaultChecked={index === 0}
               onChange={onSizeChange}
-              // onChange={() => onSizeChange(size)}
             />
             <span className={styles.value}>{size}</span>
           </label>

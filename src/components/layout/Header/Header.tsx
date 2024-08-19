@@ -7,11 +7,11 @@ import { CartButton } from '../../ui/Buttons/Cart/CartButton';
 import { Search } from '../../ui/Search/Search';
 import { cartSelector } from '../../../redux/slices/cartSlice';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   const { totalPrice, items } = useSelector(cartSelector);
   const location = useLocation();
 
-  const count = items.reduce((acc, item) => (acc += item.count), 0);
+  const count = items.reduce((sum: number, item: any) => (sum += item.count), 0);
 
   return (
     <header className={styles.header}>
