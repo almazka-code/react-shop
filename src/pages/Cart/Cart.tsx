@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { cartSelector, clearItems } from '../../redux/slices/cartSlice';
 
 //Components
-import { CartItems } from '../../components/elements/CartItem/CartItems';
+import { CartItemBlock } from '../../components/elements/CartItemBlock/CartItemBlock';
 import { NeutralButton } from '../../components/ui/Buttons/Neutral/NeutralButton';
 import { Button } from '../../components/ui/Buttons/Button/Button';
 import { CartEmpty } from '../../components/elements/CartEmpty/CartEmpty';
@@ -22,7 +22,7 @@ export const Cart: React.FC = () => {
   };
 
   const { totalPrice, items } = useSelector(cartSelector);
-  const count = items.reduce((acc: number, item: any) => (acc += item.count), 0);
+  const count = items.reduce((acc: number, item) => (acc += item.count), 0);
   const word = getCorrectWord(count, ['товар', 'товара', 'товаров']);
 
   if (!items.length) {
@@ -49,8 +49,8 @@ export const Cart: React.FC = () => {
             <NeutralButton onClick={clearCart} className={styles.clear} text="Очистить корзину" />
           </div>
           <ul className={styles.list}>
-            {items.map((item: any) => (
-              <CartItems key={`${item.id}-${item.color}-${item.size}`} {...item} />
+            {items.map((item) => (
+              <CartItemBlock key={`${item.id}-${item.color}-${item.size}`} {...item} />
             ))}
           </ul>
         </div>

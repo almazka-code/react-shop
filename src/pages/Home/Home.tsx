@@ -1,9 +1,10 @@
 import styles from './Home.module.scss';
 import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { filterSelector, setCurrentPage, setFilters } from '../../redux/slices/filterSlice';
-import { fetchPhones, phonesSelector } from '../../redux/slices/phonesSlice';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../redux/store';
+import { filterSelector, setCurrentPage, setFilters, setSearchValue, setSortType } from '../../redux/slices/filterSlice';
+import { fetchPhones, phonesSelector, SearchPhonesParams } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useRef } from 'react';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
 
@@ -18,7 +19,7 @@ import { Error } from '../../components/elements/Error/Error';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const isSearch = useRef<boolean>(false);
   const isMounted = useRef<boolean>(false);
 
@@ -53,8 +54,7 @@ export const Home: React.FC = () => {
     const search = searchValue ? `search=${searchValue}` : '';
 
     dispatch(
-      //@ts-ignore
-      fetchPhones({ brandFilter, colorFilter, volumeFilter, order, sortBy, search, currentPage }),
+      fetchPhones({ brandFilter, colorFilter, volumeFilter, order, sortBy: sortType.sortProperty, search, currentPage }),
     );
   };
 
@@ -76,16 +76,20 @@ export const Home: React.FC = () => {
   // Если был первый рендер, то проверяем URl-параметры и сохраняем в redux
   useEffect(() => {
     if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1));
+      const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPhonesParams;
 
-      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortBy);
 
-      dispatch(
-        setFilters({
-          ...params,
-          sort,
-        }),
-      );
+      dispatch(setSearchValue(params.search));
+      dispatch(setSortType(sort || sortList[0]));
+      dispatch(setCurrentPage(params.currentPage));
+
+      dispatch(setFilters({
+        color: params.colorFilter,
+        brand: Number(params.brandFilter),
+        sizes: params.volumeFilter ? params.volumeFilter.split(',') : [],
+      }));
+
       isSearch.current = true;
     }
   }, []);
@@ -101,7 +105,7 @@ export const Home: React.FC = () => {
     isSearch.current = false;
   }, [sortType, searchValue, currentPage, filters]);
 
-  const phones = items.map((product: any) => (
+  const phones = items.map((product) => (
     <PhoneCard
       key={product.model}
       id={product.id}

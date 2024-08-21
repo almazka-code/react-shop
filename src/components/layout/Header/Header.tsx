@@ -11,7 +11,7 @@ export const Header: React.FC = () => {
   const { totalPrice, items } = useSelector(cartSelector);
   const location = useLocation();
 
-  const count = items.reduce((sum: number, item: any) => (sum += item.count), 0);
+  const count = items.reduce((sum: number, item) => (sum += item.count), 0);
 
   return (
     <header className={styles.header}>

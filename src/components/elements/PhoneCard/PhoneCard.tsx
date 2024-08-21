@@ -1,7 +1,7 @@
 import styles from './PhoneCard.module.scss';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addItem, cartItemsSelector } from '../../../redux/slices/cartSlice';
+import { addItem, CartItem, cartItemsSelector } from '../../../redux/slices/cartSlice';
 
 //Components
 import { Button } from '../../ui/Buttons/Button/Button';
@@ -31,13 +31,14 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
   const [isAddedToCart, setIsAddedToCart] = useState<boolean>(false);
 
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       id: id,
       title: title,
       image: images[selectedColorState],
       price: price[selectedSize],
       color: selectedColorState,
       size: selectedSize,
+      count: 0,
     };
 
     dispatch(addItem(item));
@@ -47,7 +48,7 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
   // Проверка, находится ли текущий вариант товара в корзине
   useEffect(() => {
     const itemInCart = cartItems.find(
-      (item: any) =>
+      (item) =>
         item.id === id && item.color === selectedColorState && item.size === selectedSize,
     );
 
@@ -62,7 +63,7 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
 
   const count =
     cartItems.find(
-      (item: any) =>
+      (item) =>
         item.id === id && item.color === selectedColorState && item.size === selectedSize,
     )?.count || 0;
 

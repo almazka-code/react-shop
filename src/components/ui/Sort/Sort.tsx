@@ -3,18 +3,18 @@ import styles from './Sort.module.scss';
 import { useState, useRef } from 'react';
 import { useOutsideClick } from '../../../hooks/useOutsideClick';
 import { useSelector, useDispatch } from 'react-redux';
-import { setSortType, sortTypeSelector } from '../../../redux/slices/filterSlice';
+import { setSortType, SortPropertyEnum, sortTypeSelector } from '../../../redux/slices/filterSlice';
 
 type SortListItem = {
   name: string;
-  sortProperty: string;
+  sortProperty: SortPropertyEnum;
 }
 
 export const sortList: SortListItem[] = [
-  { name: 'популярности', sortProperty: 'rating' },
-  { name: 'алфавиту', sortProperty: 'title' },
-  { name: 'возрастанию цены', sortProperty: 'priceMin' },
-  { name: 'убыванию цены', sortProperty: '-priceMin' },
+  { name: 'популярности', sortProperty: SortPropertyEnum.RATING },
+  { name: 'алфавиту', sortProperty: SortPropertyEnum.TITLE },
+  { name: 'возрастанию цены', sortProperty: SortPropertyEnum.PRICEMIN },
+  { name: 'убыванию цены', sortProperty: SortPropertyEnum.PRICEMAX },
 ];
 
 export const Sort: React.FC = () => {
