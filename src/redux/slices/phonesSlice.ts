@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../store';
-import { SortPropertyEnum, SortType } from './filterSlice';
+import { SortPropertyEnum } from './filterSlice';
 
 type Size = '64gb'| '128gb'| '256gb'| '512gb'| '1tb';
 type Color = 'blue' | 'yellow'| 'pink'| 'green'| 'purple'| 'natural'| 'black';
@@ -54,17 +54,6 @@ export const fetchPhones = createAsyncThunk(
     return data;
   },
 )
-
-// второй вариант записи
-// export const fetchPhones = createAsyncThunk<PhoneItem[], Record<string, string>>(
-//   'phones/fetchPhonesStatus',
-//   async (params) => {
-//     const {brandFilter, colorFilter, volumeFilter, order, sortBy, search, currentPage} = params;
-//     const url = `https://66715424e083e62ee43b17a5.mockapi.io/items?${brandFilter}&${colorFilter}&${volumeFilter}&page=${currentPage}&limit=6&${search}&sortBy=${sortBy}&order=${order}`;
-//     const {data} = await axios.get<PhoneItem[]>(url);
-//     return data;
-//   },
-// )
 
 export const phonesSlice = createSlice({
   name: 'phones',
