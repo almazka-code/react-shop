@@ -7,6 +7,7 @@
 .wrapper {
   @include flex(30px);
   @extend %container;
+  min-height: 100px;
   padding-top: 23px;
   padding-bottom: 23px;
 

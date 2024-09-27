@@ -22,14 +22,15 @@ export const Header: React.FC = () => {
             <h1 className={styles.title}>Смартфономания</h1>
           </div>
         </Link>
-        <div className={styles.search}>
-          <Search />
-        </div>
-
         {location.pathname !== '/cart' && (
-          <Link to="./cart">
-            <CartButton price={totalPrice} count={count} />
-          </Link>
+          <>
+            <div className={styles.search}>
+              <Search />
+            </div>
+            <Link to="./cart">
+              <CartButton price={totalPrice} count={count} />
+            </Link>
+          </>
         )}
       </div>
     </header>
