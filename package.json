@@ -1,4 +1,7 @@
 {
+  "homepage": "https://almazka-code.github.io/react-shop",
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build",
   "name": "react-shop",
   "version": "0.1.0",
   "private": true,
