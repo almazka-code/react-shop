@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/react-shop/static/css/main.1917809f.css",
+    "main.js": "/react-shop/static/js/main.b064f8fd.js",
+    "static/media/Roboto-Medium.woff2": "/react-shop/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
+    "static/media/Roboto-Regular.woff2": "/react-shop/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
+    "static/media/Roboto-Light.woff2": "/react-shop/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
+    "static/media/PressStart2P-Regular.woff2": "/react-shop/static/media/PressStart2P-Regular.55f5f4451364db10b307.woff2",
+    "static/media/Roboto-Bold.woff2": "/react-shop/static/media/Roboto-Bold.23c8ce07bd38f6723622.woff2",
+    "static/media/error.svg": "/react-shop/static/media/error.402979c65af253b38923.svg",
+    "static/media/cart-empty.svg": "/react-shop/static/media/cart-empty.56882802cb8143fa9dce.svg",
+    "static/media/filter-icon.svg": "/react-shop/static/media/filter-icon.350c59ce71364588e8ee.svg",
+    "static/media/logo.svg": "/react-shop/static/media/logo.a392c29540734035b357df0007af4d91.svg",
+    "static/media/clear-cart.svg": "/react-shop/static/media/clear-cart.ceafcffb34cece0b1462.svg",
+    "index.html": "/react-shop/index.html",
+    "static/media/sort-arrow.svg": "/react-shop/static/media/sort-arrow.a07263f1a3e9f0a5a61c.svg",
+    "static/media/twitter.svg": "/react-shop/static/media/twitter.0e9ec319d0afd9d19afc494558f46bb9.svg",
+    "static/media/instagram.svg": "/react-shop/static/media/instagram.4edbc6b5f186af984a82b46c31c6723e.svg",
+    "static/media/telegram.svg": "/react-shop/static/media/telegram.52185becb7f61d30624e2ba6a4a3c527.svg",
+    "static/media/facebook.svg": "/react-shop/static/media/facebook.f53b2c825980990f422cab46d9bd9b37.svg",
+    "static/media/cart.svg": "/react-shop/static/media/cart.5bae8da68474058153f9.svg",
+    "static/media/arrow-left.svg": "/react-shop/static/media/arrow-left.e1e0a7b66fb3d615d937.svg",
+    "static/media/arrow-right.svg": "/react-shop/static/media/arrow-right.077841ef12d66227c90a.svg",
+    "static/media/plus.svg": "/react-shop/static/media/plus.da2f85e73ffbba9dbb58.svg",
+    "static/media/close.svg": "/react-shop/static/media/close.ff7c9f964a6923cff9c8.svg",
+    "static/media/minus.svg": "/react-shop/static/media/minus.131a358372828cda6d41.svg",
+    "static/media/check.svg": "/react-shop/static/media/check.5ec1ea2ecc7319f22eaf.svg",
+    "static/media/icon-arrow-bottom.svg": "/react-shop/static/media/icon-arrow-bottom.6f99a6682bcbdf9f7099.svg",
+    "main.1917809f.css.map": "/react-shop/static/css/main.1917809f.css.map",
+    "main.b064f8fd.js.map": "/react-shop/static/js/main.b064f8fd.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1917809f.css",
+    "static/js/main.b064f8fd.js"
+  ]
+}
