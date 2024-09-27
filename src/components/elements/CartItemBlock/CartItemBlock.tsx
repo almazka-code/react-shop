@@ -43,7 +43,7 @@ export const CartItemBlock: React.FC<CartItemBlockProps> = ({ id, color, size, t
 
       <Counter count={count} id={id} color={color} size={size} />
 
-      <span className={styles.price}>{(price * count).toLocaleString('ru-RU')} ₸</span>
+      <span className={styles.price}>{Number(price * count).toLocaleString('ru-RU')} ₸</span>
 
       <button
         className={styles.del}
