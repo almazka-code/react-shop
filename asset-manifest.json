@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/react-shop/static/css/main.1917809f.css",
-    "main.js": "/react-shop/static/js/main.44e73830.js",
+    "main.js": "/react-shop/static/js/main.68eea2a6.js",
     "static/media/Roboto-Medium.woff2": "/react-shop/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
     "static/media/Roboto-Regular.woff2": "/react-shop/static/media/Roboto-Regular.a25806274237d06e00a6.woff2",
     "static/media/Roboto-Light.woff2": "/react-shop/static/media/Roboto-Light.d537674e9e217fa53a13.woff2",
@@ -27,10 +27,10 @@
     "static/media/check.svg": "/react-shop/static/media/check.5ec1ea2ecc7319f22eaf.svg",
     "static/media/icon-arrow-bottom.svg": "/react-shop/static/media/icon-arrow-bottom.6f99a6682bcbdf9f7099.svg",
     "main.1917809f.css.map": "/react-shop/static/css/main.1917809f.css.map",
-    "main.44e73830.js.map": "/react-shop/static/js/main.44e73830.js.map"
+    "main.68eea2a6.js.map": "/react-shop/static/js/main.68eea2a6.js.map"
   },
   "entrypoints": [
     "static/css/main.1917809f.css",
-    "static/js/main.44e73830.js"
+    "static/js/main.68eea2a6.js"
   ]
 }
