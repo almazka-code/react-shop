@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import './styles/main.scss';
 
 import { Footer } from './components/layout/Footer/Footer';
@@ -12,12 +12,14 @@ const App = () => {
     <div className="wrapper">
         <Header />
         <main className="main">
-          <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/react-shop" element={<Home />}/>
-            <Route path="/cart" element={<Cart />}/>
-            <Route path="*" element={<NotFound />}/>
-          </Routes>
+          <Router basename="/react-shop">
+            <Routes>
+              <Route path="/" element={<Home />}/>
+              <Route path="/react-shop" element={<Home />}/>
+              <Route path="/cart" element={<Cart />}/>
+              <Route path="*" element={<NotFound />}/>
+            </Routes>
+          </Router>
         </main>
         <Footer />
     </div>
