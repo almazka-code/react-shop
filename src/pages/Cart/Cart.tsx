@@ -58,7 +58,8 @@ export const Cart: React.FC = () => {
         <div className={styles.block}>
           <p className={styles.desc}>Мы посчитаем стоимость доставки на следующем этапе</p>
           <p className={styles.price}>
-            Итого: <span>{Number(totalPrice).toLocaleString('ru-RU')} ₸</span>
+            {/* Итого: <span>{Number(totalPrice).toLocaleString('ru-RU')} ₸</span> */}
+            Итого: <span>{new Intl.NumberFormat('ru-RU').format(Number(totalPrice))} ₸</span>
           </p>
 
           <Button text="Оформить заказ" isColor={true} className={styles.button} type="submit" />

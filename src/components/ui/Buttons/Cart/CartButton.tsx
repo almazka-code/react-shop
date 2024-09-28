@@ -8,7 +8,8 @@ type CartButtonProps = {
 export const CartButton: React.FC<CartButtonProps> = ({ price, count }) => {
   return (
     <div className={styles.button}>
-      <span className={styles.price}>{Number(price).toLocaleString('ru-RU')} ₸</span>
+      {/* <span className={styles.price}>{Number(price).toLocaleString('ru-RU')} ₸</span> */}
+      <span className={styles.price}>{new Intl.NumberFormat('ru-RU').format(Number(price))} ₸</span>
       <div className={styles.wrapper}>
         <div className={styles.image}></div>
         <span className={styles.count}>{count}</span>

@@ -92,7 +92,8 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
 
         <div className={styles.buy}>
           <span className={styles.price}>
-            {price[selectedSize].toLocaleString('ru-RU')} ₸
+            {/* {price[selectedSize].toLocaleString('ru-RU')} ₸ */}
+            {new Intl.NumberFormat('ru-RU').format(Number(price[selectedSize]))} ₸
           </span>
           <div className={styles.wrapper}>
             {isAddedToCart ? (
