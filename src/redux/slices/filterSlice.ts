@@ -77,10 +77,6 @@ export const filterSlice = createSlice({
     setFilters(state, action: PayloadAction<Filters>) {
       state.filters = { ...state.filters, ...action.payload };
     },
-    // setLocalFilters(state, action) {
-    //   const { filterName, value } = action.payload;
-    //   state.localFilters[filterName] = value;
-    // },
     setLocalFilters(state, action: PayloadAction<LocalFiltersPayload>) {
       const { filterName, value } = action.payload;
 
@@ -92,13 +88,6 @@ export const filterSlice = createSlice({
         state.localFilters.brand = value as BrandFilter;
       }
     },
-    // setNavigate(state, action) {
-    //   state.currentPage = Number(action.payload.currentPage);
-    //   state.sort = action.payload.sort;
-    //   state.filters.color = action.payload.filters.color;
-    //   state.filters.brand = Number(action.payload.filters.brand );
-    //   state.filters.sizes = action.payload.filters.sizes;
-    // }
   },
 })
 
