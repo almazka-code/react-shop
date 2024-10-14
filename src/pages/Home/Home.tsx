@@ -74,25 +74,25 @@ export const Home: React.FC = () => {
   }, [sortType, currentPage, filters]);
 
   // Если был первый рендер, то проверяем URl-параметры и сохраняем в redux
-  useEffect(() => {
-    if (window.location.search) {
-      const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPhonesParams;
+  // useEffect(() => {
+  //   if (window.location.search) {
+  //     const params = qs.parse(window.location.search.substring(1)) as unknown as SearchPhonesParams;
 
-      const sort = sortList.find((obj) => obj.sortProperty === params.sortBy);
+  //     const sort = sortList.find((obj) => obj.sortProperty === params.sortBy);
 
-      dispatch(setSearchValue(params.search));
-      dispatch(setSortType(sort || sortList[0]));
-      dispatch(setCurrentPage(params.currentPage));
+  //     dispatch(setSearchValue(params.search));
+  //     dispatch(setSortType(sort || sortList[0]));
+  //     dispatch(setCurrentPage(params.currentPage));
 
-      dispatch(setFilters({
-        color: params.colorFilter,
-        brand: Number(params.brandFilter),
-        sizes: params.volumeFilter ? params.volumeFilter.split(',') : [],
-      }));
+  //     dispatch(setFilters({
+  //       color: params.colorFilter,
+  //       brand: Number(params.brandFilter),
+  //       sizes: params.volumeFilter ? params.volumeFilter.split(',') : [],
+  //     }));
 
-      isSearch.current = true;
-    }
-  }, []);
+  //     isSearch.current = true;
+  //   }
+  // }, []);
 
   // Если был первый рендер, то запрашиваем телефоны
   useEffect(() => {
