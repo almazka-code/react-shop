@@ -4,6 +4,7 @@ import {
   localFiltersSelector,
   setFilters,
   setLocalFilters,
+  setCurrentPage
 } from '../../../../redux/slices/filterSlice';
 
 //Components
@@ -67,7 +68,8 @@ export const FilterForm: React.FC<FilterFormProps> = ({ onApplyFilters }) => {
     if (onApplyFilters) {
       onApplyFilters(filters);
     }
-    // dispatch(setFilters(filters));
+    dispatch(setFilters(filters));
+    dispatch(setCurrentPage(1));
   };
 
   const onReset = () => {

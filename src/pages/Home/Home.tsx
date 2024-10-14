@@ -105,7 +105,11 @@ export const Home: React.FC = () => {
     isSearch.current = false;
   }, [sortType, searchValue, currentPage, filters]);
 
-  const phones = items.map((product) => (
+  const itemsPerPage = 6;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedPhones = items.slice(startIndex, startIndex + itemsPerPage);
+
+  const phones = paginatedPhones.map((product) => (
     <PhoneCard
       key={product.model}
       id={product.id}
@@ -151,7 +155,7 @@ export const Home: React.FC = () => {
           ) : (
             <ul className={styles.list}>{status === 'loading' ? skeletons : phones}</ul>
           )}
-          <Pagination currentPage={currentPage} onChangePage={onChangePage} />
+          <Pagination currentPage={currentPage} onChangePage={onChangePage} totalItems={items.length} itemsPerPage={itemsPerPage}/>
         </section>
       </div>
     </div>
