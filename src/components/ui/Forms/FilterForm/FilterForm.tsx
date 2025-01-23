@@ -4,7 +4,7 @@ import {
   localFiltersSelector,
   setFilters,
   setLocalFilters,
-  setCurrentPage
+  setCurrentPage,
 } from '../../../../redux/slices/filterSlice';
 
 //Components
@@ -25,14 +25,17 @@ type FilterFormProps = {
   onApplyFilters: (newFilters: Filters) => void;
 };
 
-
 export const FilterForm: React.FC<FilterFormProps> = ({ onApplyFilters }) => {
   const BRANDS = ['Все бренды', 'Apple', 'Huawei', 'Samsung', 'Xiaomi'];
   const COLORS = ['blue', 'yellow', 'pink', 'green', 'purple', 'natural', 'black'];
   const VOLUMES = ['64gb', '128gb', '256gb', '512gb', '1tb'];
 
   // const { color: selectedColor, brand: selectedBrand, sizes } = useSelector(localFiltersSelector);
-  const { color: selectedColor = '', brand: selectedBrand = 0, sizes = [] } = useSelector(localFiltersSelector);
+  const {
+    color: selectedColor = '',
+    brand: selectedBrand = 0,
+    sizes = [],
+  } = useSelector(localFiltersSelector);
 
   const dispatch = useDispatch();
 
@@ -64,7 +67,11 @@ export const FilterForm: React.FC<FilterFormProps> = ({ onApplyFilters }) => {
   const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // const filters = { color: selectedColor, brand: selectedBrand, sizes };
-    const filters: Filters = { color: selectedColor || '', brand: selectedBrand || 0, sizes: sizes || [] };
+    const filters: Filters = {
+      color: selectedColor || '',
+      brand: selectedBrand || 0,
+      sizes: sizes || [],
+    };
     if (onApplyFilters) {
       onApplyFilters(filters);
     }

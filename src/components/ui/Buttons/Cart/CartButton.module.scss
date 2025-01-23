@@ -10,10 +10,10 @@
 .price {
   display: inline-block;
   position: relative;
-  @include font ($weight: 700, $size: 22px, $height: 130%);
+  @include font($weight: 700, $size: 22px, $height: 130%);
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     right: -10px;
     top: 0;
@@ -36,7 +36,7 @@
   width: 30px;
   height: 21px;
   margin-right: 10px;
-  @include background-image (url("../../assets/svg/cart.svg"));
+  @include background-image(url('../../assets/svg/cart.svg'));
 }
 
 .count {

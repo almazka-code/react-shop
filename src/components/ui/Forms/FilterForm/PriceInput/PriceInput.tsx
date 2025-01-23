@@ -6,9 +6,15 @@ type PriceInputProps = {
   name: string;
   placeholder: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
-export const PriceInput: React.FC<PriceInputProps> = ({ value, caption, name, placeholder, onChange }) => {
+export const PriceInput: React.FC<PriceInputProps> = ({
+  value,
+  caption,
+  name,
+  placeholder,
+  onChange,
+}) => {
   return (
     <label className={styles.label}>
       <input

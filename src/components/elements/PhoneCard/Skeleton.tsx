@@ -7,7 +7,8 @@ export const Skeleton: React.FC = () => (
     height={520}
     viewBox="0 0 270 520"
     backgroundColor="#f3f3f3"
-    foregroundColor="#ecebeb">
+    foregroundColor="#ecebeb"
+  >
     <rect x="0" y="0" rx="0" ry="0" width="270" height="350" />
     <rect x="0" y="370" rx="0" ry="0" width="270" height="26" />
     <rect x="0" y="406" rx="0" ry="0" width="100" height="26" />

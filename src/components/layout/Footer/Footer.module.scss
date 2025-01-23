@@ -40,7 +40,7 @@
   margin-bottom: 50px;
 }
 
-.links  {
+.links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
@@ -54,7 +54,7 @@
 }
 
 .link {
-  @include font ($size: 14px, $height: 130%);
+  @include font($size: 14px, $height: 130%);
   color: $color-light;
   border-bottom: 2px dashed transparent;
   padding-bottom: 3px;
@@ -75,7 +75,7 @@
 }
 
 .text {
-  @include font ($size: 14px, $height: 170%);
+  @include font($size: 14px, $height: 170%);
   text-align: right;
   color: $color-info;
 

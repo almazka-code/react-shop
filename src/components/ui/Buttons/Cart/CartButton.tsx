@@ -3,7 +3,7 @@ import styles from './CartButton.module.scss';
 type CartButtonProps = {
   price: number;
   count: number;
-}
+};
 
 export const CartButton: React.FC<CartButtonProps> = ({ price, count }) => {
   return (

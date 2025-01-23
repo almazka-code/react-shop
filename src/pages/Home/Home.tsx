@@ -3,7 +3,13 @@ import qs from 'qs';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../redux/store';
-import { filterSelector, setCurrentPage, setFilters, setSearchValue, setSortType } from '../../redux/slices/filterSlice';
+import {
+  filterSelector,
+  setCurrentPage,
+  setFilters,
+  setSearchValue,
+  setSortType,
+} from '../../redux/slices/filterSlice';
 import { fetchPhones, phonesSelector, SearchPhonesParams } from '../../redux/slices/phonesSlice';
 import { useEffect, useState, useRef } from 'react';
 import { useOutsideClick } from '../../hooks/useOutsideClick';
@@ -34,11 +40,7 @@ export const Home: React.FC = () => {
     dispatch(setCurrentPage(number));
   };
 
-  const onApplyFilters = (newFilters: {
-    color: string,
-    brand: number,
-    sizes: string[]
-  }) => {
+  const onApplyFilters = (newFilters: { color: string; brand: number; sizes: string[] }) => {
     dispatch(setFilters(newFilters));
     setIsFiltersVisible(false);
   };
@@ -48,13 +50,23 @@ export const Home: React.FC = () => {
     const colorFilter = filters.color ? `colors=${filters.color}` : ''; //фильтр по цвету
     // const volumeFilter = filters.sizes.length > 0 ? `sizes=${filters.sizes.join(',')}` : ''; //фильтр по объему
     const volumeFilter =
-      filters.sizes.length > 0 ? filters.sizes.map((size: string) => `sizes=${size}`).join('&') : ''; //фильтр по объему
+      filters.sizes.length > 0
+        ? filters.sizes.map((size: string) => `sizes=${size}`).join('&')
+        : ''; //фильтр по объему
     const order = sortType.sortProperty.includes('-') ? 'desc' : 'asc'; //desc по убыванию, asc по возрастанию
     const sortBy = sortType.sortProperty.replace('-', '');
     const search = searchValue ? `search=${searchValue}` : '';
 
     dispatch(
-      fetchPhones({ brandFilter, colorFilter, volumeFilter, order, sortBy: sortType.sortProperty, search, currentPage }),
+      fetchPhones({
+        brandFilter,
+        colorFilter,
+        volumeFilter,
+        order,
+        sortBy: sortType.sortProperty,
+        search,
+        currentPage,
+      }),
     );
   };
 
@@ -136,7 +148,8 @@ export const Home: React.FC = () => {
       <div className={styles.content}>
         <div
           ref={filterRef}
-          className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}>
+          className={`${styles.filter} ${isFiltersVisible ? styles.active : ''}`}
+        >
           <FilterForm onApplyFilters={onApplyFilters} />
         </div>
 
@@ -155,7 +168,12 @@ export const Home: React.FC = () => {
           ) : (
             <ul className={styles.list}>{status === 'loading' ? skeletons : phones}</ul>
           )}
-          <Pagination currentPage={currentPage} onChangePage={onChangePage} totalItems={items.length} itemsPerPage={itemsPerPage}/>
+          <Pagination
+            currentPage={currentPage}
+            onChangePage={onChangePage}
+            totalItems={items.length}
+            itemsPerPage={itemsPerPage}
+          />
         </section>
       </div>
     </div>

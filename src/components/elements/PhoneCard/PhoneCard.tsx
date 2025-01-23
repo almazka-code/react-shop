@@ -18,13 +18,21 @@ type PhoneCardProps = {
   price: { [size: string]: number };
   images: { [color: string]: string };
   selectedColor: string;
-}
+};
 
-export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, sizes, price, images, selectedColor }) => {
+export const PhoneCard: React.FC<PhoneCardProps> = ({
+  id,
+  title,
+  model,
+  colors,
+  sizes,
+  price,
+  images,
+  selectedColor,
+}) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(cartItemsSelector);
-  const initialColor =
-    selectedColor && colors.includes(selectedColor) ? selectedColor : colors[0];
+  const initialColor = selectedColor && colors.includes(selectedColor) ? selectedColor : colors[0];
   const [selectedColorState, setSelectedColorState] = useState<string>(initialColor);
   const [selectedSize, setSelectedSize] = useState<string>(sizes[0]);
 
@@ -48,23 +56,22 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
   // Проверка, находится ли текущий вариант товара в корзине
   useEffect(() => {
     const itemInCart = cartItems.find(
-      (item) =>
-        item.id === id && item.color === selectedColorState && item.size === selectedSize,
+      (item) => item.id === id && item.color === selectedColorState && item.size === selectedSize,
     );
 
     setIsAddedToCart(!!itemInCart);
   }, [selectedColorState, selectedSize, cartItems, id]);
 
   //Функция onChange принимает сеттер (функцию для обновления состояния) и возвращает функцию-обработчик события
-  const onChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
+  const onChange =
+    (setter: React.Dispatch<React.SetStateAction<string>>) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
-    setter(event.target.value);
-  };
+      setter(event.target.value);
+    };
 
   const count =
     cartItems.find(
-      (item) =>
-        item.id === id && item.color === selectedColorState && item.size === selectedSize,
+      (item) => item.id === id && item.color === selectedColorState && item.size === selectedSize,
     )?.count || 0;
 
   return (
@@ -92,8 +99,8 @@ export const PhoneCard: React.FC<PhoneCardProps>= ({ id, title, model, colors, s
 
         <div className={styles.buy}>
           <span className={styles.price}>
-            {/* $ {price[selectedSize].toLocaleString('ru-RU')} */}
-            $ {new Intl.NumberFormat('ru-RU').format(Number(price[selectedSize]))}
+            {/* $ {price[selectedSize].toLocaleString('ru-RU')} */}${' '}
+            {new Intl.NumberFormat('ru-RU').format(Number(price[selectedSize]))}
           </span>
           <div className={styles.wrapper}>
             {isAddedToCart ? (

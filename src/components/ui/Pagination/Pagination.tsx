@@ -7,9 +7,14 @@ type PaginationProps = {
   onChangePage: (page: number) => void;
   totalItems: number;
   itemsPerPage: number;
-}
+};
 
-export const Pagination: React.FC<PaginationProps> = ({ currentPage, onChangePage, totalItems, itemsPerPage }) => {
+export const Pagination: React.FC<PaginationProps> = ({
+  currentPage,
+  onChangePage,
+  totalItems,
+  itemsPerPage,
+}) => {
   const pageCount = Math.max(1, Math.ceil(totalItems / itemsPerPage));
 
   return (
@@ -26,7 +31,8 @@ export const Pagination: React.FC<PaginationProps> = ({ currentPage, onChangePag
           pageRangeDisplayed={2} // отображение двух страниц в диапазоне
           marginPagesDisplayed={2} // отображение двух страниц на краях
           renderOnZeroPageCount={null}
-        />)}
+        />
+      )}
     </>
   );
 };

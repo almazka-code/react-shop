@@ -35,7 +35,7 @@
     -webkit-appearance: none;
     height: 16px;
     width: 16px;
-    @include background-image (url(../../../assets/svg/close.svg));
+    @include background-image(url(../../../assets/svg/close.svg));
   }
 }
 

@@ -54,7 +54,7 @@
   transform: translateX(100%) translateY(5px);
   width: 14px;
   height: 7px;
-  @include background-image (url(../../../../../assets/svg/icon-arrow-bottom.svg));
+  @include background-image(url(../../../../../assets/svg/icon-arrow-bottom.svg));
 }
 
 .popup {

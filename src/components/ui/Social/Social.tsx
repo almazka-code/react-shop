@@ -9,9 +9,9 @@ type SocialLinksItem = {
   name: string;
   url: string;
   icon: string;
-}
+};
 
-const socialLinks: SocialLinksItem[]  = [
+const socialLinks: SocialLinksItem[] = [
   {
     name: 'instagram',
     url: 'https://www.instagram.com',
@@ -41,7 +41,8 @@ export const Social: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={social.name}
-            style={{ backgroundImage: `url(${social.icon})` }}></a>
+            style={{ backgroundImage: `url(${social.icon})` }}
+          ></a>
         </li>
       ))}
     </ul>

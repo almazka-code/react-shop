@@ -13,9 +13,17 @@ type CartItemBlockProps = {
   price: number;
   image: string;
   count: number;
-}
+};
 
-export const CartItemBlock: React.FC<CartItemBlockProps> = ({ id, color, size, title, price, image, count }) => {
+export const CartItemBlock: React.FC<CartItemBlockProps> = ({
+  id,
+  color,
+  size,
+  title,
+  price,
+  image,
+  count,
+}) => {
   const dispatch = useDispatch();
 
   const handleRemove = (id: number, color: string, size: string) => {
@@ -51,7 +59,8 @@ export const CartItemBlock: React.FC<CartItemBlockProps> = ({ id, color, size, t
       <button
         className={styles.del}
         type="button"
-        onClick={() => handleRemove(id, color, size)}></button>
+        onClick={() => handleRemove(id, color, size)}
+      ></button>
     </li>
   );
 };

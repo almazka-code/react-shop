@@ -3,7 +3,7 @@ import styles from './VolumeCheckbox.module.scss';
 type VolumeCheckboxProps = {
   volumes: string[];
   onVolumeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
+};
 
 export const VolumeCheckbox: React.FC<VolumeCheckboxProps> = ({ volumes, onVolumeChange }) => {
   return (

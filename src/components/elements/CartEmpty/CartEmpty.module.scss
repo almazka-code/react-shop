@@ -34,6 +34,6 @@
     display: block;
     width: 300px;
     height: 300px;
-    @include background-image (url("../../assets/svg/cart-empty.svg"));
+    @include background-image(url('../../assets/svg/cart-empty.svg'));
   }
 }

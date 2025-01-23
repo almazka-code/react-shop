@@ -6,9 +6,13 @@ type BrandSelectsProps = {
   brands: string[];
   selectedBrand: number;
   onBrandChange: (index: number) => void;
-}
+};
 
-export const BrandSelect: React.FC<BrandSelectsProps> = ({ brands, selectedBrand, onBrandChange }) => {
+export const BrandSelect: React.FC<BrandSelectsProps> = ({
+  brands,
+  selectedBrand,
+  onBrandChange,
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const brandRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +36,8 @@ export const BrandSelect: React.FC<BrandSelectsProps> = ({ brands, selectedBrand
             <li
               key={value}
               onClick={() => onClickBrand(index)}
-              className={`${styles.item} ${selectedBrand === index ? styles.active : ''}`}>
+              className={`${styles.item} ${selectedBrand === index ? styles.active : ''}`}
+            >
               {value}
             </li>
           ))}

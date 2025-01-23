@@ -4,7 +4,7 @@ type NeutralButtonProps = {
   text: string;
   onClick?: () => void;
   className?: string;
-}
+};
 
 export const NeutralButton: React.FC<NeutralButtonProps> = ({ text, onClick, className }) => {
   return (

@@ -74,7 +74,7 @@
       width: 17px;
       height: 10px;
       margin-right: 5px;
-      @include background-image (url("../../assets/svg/sort-arrow.svg"));
+      @include background-image(url('../../assets/svg/sort-arrow.svg'));
       transform: rotate(-90deg);
       transition: transform 0.5s ease;
       filter: invert(70%) sepia(0%) saturate(565%) hue-rotate(142deg) brightness(92%) contrast(80%);
@@ -84,7 +84,6 @@
       transform: rotate(-90deg) translateY(-5px);
     }
   }
-
 }
 
 .clear {
@@ -95,6 +94,6 @@
     width: 20px;
     height: 20px;
     margin-right: 5px;
-    @include background-image (url("../../assets/svg/clear-cart.svg"));
+    @include background-image(url('../../assets/svg/clear-cart.svg'));
   }
 }

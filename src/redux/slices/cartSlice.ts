@@ -1,11 +1,11 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 export type CartItem = {
   id: number;
   title: string;
   image: string;
-  price:number;
+  price: number;
   color: string;
   size: string;
   count: number;
@@ -18,47 +18,48 @@ interface CartSliceState {
 
 const initialState: CartSliceState = {
   totalPrice: 0,
-  items: []
-}
+  items: [],
+};
 
 type ProductAction = {
   id: number;
   color: string;
-  size: string
-}
+  size: string;
+};
 
 export const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem (state, action: PayloadAction<CartItem>){
+    addItem(state, action: PayloadAction<CartItem>) {
       const findItem = state.items.find(
         (obj) =>
           obj.id === action.payload.id &&
           obj.color === action.payload.color &&
-          obj.size === action.payload.size)
+          obj.size === action.payload.size,
+      );
 
       if (findItem) {
-        findItem.count++
+        findItem.count++;
       } else {
         state.items.push({
           ...action.payload,
-          count: 1
-        })
+          count: 1,
+        });
       }
 
       state.totalPrice = state.items.reduce((acc, item) => acc + item.price * item.count, 0);
     },
-    removeItem (state, action: PayloadAction<ProductAction>){
+    removeItem(state, action: PayloadAction<ProductAction>) {
       state.items = state.items.filter(
         (obj) =>
           obj.id !== action.payload.id ||
           obj.color !== action.payload.color ||
-          obj.size !== action.payload.size
+          obj.size !== action.payload.size,
       );
       state.totalPrice = state.items.reduce((acc, item) => acc + item.price * item.count, 0);
     },
-    clearItems (state){
+    clearItems(state) {
       state.items = [];
       state.totalPrice = 0;
     },
@@ -67,7 +68,7 @@ export const cartSlice = createSlice({
         (obj) =>
           obj.id === action.payload.id &&
           obj.color === action.payload.color &&
-          obj.size === action.payload.size
+          obj.size === action.payload.size,
       );
 
       if (findItem) {
@@ -81,7 +82,7 @@ export const cartSlice = createSlice({
         (obj) =>
           obj.id === action.payload.id &&
           obj.color === action.payload.color &&
-          obj.size === action.payload.size
+          obj.size === action.payload.size,
       );
 
       if (findItem && findItem.count > 1) {
@@ -91,19 +92,18 @@ export const cartSlice = createSlice({
           (obj) =>
             obj.id !== action.payload.id ||
             obj.color !== action.payload.color ||
-            obj.size !== action.payload.size
+            obj.size !== action.payload.size,
         );
       }
 
       state.totalPrice = state.items.reduce((acc, item) => acc + item.price * item.count, 0);
     },
-
   },
-})
+});
 
 export const cartSelector = (state: RootState) => state.cart;
 export const cartItemsSelector = (state: RootState) => state.cart.items;
 
-export const { addItem,  removeItem, clearItems, plusItemCount, minusItemCount } = cartSlice.actions
+export const { addItem, removeItem, clearItems, plusItemCount, minusItemCount } = cartSlice.actions;
 
-export default cartSlice.reducer
+export default cartSlice.reducer;

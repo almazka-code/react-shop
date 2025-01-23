@@ -52,7 +52,6 @@
 
   @media (max-width: 1200px) {
     grid-template-columns: repeat(2, 270px);
-
   }
 
   @media (max-width: 595px) {
@@ -117,7 +116,7 @@
       width: 18px;
       height: 16px;
       margin-right: 5px;
-      @include background-image (url("../../assets/svg/filter-icon.svg"));
+      @include background-image(url('../../assets/svg/filter-icon.svg'));
     }
 
     @media (max-width: 905px) {

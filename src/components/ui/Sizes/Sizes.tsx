@@ -5,9 +5,9 @@ type SizesProps = {
   name: string;
   onSizeChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
-}
+};
 
-export const Sizes: React.FC<SizesProps>  = ({ sizes, name, onSizeChange, className }) => {
+export const Sizes: React.FC<SizesProps> = ({ sizes, name, onSizeChange, className }) => {
   return (
     <ul className={`${styles.sizes} ${className}`}>
       {sizes.map((size, index) => (

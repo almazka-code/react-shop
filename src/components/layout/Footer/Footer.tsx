@@ -4,7 +4,7 @@ import { Social } from '../../ui/Social/Social';
 type LinkItem = {
   text: string;
   url: string;
-}
+};
 
 const footerlLinks: LinkItem[] = [
   { text: '8-800-600-90-09', url: 'tel:88006009009' },
@@ -28,7 +28,8 @@ export const Footer: React.FC = () => {
                   className={styles.link}
                   href={link.url}
                   target="_blank"
-                  rel="noopener noreferrer">
+                  rel="noopener noreferrer"
+                >
                   {link.text}
                 </a>
               </li>

@@ -7,14 +7,15 @@ type ButtonProps = {
   onClick?: () => void;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
-}
+};
 
 export const Button: React.FC<ButtonProps> = ({ text, isColor, onClick, className, type }) => {
   return (
     <button
       className={`${styles.button} ${isColor ? styles.primary : styles.transparent} ${className} `}
       type={type}
-      onClick={onClick}>
+      onClick={onClick}
+    >
       {text}
     </button>
   );

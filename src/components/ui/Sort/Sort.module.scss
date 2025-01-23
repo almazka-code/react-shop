@@ -46,7 +46,7 @@
   margin-top: 5px;
   width: 17px;
   height: 10px;
-  @include background-image (url("../../../assets/svg/sort-arrow.svg"));
+  @include background-image(url('../../../assets/svg/sort-arrow.svg'));
   transition: transform 0.5s ease;
 }
 

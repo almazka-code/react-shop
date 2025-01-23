@@ -7,9 +7,16 @@ type ColorsProps = {
   onColorChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   selectedColor?: string;
-}
+};
 
-export const Colors: React.FC<ColorsProps> = ({ colors, name, isDarkBorder, onColorChange, className, selectedColor }) => {
+export const Colors: React.FC<ColorsProps> = ({
+  colors,
+  name,
+  isDarkBorder,
+  onColorChange,
+  className,
+  selectedColor,
+}) => {
   return (
     <ul className={`${styles.colors} ${isDarkBorder ? styles.dark : ''} ${className} `}>
       {colors.map((color) => (

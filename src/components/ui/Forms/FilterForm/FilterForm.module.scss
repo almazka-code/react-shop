@@ -8,7 +8,7 @@
 
 .title {
   @extend %font-secondary;
-  @include font ($size: 16px, $height: 100%);
+  @include font($size: 16px, $height: 100%);
   text-transform: uppercase;
   padding: 25px;
   padding-left: 0;

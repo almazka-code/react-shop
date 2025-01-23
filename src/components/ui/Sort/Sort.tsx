@@ -8,7 +8,7 @@ import { setSortType, SortPropertyEnum, sortTypeSelector } from '../../../redux/
 type SortListItem = {
   name: string;
   sortProperty: SortPropertyEnum;
-}
+};
 
 export const sortList: SortListItem[] = [
   { name: 'популярности', sortProperty: SortPropertyEnum.RATING },
@@ -47,7 +47,8 @@ export const Sort: React.FC = () => {
               onClick={() => onClickListItem(obj)}
               className={`${styles.item} ${
                 sortType.sortProperty === obj.sortProperty ? styles.active : ''
-              }`}>
+              }`}
+            >
               {obj.name}
             </li>
           ))}

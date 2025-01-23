@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 
 type ColorFilter = string;
@@ -9,19 +9,19 @@ export enum SortPropertyEnum {
   RATING = 'rating',
   TITLE = 'title',
   PRICEMIN = 'priceMin',
-  PRICEMAX = '-priceMin'
+  PRICEMAX = '-priceMin',
 }
 
 export type SortType = {
   name: string;
   sortProperty: SortPropertyEnum;
-}
+};
 
 type Filters = {
   color: ColorFilter;
   brand: BrandFilter;
   sizes: SizeFilter;
-}
+};
 
 interface LocalFilters {
   sizes?: SizeFilter;
@@ -46,32 +46,32 @@ const initialState: FilterSliceState = {
   searchValue: '',
   sortType: {
     name: 'популярности',
-    sortProperty: SortPropertyEnum.RATING
+    sortProperty: SortPropertyEnum.RATING,
   },
   currentPage: 1,
   filters: {
     color: '',
     brand: 0,
-    sizes: []
+    sizes: [],
   },
   localFilters: {
     color: '',
     brand: 0,
-    sizes: []
+    sizes: [],
   },
-}
+};
 
 export const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
-    setSearchValue (state, action: PayloadAction<string>){
+    setSearchValue(state, action: PayloadAction<string>) {
       state.searchValue = action.payload;
     },
-    setSortType (state, action: PayloadAction<SortType>){
+    setSortType(state, action: PayloadAction<SortType>) {
       state.sortType = action.payload;
     },
-    setCurrentPage (state, action: PayloadAction<number>){
+    setCurrentPage(state, action: PayloadAction<number>) {
       state.currentPage = action.payload;
     },
     setFilters(state, action: PayloadAction<Filters>) {
@@ -89,12 +89,13 @@ export const filterSlice = createSlice({
       }
     },
   },
-})
+});
 
 export const filterSelector = (state: RootState) => state.filter;
 export const sortTypeSelector = (state: RootState) => state.filter.sortType;
 export const localFiltersSelector = (state: RootState) => state.filter.localFilters;
 
-export const { setSearchValue, setSortType, setCurrentPage, setFilters, setLocalFilters } = filterSlice.actions
+export const { setSearchValue, setSortType, setCurrentPage, setFilters, setLocalFilters } =
+  filterSlice.actions;
 
-export default filterSlice.reducer
+export default filterSlice.reducer;

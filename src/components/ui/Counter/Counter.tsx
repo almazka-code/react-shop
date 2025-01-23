@@ -9,9 +9,9 @@ type CounterProps = {
   color: string;
   size: string;
   className?: string;
-}
+};
 
-export const Counter: React.FC<CounterProps>  = ({ count, id, color, size, className }) => {
+export const Counter: React.FC<CounterProps> = ({ count, id, color, size, className }) => {
   const dispatch = useDispatch();
 
   const onClickMinus = () => {
@@ -27,12 +27,14 @@ export const Counter: React.FC<CounterProps>  = ({ count, id, color, size, class
       <button
         className={`${styles.button} ${styles.minus}`}
         type="button"
-        onClick={onClickMinus}></button>
+        onClick={onClickMinus}
+      ></button>
       <input className={styles.input} type="text" value={count} name="count" readOnly />
       <button
         className={`${styles.button} ${styles.plus}`}
         type="button"
-        onClick={onClickPlus}></button>
+        onClick={onClickPlus}
+      ></button>
     </div>
   );
 };

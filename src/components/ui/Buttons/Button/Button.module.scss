@@ -15,7 +15,7 @@
 
 .primary {
   background-color: $color-accent;
-  @include border ($width: 1px, $color: $color-accent, $radius: 0);
+  @include border($width: 1px, $color: $color-accent, $radius: 0);
   @extend %font-secondary;
   color: $color-text-dark;
   font-size: 13px;
@@ -29,7 +29,7 @@
 
 .transparent {
   background-color: transparent;
-  @include border ($width: 1px, $color: $color-light, $radius: 0);
+  @include border($width: 1px, $color: $color-light, $radius: 0);
   padding: 15px;
   color: $color-light;
   font-size: 14px;
