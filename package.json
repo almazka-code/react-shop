@@ -7,10 +7,6 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^29.5.12",
-    "@types/node": "^22.2.0",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
     "axios": "^1.7.2",
     "lodash.debounce": "^4.0.8",
     "qs": "^6.12.3",
@@ -23,15 +19,15 @@
     "react-scripts": "5.0.1",
     "sass": "^1.77.2",
     "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4",
-    "prettier": "^3.3.3"
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "serve -s build"
+    "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --fix --report-unused-disable-directives --max-warnings 0"
   },
   "eslintConfig": {
     "extends": [
@@ -50,5 +46,19 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^22.7.7",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^8.38.0",
+    "eslint-plugin-react": "^7.37.1",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.12",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^8.10.0"
   }
 }
